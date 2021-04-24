@@ -1,3 +1,5 @@
+import { MainContainer } from "../components/MainContainer";
+
 export default function Home() {
-  return <h1></h1>
+  return <MainContainer />
 }
