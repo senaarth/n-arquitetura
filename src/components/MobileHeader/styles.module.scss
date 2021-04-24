@@ -1,0 +1,12 @@
+.navbarContainer {
+    background-color: black;
+
+    img {
+        height: 3rem;
+        align-self: center;
+    }
+
+    @media screen and (min-width: 1024px) {
+        display: none;
+    }
+}
