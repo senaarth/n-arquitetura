@@ -1,0 +1,47 @@
+.menuItem,
+.menuItemLogo {
+  height: 90px;
+  background-color: var(--white);
+
+  font-size: 0.8rem;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  transition: filter 0.2s;
+
+  box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.5);
+
+  img {
+    height: 98%;
+    display: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+    filter: brightness(0.9);
+  }
+
+  @media screen and (min-width: 1024px) {
+    height: 10rem;
+    font-size: 1rem;
+
+    img {
+      display: inline;
+    }
+  }
+}
+
+.menuItemLogo {
+  display: none;
+
+  &:hover {
+    filter: brightness(1);
+  }
+
+  @media screen and (min-width: 1024px) {
+    display: block;
+  }
+}

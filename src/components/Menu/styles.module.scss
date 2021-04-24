@@ -10,37 +10,3 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
-.menuItem {
-  height: 90px;
-  background-color: var(--white);
-
-  font-size: 0.8rem;
-  border-radius: 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-
-  box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.5);
-
-  img {
-    height: 98%;
-    display: none;
-  }
-
-  &:hover {
-    text-decoration: none;
-    color: red;
-    cursor: pointer;
-  }
-
-  @media screen and (min-width: 1024px) {
-    height: 150px;
-    font-size: 1rem;
-
-    img {
-      display: inline;
-    }
-  }
-}
