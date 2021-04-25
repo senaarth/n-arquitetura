@@ -1,4 +1,5 @@
 import { MainContainer } from "../components/MainContainer";
+import Head from "next/head";
 
 export default function Parceiros() {
   const menuItems = [
@@ -63,5 +64,12 @@ export default function Parceiros() {
     },
   ];
 
-  return <MainContainer menuItems={menuItems} />;
+  return (
+    <>
+      <Head>
+        <title>Parceiros | N!</title>
+      </Head>
+      <MainContainer menuItems={menuItems} />
+    </>
+  );
 }

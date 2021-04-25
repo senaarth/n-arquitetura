@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { MainContainer } from "../components/MainContainer";
+import Head from "next/head";
 
 interface ContentProps {
   title?: string;
@@ -11,19 +12,21 @@ export default function About() {
 
   const valores = (
     <>
-      <li style={{marginBottom: "1rem"}}>AGILIDADE COMO ESTRATÉGIA;</li>
-      <li style={{marginBottom: "1rem"}}>TRANSPARÊNCIA COMO SEGURANÇA;</li>
-      <li style={{marginBottom: "1rem"}}>EQUILÍBRIO COMO FORÇA;</li>
-      <li style={{marginBottom: "1rem"}}>SUSTENTABILIDADE AGREGANDO VALOR;</li>
-      <li style={{marginBottom: "1rem"}}>NEGÓCIOS PRIORIZANDO PESSOAS;</li>
+      <li style={{ marginBottom: "1rem" }}>AGILIDADE COMO ESTRATÉGIA;</li>
+      <li style={{ marginBottom: "1rem" }}>TRANSPARÊNCIA COMO SEGURANÇA;</li>
+      <li style={{ marginBottom: "1rem" }}>EQUILÍBRIO COMO FORÇA;</li>
+      <li style={{ marginBottom: "1rem" }}>
+        SUSTENTABILIDADE AGREGANDO VALOR;
+      </li>
+      <li style={{ marginBottom: "1rem" }}>NEGÓCIOS PRIORIZANDO PESSOAS;</li>
     </>
   );
 
   const titleGroup = (
     <>
-      <li style={{listStyle: "none"}}>MISSÃO</li>
-      <li style={{listStyle: "none"}}>VISÃO</li>
-      <li style={{listStyle: "none"}}>VALORES</li>
+      <li style={{ listStyle: "none" }}>MISSÃO</li>
+      <li style={{ listStyle: "none" }}>VISÃO</li>
+      <li style={{ listStyle: "none" }}>VALORES</li>
     </>
   );
 
@@ -102,10 +105,15 @@ export default function About() {
   ];
 
   return (
-    <MainContainer
-      menuItems={menuItems}
-      contentProps={contentProps}
-      setContentProps={setContentProps}
-    />
+    <>
+      <Head>
+        <title>Sobre | N!</title>
+      </Head>
+      <MainContainer
+        menuItems={menuItems}
+        contentProps={contentProps}
+        setContentProps={setContentProps}
+      />
+    </>
   );
 }

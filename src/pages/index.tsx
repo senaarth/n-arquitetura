@@ -1,4 +1,5 @@
 import { MainContainer } from "../components/MainContainer";
+import Head from "next/head";
 
 export default function Home() {
   const menuItems = [
@@ -66,5 +67,12 @@ export default function Home() {
     },
   ];
 
-  return <MainContainer menuItems={menuItems} />;
+  return (
+    <>
+    <Head>
+      <title>Home | N!</title>
+    </Head>
+    <MainContainer menuItems={menuItems} />
+    </>
+  );
 }

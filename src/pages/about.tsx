@@ -1,4 +1,5 @@
 import { MainContainer } from "../components/MainContainer";
+import Head from "next/head";
 
 export default function About() {
   const content = {
@@ -9,9 +10,9 @@ export default function About() {
 
   const titleGroup = (
     <>
-      <li style={{listStyle: "none"}}>MISSÃO</li>
-      <li style={{listStyle: "none"}}>VISÃO</li>
-      <li style={{listStyle: "none"}}>VALORES</li>
+      <li style={{ listStyle: "none" }}>MISSÃO</li>
+      <li style={{ listStyle: "none" }}>VISÃO</li>
+      <li style={{ listStyle: "none" }}>VALORES</li>
     </>
   );
 
@@ -75,5 +76,12 @@ export default function About() {
     },
   ];
 
-  return <MainContainer menuItems={menuItems} contentProps={content} />;
+  return (
+    <>
+      <Head>
+        <title>Sobre | N!</title>
+      </Head>
+      <MainContainer menuItems={menuItems} contentProps={content} />
+    </>
+  );
 }

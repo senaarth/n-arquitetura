@@ -1,11 +1,12 @@
 import { MainContainer } from "../components/MainContainer";
+import Head from "next/head";
 
 export default function Invest() {
   const titleGroup = (
     <>
-      <li style={{listStyle: "none"}}>DIVINÓPOLIS</li>
-      <li style={{listStyle: "none"}}>MG</li>
-      <li style={{listStyle: "none"}}>USO MISTO</li>
+      <li style={{ listStyle: "none" }}>DIVINÓPOLIS</li>
+      <li style={{ listStyle: "none" }}>MG</li>
+      <li style={{ listStyle: "none" }}>USO MISTO</li>
     </>
   );
 
@@ -67,5 +68,12 @@ export default function Invest() {
     },
   ];
 
-  return <MainContainer menuItems={menuItems} />;
+  return (
+    <>
+      <Head>
+        <title>Para Investir | N!</title>
+      </Head>
+      <MainContainer menuItems={menuItems} />
+    </>
+  );
 }

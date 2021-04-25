@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { MainContainer } from "../components/MainContainer";
 
 export default function Solucoes() {
@@ -59,5 +60,12 @@ export default function Solucoes() {
     },
   ];
 
-  return <MainContainer menuItems={menuItems} />;
+  return (
+    <>
+      <Head>
+        <title>Índices | N!</title>
+      </Head>
+      <MainContainer menuItems={menuItems} />
+    </>
+  );
 }

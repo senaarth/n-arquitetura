@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Head from "next/head";
 import { MainContainer } from "../components/MainContainer";
 
 interface ContentProps {
@@ -90,10 +91,15 @@ export default function Equipe() {
   ];
 
   return (
-    <MainContainer
-      menuItems={menuItems}
-      contentProps={contentProps}
-      setContentProps={setContentProps}
-    />
+    <>
+      <Head>
+        <title>Equipe | N!</title>
+      </Head>
+      <MainContainer
+        menuItems={menuItems}
+        contentProps={contentProps}
+        setContentProps={setContentProps}
+      />
+    </>
   );
 }
