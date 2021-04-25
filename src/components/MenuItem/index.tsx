@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 
 import styles from "./styles.module.scss";
@@ -27,19 +28,34 @@ export function MenuItem(props: MenuItemProps) {
   };
 
   if (props.type === "logo" || props.type === "goBack") {
-    return (
-      <a
-        className={styles.menuItemLogo}
-        style={dynamicStyles}
-        href={props.route && `${props.route}`}
-      >
+    return props.route ? (
+      <Link href={`${props.route}`}>
+        <a className={styles.menuItemLogo} style={dynamicStyles}>
+          <img src="images/exclamacao.png" alt="N!" />
+        </a>
+      </Link>
+    ) : (
+      <a className={styles.menuItemLogo} style={dynamicStyles}>
         <img src="images/exclamacao.png" alt="N!" />
       </a>
     );
   }
-  return (
+  return props.route ? (
+    <Link href={`/${props.route}`}>
+      <a
+        className={styles.menuItem}
+        style={dynamicStyles}
+        onClick={() => {
+          if (props.content) {
+            props.setContent(props.content);
+          }
+        }}
+      >
+        {props.title}
+      </a>
+    </Link>
+  ) : (
     <a
-      href={props.route && `/${props.route}`}
       className={styles.menuItem}
       style={dynamicStyles}
       onClick={() => {

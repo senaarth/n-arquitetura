@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { ActiveLink } from "../ActiveLink";
+
 import styles from "./styles.module.scss";
 
 export function Header() {
@@ -5,13 +8,32 @@ export function Header() {
     <header className={styles.headerContainer}>
       <div className={styles.headerContent}>
         <nav>
-          <a className={styles.active}>HOME</a>
-          <a>N!</a>
-          <a>SOLUÇÕES</a>
-          <a>PROJETOS</a>
-          <a>PARA INVESTIR</a>
-          <a>PARCEIROS</a>
-          <a>CONTATO</a>
+          <ActiveLink activeClassName={styles.active} href="/">
+            <a>HOME</a>
+          </ActiveLink>
+          <ActiveLink activeClassName={styles.active} href="/about">
+            <a>N!</a>
+          </ActiveLink>
+
+          <ActiveLink activeClassName={styles.active} href="/solucoes">
+            <a>SOLUÇÕES</a>
+          </ActiveLink>
+
+          <ActiveLink activeClassName={styles.active} href="/projetos">
+            <a>PROJETOS</a>
+          </ActiveLink>
+
+          <ActiveLink activeClassName={styles.active} href="/invest">
+            <a>PARA INVESTIR</a>
+          </ActiveLink>
+
+          <ActiveLink activeClassName={styles.active} href="/parceiros">
+            <a>PARCEIROS</a>
+          </ActiveLink>
+
+          <ActiveLink activeClassName={styles.active} href="/contato">
+            <a>CONTATO</a>
+          </ActiveLink>
         </nav>
         <img src="/images/logo.png" />
       </div>
