@@ -22,11 +22,19 @@ interface MenuItemProps {
 
 export function MenuItem(props: MenuItemProps) {
   const router = useRouter();
-  const dynamicStyles = {
+  let dynamicStyles = {
     cursor: props.isLink ? "pointer" : "auto",
     backgroundColor: props.isActive ? "red" : "white",
     color: props.isActive ? "white" : "black",
   };
+  let hoverStyle = {};
+
+  if (props.title === "") {
+    hoverStyle = {
+      ...dynamicStyles,
+      filter: "none"
+    }
+  }
 
   if (props.type === "imageContainer") {
     return (
@@ -108,10 +116,10 @@ export function MenuItem(props: MenuItemProps) {
       className={styles.menuItem}
       style={{
         ...dynamicStyles,
+        ...hoverStyle,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        filter: props.title === "" ? "none" : "inherit"
       }}
       onClick={() => {
         if (props.content) {

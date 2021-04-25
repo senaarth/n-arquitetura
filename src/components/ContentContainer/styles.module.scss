@@ -11,14 +11,14 @@
     max-height: 26rem;
   }
 
-  @media screen and (min-height: 901px) {
-    min-height: 31rem;
-    max-height: 31rem;
+  @media screen and (min-height: 768px) and (min-width: 768px) {
+    min-height: 32rem;
+    max-height: 32rem;
   }
 
   @media screen and (min-width: 1024px) {
     width: 49%;
-    padding: 5rem;
+    padding: 4rem;
   }
 
   @media screen and (max-height: 768px) {
@@ -31,7 +31,7 @@
 .title {
   font-size: 1rem;
   @media screen and (min-width: 1024px) {
-    // font-size: 1.6rem;
+    font-size: 1.6rem;
   }
 }
 

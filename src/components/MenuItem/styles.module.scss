@@ -24,13 +24,13 @@
     filter: brightness(0.9);
   }
 
-  @media screen and (max-height: 768px) {
+  @media screen and (max-height: 768px) and (min-width: 768px) {
     height: 6rem;
     width: 10rem!important;
     margin: 0 auto;
   }
 
-  @media screen and (min-height: 901px) {
+  @media screen and (min-height: 768px) {
     height: 10rem;
   }
 
