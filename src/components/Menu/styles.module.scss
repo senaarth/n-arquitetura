@@ -11,4 +11,8 @@
     width: 49%;
     margin-bottom: 0;
   }
+
+  @media screen and (max-height: 768px) and (min-width: 1024px) {
+    width: 26rem!important;
+  }
 }
