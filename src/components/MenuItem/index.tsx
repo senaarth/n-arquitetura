@@ -111,6 +111,7 @@ export function MenuItem(props: MenuItemProps) {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        filter: props.title === "" ? "none" : "inherit"
       }}
       onClick={() => {
         if (props.content) {
