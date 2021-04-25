@@ -41,8 +41,31 @@ export function MenuItem(props: MenuItemProps) {
       >
         <img
           src={`images/${props.path}`}
-          alt="Parter Logo"
+          alt={`Parceiro: ${props.title}`}
           className={styles.partnerLogo}
+        />
+      </a>
+    );
+  }
+
+  if (props.type === "teamMember") {
+    return (
+      <a
+        className={styles.menuItemLogo}
+        style={{
+          ...dynamicStyles,
+          position: "relative",
+        }}
+        onClick={() => {
+          if (props.content) {
+            props.setContent(props.content);
+          }
+        }}
+      >
+        <img
+          src={`images/${props.path}`}
+          alt={`Membro do time: ${props.title}`}
+          className={styles.teamMember}
         />
       </a>
     );

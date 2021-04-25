@@ -15,6 +15,7 @@ interface MenuItem {
 
 interface ContentProps {
   title?: string;
+  subtitle?: string;
   description?: string;
 }
 
@@ -30,6 +31,7 @@ export function MainContainer({ menuItems, contentProps, setContentProps }: Menu
       <Menu menuItems={menuItems} setContent={setContentProps}/>
       <ContentContainer
         title={contentProps?.title}
+        subtitle={contentProps?.subtitle}
         description={contentProps?.description}
       />
     </main>
