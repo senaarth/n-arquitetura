@@ -1,29 +1,43 @@
 .contentContainer {
-  min-height: 31rem;
-  max-height: 31rem;
+  min-height: 20rem;
+  max-height: 20rem;
   width: 95%;
   border-radius: 5rem;
   box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.5);
   padding: 2rem;
 
   @media screen and (min-width: 1024px) {
+    min-height: 31rem;
+    max-height: 31rem;
     width: 49%;
     padding: 5rem;
   }
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 1rem;
   @media screen and (min-width: 1024px) {
-    font-size: 2rem;
+    font-size: 1.6rem;
   }
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
+  @media screen and (min-width: 1024px) {
+    font-size: 1.28rem;
+  }
 }
 
 .description {
-  margin-top: 1.4rem;
-  font-size: 0.8rem;
+  margin-top: 0.8rem;
+  font-size: 0.5rem;
+
+  @media screen and (min-width: 768px) {
+    font-size: 0.7rem;
+  }
+
+  @media screen and (min-width: 1024px) {
+    margin-top: 1.4rem;
+    font-size: 1rem;
+  }
 }

@@ -2,6 +2,7 @@ import { AppProps } from "next/app";
 
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
+import { Footer } from "../components/Footer";
 import "../styles/global.scss";
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -10,6 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MobileHeader />
       <Header />
       <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

@@ -25,15 +25,21 @@ interface MenuProps {
   setContentProps?: Dispatch<SetStateAction<ContentProps>>;
 }
 
-export function MainContainer({ menuItems, contentProps, setContentProps }: MenuProps) {
+export function MainContainer({
+  menuItems,
+  contentProps,
+  setContentProps,
+}: MenuProps) {
   return (
     <main className={styles.mainContainer}>
-      <Menu menuItems={menuItems} setContent={setContentProps}/>
-      <ContentContainer
-        title={contentProps?.title}
-        subtitle={contentProps?.subtitle}
-        description={contentProps?.description}
-      />
+      <div className={styles.mainContent}>
+        <Menu menuItems={menuItems} setContent={setContentProps} />
+        <ContentContainer
+          title={contentProps?.title}
+          subtitle={contentProps?.subtitle}
+          description={contentProps?.description}
+        />
+      </div>
     </main>
   );
 }
