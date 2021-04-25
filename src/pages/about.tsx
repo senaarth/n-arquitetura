@@ -7,6 +7,14 @@ export default function About() {
       "A N! Arquitetura Gestão e Negócios é uma equipe multidisciplinar de gestão de negócios em Brasília-DF. O foco da nossa empresa é subsidiar tecnicamente a tomada de decisões no cenário imobiliário, assim como promover a gestão dos principais vetores envolvidos, sejam eles proprietários de terrenos, projetistas, construtoras, empreiteros, investidores, operações de crédito e gestão de carreira.",
   };
 
+  const titleGroup = (
+    <>
+      <li style={{listStyle: "none"}}>MISSÃO</li>
+      <li style={{listStyle: "none"}}>VISÃO</li>
+      <li style={{listStyle: "none"}}>VALORES</li>
+    </>
+  );
+
   const menuItems = [
     {
       title: "N!",
@@ -27,7 +35,7 @@ export default function About() {
       type: "text",
     },
     {
-      title: "MISSÃO VISÃO E VALORES",
+      title: titleGroup,
       isActive: false,
       isLink: true,
       route: "valores",

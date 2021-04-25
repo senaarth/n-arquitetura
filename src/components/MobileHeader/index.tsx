@@ -1,4 +1,5 @@
 import { Nav, Navbar } from "react-bootstrap";
+import Link from "next/link";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import styles from "./styles.module.scss";
@@ -12,7 +13,9 @@ export function MobileHeader() {
       className={styles.navbarContainer}
     >
       <Navbar.Brand>
-        <img src="/images/logo.png" alt="N! Arquitetura Logo" />
+        <Link href="/">
+          <img src="/images/logo.png" alt="N! Arquitetura Logo" />
+        </Link>
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">

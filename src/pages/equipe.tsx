@@ -14,7 +14,7 @@ export default function Equipe() {
     {
       title: "Nelton",
       isActive: false,
-      isLink: false,
+      isLink: true,
       path: "nelton.jpg",
       type: "teamMember",
       content: {
@@ -33,7 +33,7 @@ export default function Equipe() {
     {
       title: "Marcio",
       isActive: false,
-      isLink: false,
+      isLink: true,
       path: "marcio.jpeg",
       type: "teamMember",
       content: {
@@ -71,7 +71,7 @@ export default function Equipe() {
     {
       title: "Nei Filho",
       isActive: false,
-      isLink: false,
+      isLink: true,
       path: "nei_filho.jpeg",
       type: "teamMember",
       content: {

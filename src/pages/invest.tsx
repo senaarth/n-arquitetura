@@ -1,6 +1,14 @@
 import { MainContainer } from "../components/MainContainer";
 
 export default function Invest() {
+  const titleGroup = (
+    <>
+      <li style={{listStyle: "none"}}>DIVINÓPOLIS</li>
+      <li style={{listStyle: "none"}}>MG</li>
+      <li style={{listStyle: "none"}}>USO MISTO</li>
+    </>
+  );
+
   const menuItems = [
     {
       title: "",
@@ -15,7 +23,7 @@ export default function Invest() {
       type: "text",
     },
     {
-      title: "DIVINÓPOLIS, MG E USO MISTO",
+      title: titleGroup,
       isActive: false,
       isLink: false,
       type: "text",

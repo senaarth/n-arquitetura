@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 
 import styles from "./styles.module.scss";
 
@@ -10,7 +10,7 @@ interface ContentProps {
 }
 
 interface MenuItemProps {
-  title: string;
+  title: string | ReactElement;
   isActive: boolean;
   isLink: boolean;
   route?: string;
@@ -88,7 +88,12 @@ export function MenuItem(props: MenuItemProps) {
     <Link href={`/${props.route}`}>
       <a
         className={styles.menuItem}
-        style={dynamicStyles}
+        style={{
+          ...dynamicStyles,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
         onClick={() => {
           if (props.content) {
             props.setContent(props.content);
@@ -101,7 +106,12 @@ export function MenuItem(props: MenuItemProps) {
   ) : (
     <a
       className={styles.menuItem}
-      style={dynamicStyles}
+      style={{
+        ...dynamicStyles,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
       onClick={() => {
         if (props.content) {
           props.setContent(props.content);

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 import { MenuItem } from "../MenuItem";
 
 import styles from "./styles.module.scss";
@@ -9,7 +9,7 @@ interface ContentProps {
 }
 
 interface MenuItem {
-  title: string;
+  title: string | ReactElement;
   isActive: boolean;
   isLink: boolean;
   route?: string;

@@ -19,6 +19,14 @@ export default function About() {
     </>
   );
 
+  const titleGroup = (
+    <>
+      <li style={{listStyle: "none"}}>MISSÃO</li>
+      <li style={{listStyle: "none"}}>VISÃO</li>
+      <li style={{listStyle: "none"}}>VALORES</li>
+    </>
+  );
+
   const menuItems = [
     {
       title: "N!",
@@ -45,7 +53,7 @@ export default function About() {
       },
     },
     {
-      title: "MISSÃO VISÃO E VALORES",
+      title: titleGroup,
       isActive: true,
       isLink: true,
       type: "text",

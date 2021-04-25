@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, ReactElement, SetStateAction, useEffect } from "react";
 
 import { Menu } from "../Menu";
 import { ContentContainer } from "../ContentContainer";
 import styles from "./styles.module.scss";
 
 interface MenuItem {
-  title: string;
+  title: string | ReactElement;
   isActive: boolean;
   isLink: boolean;
   route?: string;
