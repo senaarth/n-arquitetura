@@ -14,6 +14,7 @@ interface MenuItemProps {
   isActive: boolean;
   isLink: boolean;
   route?: string;
+  path?: string;
   content: ContentProps;
   type: string;
   setContent?: Dispatch<SetStateAction<ContentProps>>;
@@ -26,6 +27,26 @@ export function MenuItem(props: MenuItemProps) {
     backgroundColor: props.isActive ? "red" : "white",
     color: props.isActive ? "white" : "black",
   };
+
+  if (props.type === "imageContainer") {
+    return (
+      <a
+        className={styles.menuItemLogo}
+        style={{
+          ...dynamicStyles,
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+        }}
+      >
+        <img
+          src={`images/${props.path}`}
+          alt="Parter Logo"
+          className={styles.partnerLogo}
+        />
+      </a>
+    );
+  }
 
   if (props.type === "logo" || props.type === "goBack") {
     return props.route ? (

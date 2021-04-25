@@ -9,6 +9,7 @@ interface MenuItem {
   isActive: boolean;
   isLink: boolean;
   route?: string;
+  path?: string;
   type: string;
 }
 

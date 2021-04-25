@@ -13,6 +13,7 @@ interface MenuItem {
   isActive: boolean;
   isLink: boolean;
   route?: string;
+  path?: string;
   type: string;
   content?: ContentProps;
 }
@@ -36,6 +37,7 @@ export function Menu({ menuItems, setContent }: MenuProps) {
               route={s.route}
               content={s.content}
               setContent={setContent}
+              path={s.path}
               type={s.type}
             />
           );

@@ -54,6 +54,7 @@ export default function Home() {
       title: "PARCEIROS",
       isActive: false,
       isLink: true,
+      route: "parceiros",
       type: "text",
     },
     {
