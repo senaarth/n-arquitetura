@@ -1,6 +1,12 @@
+import { Dispatch, SetStateAction } from "react";
 import { MenuItem } from "../MenuItem";
 
 import styles from "./styles.module.scss";
+
+interface ContentProps {
+  title?: string;
+  description?: string;
+}
 
 interface MenuItem {
   title: string;
@@ -8,13 +14,15 @@ interface MenuItem {
   isLink: boolean;
   route?: string;
   type: string;
+  content?: ContentProps;
 }
 
 interface MenuProps {
   menuItems: MenuItem[];
+  setContent?: Dispatch<SetStateAction<ContentProps>>;
 }
 
-export function Menu({ menuItems }: MenuProps) {
+export function Menu({ menuItems, setContent }: MenuProps) {
   return (
     <div className={styles.menuContainer}>
       {
@@ -26,6 +34,8 @@ export function Menu({ menuItems }: MenuProps) {
               isActive={s.isActive}
               isLink={s.isLink}
               route={s.route}
+              content={s.content}
+              setContent={setContent}
               type={s.type}
             />
           );

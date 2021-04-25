@@ -1,12 +1,13 @@
 .menuContainer {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  padding: 2rem 1rem 2rem 0;
+  padding: 0;
+  padding-right: 0.5rem;
+  margin-bottom: 2rem;
 
   @media screen and (min-width: 1024px) {
     width: 49%;
-    grid-template-columns: repeat(3, 1fr);
   }
 }
