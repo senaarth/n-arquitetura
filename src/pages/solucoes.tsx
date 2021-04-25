@@ -1,64 +1,60 @@
 import { MainContainer } from "../components/MainContainer";
 
-export default function Home() {
+export default function Solucoes() {
   const menuItems = [
     {
-      title: "N!",
+      title: "",
       isActive: false,
-      route: "about",
-      isLink: true,
+      isLink: false,
       type: "text",
     },
     {
       title: "SOLUÇÕES",
-      isActive: false,
-      isLink: true,
-      route: "solucoes",
+      isActive: true,
+      isLink: false,
       type: "text",
     },
     {
-      title: "PROJETOS",
+      title: "",
       isActive: false,
-      isLink: true,
+      isLink: false,
       type: "text",
     },
     {
-      title: "CLIPPING",
+      title: "",
       isActive: false,
-      isLink: true,
-      route: "clipping",
+      isLink: false,
       type: "text",
     },
     {
       title: "logo",
       isActive: false,
-      isLink: false,
+      isLink: true,
+      route: "/",
       type: "logo",
     },
     {
-      title: "PARA INVESTIR",
+      title: "",
       isActive: false,
-      isLink: true,
+      isLink: false,
       type: "text",
     },
     {
-      title: "ÍNDICES ECONÔMICOS",
+      title: "",
       isActive: false,
-      isLink: true,
-      route: "indices",
+      isLink: false,
       type: "text",
     },
     {
-      title: "PARCEIROS",
+      title: "",
       isActive: false,
-      isLink: true,
+      isLink: false,
       type: "text",
     },
     {
-      title: "CONTATO",
+      title: "",
       isActive: false,
-      isLink: true,
-      route: "contato",
+      isLink: false,
       type: "text",
     },
   ];
