@@ -23,10 +23,10 @@
   nav {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     width: 50%;
     margin-top: auto;
-    padding-bottom: 1.6rem;
+    padding-bottom: 1.3rem;
 
     & a:first-child {
       margin-right: auto;
