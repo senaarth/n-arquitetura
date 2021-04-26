@@ -24,7 +24,7 @@ export function MenuItem(props: MenuItemProps) {
   const router = useRouter();
   let dynamicStyles = {
     cursor: props.isLink ? "pointer" : "auto",
-    backgroundColor: props.isActive ? "red" : "white",
+    backgroundColor: props.isActive ? "#CC0000" : "white",
     color: props.isActive ? "white" : "black",
   };
   let hoverStyle = {};
@@ -83,12 +83,12 @@ export function MenuItem(props: MenuItemProps) {
     return props.route ? (
       <Link href={`${props.route}`}>
         <a className={styles.menuItemLogo} style={dynamicStyles}>
-          <img src="images/exclamacao.png" alt="N!" />
+          <img src="images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
         </a>
       </Link>
     ) : (
       <a className={styles.menuItemLogo} style={dynamicStyles}>
-        <img src="images/exclamacao.png" alt="N!" />
+        <img src="images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
       </a>
     );
   }
