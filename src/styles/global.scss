@@ -1,18 +1,3 @@
-@font-face {
-  font-family: "Bank Gothic";
-  src: url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.eot");
-  src: url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.eot?#iefix")
-      format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.woff2")
-      format("woff2"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.woff")
-      format("woff"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.ttf")
-      format("truetype"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.svg#Bank Gothic")
-      format("svg");
-}
-
 :root {
   --white: #fff;
   --black: #111;
@@ -23,13 +8,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Bank Gothic", sans-serif;
+  font-family: "BankGothic Lt BT", sans-serif;
 }
 
 html {
   height: 100%;
   min-height: 100%;
-  background-color: var(--white)!important;
+  background-color: var(--white) !important;
 }
 
 body {
