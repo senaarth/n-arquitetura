@@ -22,18 +22,20 @@
 html {
   height: 100%;
   min-height: 100%;
-  background-color: var(--white) !important;
+  background-color: var(--white)!important;
 }
 
 body {
   height: 100%;
   min-height: 100%;
+  background-color: var(--white)!important;
 }
 
 #__next {
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-color: var(--white)!important;
 }
 
 @media (max-width: 1080px) {
