@@ -17,4 +17,8 @@
     padding-right: 0;
     height: 30rem;
   }
+
+  @media screen and (min-width: 1024px) and (max-height: 768px) {
+    height: 23rem!important;
+  }
 }
