@@ -3,16 +3,17 @@
   background-color: black;
   display: none;
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 1200px) {
       display: block;
   }
 }
 
 .headerContent {
+  width: 95%;
   max-width: 1400px;
   height: 10rem;
   margin: 0 auto;
-  padding: 0 1.4rem;
+  padding: 0;
   color: var(--white);
 
   display: flex;
@@ -20,21 +21,26 @@
   justify-content: space-between;
 
   nav {
-    height: 10rem;
     display: flex;
     flex-direction: row;
-    padding-top: 2.4rem;
+    align-items: center;
+    width: 50%;
+    margin-top: auto;
+    padding-bottom: 0.75rem;
 
     & a:first-child {
-      margin-right: 4rem;
-      margin-left: 0;
+      margin-right: auto;
+    }
+
+    a + a {
+      margin-left: 1.8rem;
     }
   }
 
   a {
+    font-size: 0.8rem;
     position: relative;
-    line-height: 10rem;
-    margin-left: 1.8rem;
+    padding-top: 7%;
 
     transition: filter 0.4s;
 
@@ -52,7 +58,7 @@
       background-color: var(--red-500);
 
       position: absolute;
-      top: 35%;
+      top: 30%;
       margin-left: auto;
       margin-right: auto;
       left: 0;
@@ -61,7 +67,7 @@
   }
 
   img {
-    max-height: 7.5rem;
+    height: 8.5rem;
     align-self: center;
   }
 }

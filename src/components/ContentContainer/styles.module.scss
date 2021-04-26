@@ -7,13 +7,8 @@
   padding: 2rem;
 
   @media screen and (min-width: 768px) {
-    min-height: 26rem;
-    max-height: 26rem;
-  }
-
-  @media screen and (min-height: 768px) and (min-width: 768px) {
-    min-height: 32rem;
-    max-height: 32rem;
+    height: 29rem!important;
+    max-height: 29rem!important;
   }
 
   @media screen and (min-width: 1024px) {
@@ -21,9 +16,7 @@
     padding: 4rem;
   }
 
-  @media screen and (max-height: 768px) {
-    min-height: 21rem!important;
-    max-height: 21rem!important;
+  @media screen and (max-height: 768px) and (min-width: 1024px) {
     padding: 3rem 4rem;
   }
 }
@@ -37,7 +30,7 @@
 
 .subtitle {
   font-size: 0.8rem;
-  @media screen and (min-width: 1024px) and (min-height: 901px) {
+  @media screen and (min-width: 1024px) {
     font-size: 1.28rem;
   }
 }
@@ -47,14 +40,10 @@
   font-size: 0.6rem;
 
   @media screen and (min-width: 768px) {
-    font-size: 0.7rem;
+    font-size: 0.9rem;
   }
 
   @media screen and (min-width: 1024px) {
     margin-top: 0.8rem;
-  }
-
-  @media screen and (min-height: 901px) {
-    font-size: 1rem;
   }
 }

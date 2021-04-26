@@ -24,7 +24,14 @@ export function Header() {
           </ActiveLink>
 
           <ActiveLink activeClassName={styles.active} href="/invest">
-            <a>PARA INVESTIR</a>
+            <a>
+              <li style={{listStyle: "none", textAlign: "center"}}>
+                Para
+              </li>
+              <li style={{listStyle: "none", textAlign: "center"}}>
+                Investir
+              </li>
+            </a>
           </ActiveLink>
 
           <ActiveLink activeClassName={styles.active} href="/parceiros">
