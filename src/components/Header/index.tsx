@@ -26,10 +26,10 @@ export function Header() {
           <ActiveLink activeClassName={styles.active} href="/invest">
             <a>
               <li style={{listStyle: "none", textAlign: "center"}}>
-                Para
+                PARA
               </li>
               <li style={{listStyle: "none", textAlign: "center"}}>
-                Investir
+                INVESTIR
               </li>
             </a>
           </ActiveLink>
