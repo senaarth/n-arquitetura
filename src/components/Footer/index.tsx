@@ -1,4 +1,4 @@
-import { FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaWhatsapp, FaLinkedin } from "react-icons/fa";
 
 import styles from "./styles.module.scss";
 
@@ -10,8 +10,8 @@ export function Footer() {
     <div className={styles.footerContent}>
       <div className={styles.contactContent}>
         <p>N! Arquitetura © {year} |</p>
-        <a href="https://instagram.com/" target="blank">
-          <FaInstagram color="white" size={15}/>
+        <a href="https://api.whatsapp.com/send?phone=556137973825" target="blank">
+          <FaWhatsapp color="white" size={15}/>
         </a>
         <a href="https://www.linkedin.com/company/n-arquitetura-gest%C3%A3o-e-neg%C3%B3cios/about/" target="blank">
           <FaLinkedin color="white" size={15}/>
