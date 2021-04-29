@@ -11,10 +11,10 @@ export function Footer() {
       <div className={styles.contactContent}>
         <p>N! Arquitetura © {year} |</p>
         <a href="https://api.whatsapp.com/send?phone=556137973825" target="blank">
-          <FaWhatsapp color="white" size={15}/>
+          <FaWhatsapp color="white" size={27.5}/>
         </a>
         <a href="https://www.linkedin.com/company/n-arquitetura-gest%C3%A3o-e-neg%C3%B3cios/about/" target="blank">
-          <FaLinkedin color="white" size={15}/>
+          <FaLinkedin color="white" size={27.5}/>
         </a>
       </div>
     </div>
