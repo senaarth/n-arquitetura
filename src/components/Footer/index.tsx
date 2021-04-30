@@ -32,8 +32,9 @@ export function Footer() {
             <a
               href="#"
               target="blank"
+              style={{ paddingTop: "0.21%" }}
             >
-              <FaYoutube color="white" size={19.25} />
+              <FaYoutube color="white" size={24.5} />
             </a>
             <a
               href="#"
@@ -42,7 +43,7 @@ export function Footer() {
               <FaFacebook color="white" size={19.25} />
             </a>
           </div>
-          <p>N! Arquitetura © {year}</p>
+          <p>N! ARQUITETURA © {year}</p>
         </div>
       </div>
     </footer>
