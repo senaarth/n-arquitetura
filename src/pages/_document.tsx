@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href="/favicon.ico" type="image/png" />
           <link
             rel="preload"
-            href="/fonts/BankGothicLtBt/BankGothic_Lt_BT.ttf"
+            href="/static/fonts/BankGothicLtBt/BankGothic_Lt_BT.ttf"
             as="font"
             crossOrigin=""
           />

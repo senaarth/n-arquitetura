@@ -48,7 +48,7 @@ export function MenuItem(props: MenuItemProps) {
         }}
       >
         <img
-          src={`images/${props.path}`}
+          src={`/static/images/${props.path}`}
           alt={`Parceiro: ${props.title}`}
           className={styles.partnerLogo}
         />
@@ -71,7 +71,7 @@ export function MenuItem(props: MenuItemProps) {
         }}
       >
         <img
-          src={`images/${props.path}`}
+          src={`/static/images/${props.path}`}
           alt={`Membro do time: ${props.title}`}
           className={styles.teamMember}
         />
@@ -83,12 +83,12 @@ export function MenuItem(props: MenuItemProps) {
     return props.route ? (
       <Link href={`${props.route}`}>
         <a className={styles.menuItemLogo} style={dynamicStyles}>
-          <img src="images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
+          <img src="/static/images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
         </a>
       </Link>
     ) : (
       <a className={styles.menuItemLogo} style={dynamicStyles}>
-        <img src="images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
+        <img src="/static/images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
       </a>
     );
   }

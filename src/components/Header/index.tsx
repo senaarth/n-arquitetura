@@ -42,7 +42,7 @@ export function Header() {
             <a>CONTATO</a>
           </ActiveLink>
         </nav>
-        <img src="/images/logo.png" />
+        <img src="/static/images/logo.png" />
       </div>
     </header>
   );
