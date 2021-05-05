@@ -1,7 +1,16 @@
-import { MainContainer } from "../../../components/MainContainer";
+import { useState } from "react";
 import Head from "next/head";
+import { MainContainer } from "../../../components/MainContainer";
+
+interface ContentProps {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+}
 
 export default function Container() {
+  const [contentProps, setContentProps] = useState({} as ContentProps);
+
   const menuItems = [
     {
       title: "",
@@ -10,10 +19,26 @@ export default function Container() {
       type: "text",
     },
     {
-      title: "ISSO AQUI SERÁ UMA IMAGEM",
+      title: "Projeto PIR",
       isActive: false,
-      isLink: false,
-      type: "text",
+      isLink: true,
+      path: "projetos/container/pir/n-site-projetos-container-pir-imagem 01-100x55.png",
+      type: "project",
+      content: {
+        carouselProps: {
+          slidesSources: [
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 01-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 02-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 03-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 04-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 05-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 06-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 07-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 08-100x55.png",
+            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 09-100x55.png",
+          ],
+        },
+      },
     },
     {
       title: "PROJETOS",
@@ -63,9 +88,13 @@ export default function Container() {
   return (
     <>
       <Head>
-        <title>Container | N!</title>
+        <title>Projetos | N!</title>
       </Head>
-      <MainContainer menuItems={menuItems} />
+      <MainContainer
+        menuItems={menuItems}
+        contentProps={contentProps}
+        setContentProps={setContentProps}
+      />
     </>
   );
 }

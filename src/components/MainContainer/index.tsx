@@ -13,10 +13,15 @@ interface MenuItem {
   type: string;
 }
 
+interface CarouselProps {
+  slidesSources: string[];
+}
+
 interface ContentProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  carouselProps?: CarouselProps;
 }
 
 interface MenuProps {
@@ -38,6 +43,7 @@ export function MainContainer({
           title={contentProps?.title}
           subtitle={contentProps?.subtitle}
           description={contentProps?.description}
+          carouselProps={contentProps?.carouselProps}
         />
       </div>
     </main>

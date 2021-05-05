@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";

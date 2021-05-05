@@ -18,7 +18,7 @@ export function MobileHeader() {
       >
         <Navbar.Brand>
           <Link href="/">
-            <img src="/images/logo.png" alt="N! Arquitetura Logo" />
+            <img src="/static/images/logo.png" alt="N! Arquitetura Logo" />
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />

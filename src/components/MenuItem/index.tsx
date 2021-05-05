@@ -49,14 +49,14 @@ export function MenuItem(props: MenuItemProps) {
       >
         <img
           src={`/static/images/${props.path}`}
-          alt={`Parceiro: ${props.title}`}
+          alt={`${props.title}`}
           className={styles.partnerLogo}
         />
       </a>
     );
   }
 
-  if (props.type === "teamMember") {
+  if (props.type === "teamMember" || props.type === "project") {
     return (
       <a
         className={styles.menuItemLogo}
@@ -72,7 +72,7 @@ export function MenuItem(props: MenuItemProps) {
       >
         <img
           src={`/static/images/${props.path}`}
-          alt={`Membro do time: ${props.title}`}
+          alt={`${props.title}`}
           className={styles.teamMember}
         />
       </a>
