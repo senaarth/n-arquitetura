@@ -17,6 +17,10 @@ export function ActiveLink({
 
   path = path === "/equipe" || path === "/valores" ? "/about" : path;
 
+  const newPath = path.split("/");
+  
+  path = newPath[1] === "projetos" ? "/projetos" : path;
+
   const className = path === rest.href ? activeClassName : "";
 
   return (

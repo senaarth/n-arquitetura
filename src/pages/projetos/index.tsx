@@ -1,18 +1,27 @@
-import { MainContainer } from "../components/MainContainer";
+import { MainContainer } from "../../components/MainContainer";
 import Head from "next/head";
 
 export default function Projetos() {
+  const habitacaoPopular = (
+    <>
+      <li>HABITAÇÃO</li>
+      <li>POPULAR</li>
+    </>
+  );
+
   const menuItems = [
     {
-      title: "URBANISMO",
+      title: "ARQUITETURA",
       isActive: false,
-      isLink: false,
+      isLink: true,
+      route: "projetos/arquitetura",
       type: "text",
     },
     {
       title: "URBANISMO",
       isActive: false,
-      isLink: false,
+      isLink: true,
+      route: "projetos/urbanismo",
       type: "text",
     },
     {
@@ -22,9 +31,10 @@ export default function Projetos() {
       type: "text",
     },
     {
-      title: "",
+      title: "CONTAINER",
       isActive: false,
-      isLink: false,
+      isLink: true,
+      route: "projetos/container",
       type: "text",
     },
     {
@@ -53,9 +63,10 @@ export default function Projetos() {
       type: "text",
     },
     {
-      title: "",
+      title: habitacaoPopular,
       isActive: false,
-      isLink: false,
+      isLink: true,
+      route: "projetos/habitacao",
       type: "text",
     },
   ];
