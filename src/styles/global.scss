@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "BankGothic Lt BT";
-  src: url("/public/fonts/BankGothicLtBt/BankGothic_Lt_BT\ Light.ttf");
+  font-family: "BankGothic";
+  src: url("/fonts/BankGothicLtBt/BankGothic_Lt_BT.ttf");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -16,7 +16,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "BankGothic Lt BT", sans-serif;
+  font-family: "BankGothic", sans-serif;
 }
 
 html {
