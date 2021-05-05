@@ -1,4 +1,10 @@
-import { FaWhatsapp, FaLinkedin, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
+import {
+  FaWhatsapp,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+} from "react-icons/fa";
 
 import styles from "./styles.module.scss";
 
@@ -17,10 +23,7 @@ export function Footer() {
             >
               <FaWhatsapp color="white" size={19.25} />
             </a>
-            <a
-              href="#"
-              target="blank"
-            >
+            <a href="#" target="blank">
               <FaInstagram color="white" size={19.25} />
             </a>
             <a
@@ -29,21 +32,17 @@ export function Footer() {
             >
               <FaLinkedin color="white" size={19.25} />
             </a>
-            <a
-              href="#"
-              target="blank"
-              style={{ paddingTop: "0.21%" }}
-            >
+            <a href="#" target="blank" style={{ paddingTop: "0.21%" }}>
               <FaYoutube color="white" size={24.5} />
             </a>
-            <a
-              href="#"
-              target="blank"
-            >
+            <a href="#" target="blank">
               <FaFacebook color="white" size={19.25} />
             </a>
           </div>
-          <p>N! ARQUITETURA © {year}</p>
+          <div className={styles.companyContainer}>
+            <p>N! ARQUITETURA</p>
+            <p>{year}</p>
+          </div>
         </div>
       </div>
     </footer>

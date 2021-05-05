@@ -25,6 +25,9 @@
   flex-direction: column;
   align-items: center;
 
+  width: 50%;
+  max-width: 170px;
+
   * + * {
     margin-left: 1rem;
   }
@@ -41,10 +44,12 @@
 
   .socialContainer {
     margin-bottom: 0.4rem;
+    width: 100%;
 
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
 
     a {
       transition: filter 0.2s;
@@ -53,5 +58,17 @@
         filter: brightness(0.8);
       }
     }
+
+    @media (min-width: 1024px) {
+      padding-right: 0.2rem;
+    }
+  }
+
+  .companyContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
   }
 }
