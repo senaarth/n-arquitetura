@@ -12,8 +12,8 @@ export default function Habitacao() {
   const [contentProps, setContentProps] = useState({} as ContentProps);
   const habitacaoPopular = (
     <>
-      <li>HABITAÇÃO</li>
-      <li>POPULAR</li>
+      <li style={{listStyle: "none"}}>HABITAÇÃO</li>
+      <li style={{listStyle: "none"}}>POPULAR</li>
     </>
   );
 
@@ -108,7 +108,7 @@ export default function Habitacao() {
     {
       title: habitacaoPopular,
       isActive: false,
-      isLink: true,
+      isLink: false,
       route: "projetos/habitacao",
       type: "text",
     },

@@ -4,8 +4,8 @@ import Head from "next/head";
 export default function Projetos() {
   const habitacaoPopular = (
     <>
-      <li>HABITAÇÃO</li>
-      <li>POPULAR</li>
+      <li style={{listStyle: "none"}}>HABITAÇÃO</li>
+      <li style={{listStyle: "none"}}>POPULAR</li>
     </>
   );
 

@@ -1,4 +1,4 @@
-import { Dispatch, ReactElement, SetStateAction, useEffect } from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 
 import { Menu } from "../Menu";
 import { ContentContainer } from "../ContentContainer";

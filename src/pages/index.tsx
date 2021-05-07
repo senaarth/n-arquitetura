@@ -1,7 +1,7 @@
 import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
 
-export default function Home() {
+function Home() {
   const menuItems = [
     {
       title: "N!",
@@ -76,3 +76,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Home;
