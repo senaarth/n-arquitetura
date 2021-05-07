@@ -22,11 +22,19 @@ interface MenuItemProps {
 
 export function MenuItem(props: MenuItemProps) {
   const router = useRouter();
-  const dynamicStyles = {
+  let dynamicStyles = {
     cursor: props.isLink ? "pointer" : "auto",
-    backgroundColor: props.isActive ? "red" : "white",
+    backgroundColor: props.isActive ? "#CC0000" : "white",
     color: props.isActive ? "white" : "black",
   };
+  let hoverStyle = {};
+
+  if (props.title === "") {
+    hoverStyle = {
+      ...dynamicStyles,
+      filter: "none"
+    }
+  }
 
   if (props.type === "imageContainer") {
     return (
@@ -40,15 +48,15 @@ export function MenuItem(props: MenuItemProps) {
         }}
       >
         <img
-          src={`images/${props.path}`}
-          alt={`Parceiro: ${props.title}`}
+          src={`/static/images/${props.path}`}
+          alt={`${props.title}`}
           className={styles.partnerLogo}
         />
       </a>
     );
   }
 
-  if (props.type === "teamMember") {
+  if (props.type === "teamMember" || props.type === "project") {
     return (
       <a
         className={styles.menuItemLogo}
@@ -63,8 +71,8 @@ export function MenuItem(props: MenuItemProps) {
         }}
       >
         <img
-          src={`images/${props.path}`}
-          alt={`Membro do time: ${props.title}`}
+          src={`/static/images/${props.path}`}
+          alt={`${props.title}`}
           className={styles.teamMember}
         />
       </a>
@@ -75,12 +83,12 @@ export function MenuItem(props: MenuItemProps) {
     return props.route ? (
       <Link href={`${props.route}`}>
         <a className={styles.menuItemLogo} style={dynamicStyles}>
-          <img src="images/exclamacao.png" alt="N!" />
+          <img src="/static/images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
         </a>
       </Link>
     ) : (
       <a className={styles.menuItemLogo} style={dynamicStyles}>
-        <img src="images/exclamacao.png" alt="N!" />
+        <img src="/static/images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
       </a>
     );
   }
@@ -108,10 +116,10 @@ export function MenuItem(props: MenuItemProps) {
       className={styles.menuItem}
       style={{
         ...dynamicStyles,
+        ...hoverStyle,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        filter: props.title === "" ? "none" : "inherit"
       }}
       onClick={() => {
         if (props.content) {

@@ -5,7 +5,13 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="shortcut icon" href="/images/logo.png" type="image/png"/>
+          <link rel="shortcut icon" href="/static/favicon.ico" type="image/png" />
+          <link
+            rel="preload"
+            href="/static/fonts/BankGothicLtBt/BankGothic_Lt_BT.ttf"
+            as="font"
+            crossOrigin=""
+          />
         </Head>
         <body>
           <Main />

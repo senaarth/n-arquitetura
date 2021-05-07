@@ -71,7 +71,7 @@ export default function About() {
     {
       title: "VISÃO",
       isActive: false,
-      isLink: false,
+      isLink: true,
       type: "text",
       content: {
         title: "VISÃO",
@@ -95,7 +95,7 @@ export default function About() {
     {
       title: "VALORES",
       isActive: false,
-      isLink: false,
+      isLink: true,
       type: "text",
       content: {
         title: "valores",

@@ -24,7 +24,14 @@ export function Header() {
           </ActiveLink>
 
           <ActiveLink activeClassName={styles.active} href="/invest">
-            <a>PARA INVESTIR</a>
+            <a>
+              <li style={{listStyle: "none", textAlign: "center"}}>
+                PARA
+              </li>
+              <li style={{listStyle: "none", textAlign: "center"}}>
+                INVESTIR
+              </li>
+            </a>
           </ActiveLink>
 
           <ActiveLink activeClassName={styles.active} href="/parceiros">
@@ -35,7 +42,7 @@ export function Header() {
             <a>CONTATO</a>
           </ActiveLink>
         </nav>
-        <img src="/images/logo.png" />
+        <img src="/static/images/logo.png" />
       </div>
     </header>
   );

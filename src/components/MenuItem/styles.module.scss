@@ -16,7 +16,7 @@
   box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.5);
 
   img {
-    height: 98%;
+    height: 100%;
   }
 
   &:hover {
@@ -24,9 +24,25 @@
     filter: brightness(0.9);
   }
 
-  @media screen and (min-width: 1024px) {
+  @media screen and (min-width: 400px) {
+    height: 115px;
+  }
+ 
+  @media screen and (max-height: 768px) and (min-width: 768px) {
+    height: 6rem;
+    width: 10rem !important;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-height: 768px) {
     height: 10rem;
+  }
+
+  @media screen and (min-width: 1024px) {
     font-size: 1rem;
+    width: 30% !important;
+    margin: 0;
+    height: 28% !important;
   }
 }
 

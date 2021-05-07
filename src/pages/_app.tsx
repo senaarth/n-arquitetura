@@ -1,4 +1,5 @@
 import { AppProps } from "next/app";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Header } from "../components/Header";
 import { MobileHeader } from "../components/MobileHeader";
@@ -11,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MobileHeader />
       <Header />
       <Component {...pageProps} />
-      <Footer />
+      <Footer financeKey={"5a1951fa"} />
     </>
   );
 }

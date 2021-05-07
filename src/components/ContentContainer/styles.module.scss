@@ -6,11 +6,22 @@
   box-shadow: 10px 5px 5px rgba(1, 1, 1, 0.5);
   padding: 2rem;
 
+  @media screen and (min-width: 768px) {
+    height: 29rem!important;
+    max-height: 29rem!important;
+  }
+
   @media screen and (min-width: 1024px) {
-    min-height: 31rem;
-    max-height: 31rem;
     width: 49%;
-    padding: 5rem;
+    padding: 4rem;
+  }
+
+  @media screen and (max-height: 768px) and (min-width: 1024px) {
+    padding: 3rem 4rem;
+  }
+
+  @media screen and (min-width: 1024px) and (max-height: 768px) {
+    height: 23rem!important;
   }
 }
 
@@ -30,14 +41,12 @@
 
 .description {
   margin-top: 0.8rem;
-  font-size: 0.5rem;
+  font-size: 0.6rem;
 
   @media screen and (min-width: 768px) {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
-
-  @media screen and (min-width: 1024px) {
-    margin-top: 1.4rem;
-    font-size: 1rem;
+  @media screen and (min-width: 1180px) {
+    font-size: 0.8rem;
   }
 }
