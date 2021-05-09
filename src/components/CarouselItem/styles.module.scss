@@ -1,4 +1,10 @@
 .carousel {
-    width: 90% !important;
-    margin: auto 0 0 auto;
+    max-width: 60% !important;
+    padding-bottom: 5%;
+    background-color: black;
+    box-shadow: 7.5px 7.5px 7.5px rgba(1, 1, 1, 0.5);
+
+    @media (min-width: 900px) {
+        max-width: 95% !important;
+    }
 }

@@ -22,11 +22,9 @@ export function CarouselItem({ slidesSources }: CarouselProps) {
     >
       {slidesSources.map((source) => (
         <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={source}
-            alt="First slide"
-          />
+          <div className={styles.carouselContentContainer}>
+            <img className="d-block w-100" src={source} alt="First slide" />
+          </div>
         </Carousel.Item>
       ))}
     </Carousel>

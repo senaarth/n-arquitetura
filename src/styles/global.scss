@@ -66,3 +66,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.carousel-control-prev,
+.carousel-control-next {
+  margin-top: 55%;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon  {
+  max-height: 40% !important;
+}
