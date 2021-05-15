@@ -50,6 +50,9 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 09-100x55.png",
             "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 10-100x55.png",
           ],
+          hasVideo: true,
+          videoSource: "/static/images/projetos/arquitetura/csj/video retrofit samonte.mp4",
+          title: "Projeto CSJ"
         },
       },
     },

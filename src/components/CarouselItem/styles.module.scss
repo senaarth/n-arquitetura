@@ -4,7 +4,35 @@
     background-color: black;
     box-shadow: 7.5px 7.5px 7.5px rgba(1, 1, 1, 0.5);
 
-    @media (min-width: 900px) {
+    @media (max-height: 800px) and (min-width: 900px) {
+        max-width: 80% !important;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 900px) and (min-height: 800px) {
+        max-width: 95% !important;
+    }
+}
+
+.textContainer {
+    max-width: 60% !important;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    h5 {
+        margin: 0;
+    }
+
+    @media (max-height: 800px) and (min-width: 900px) {
+        max-width: 80% !important;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (min-width: 900px) and (min-height: 800px) {
         max-width: 95% !important;
     }
 }

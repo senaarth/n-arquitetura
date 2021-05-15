@@ -22,7 +22,7 @@ export default function Equipe() {
         title: "NELTON KETI BORGES",
         subtitle: "Arquiteto e Urbanista",
         description:
-          "Possui Pós-graduação em Reabilitação Ambiental pela Faculdade de Arquitetura e Urbanismo pela Universidade de Brasília onde também adquiriu sua graduação (2002). Com 17 (dezessete) anos de docência, ajudou a estruturar os principais cursos de Arquitetura e Urbanismo do DF e colaborou para a formação de uma grande quantidade de profissionais. É proprietário da N! Arquitetura Gestão e Negócios com experiência na área de Arquitetura e Urbanismo com ênfase em Planejamento e Projetos da Edificação. As atividades profissionais são divididas entre o campo teórico e o prático, atuando no mercado da construção civil tanto na elaboração de projetos arquitetônicos quanto na viabilização, compatibilização e construção de empreendimentos.",
+          "POSSUI PÓS-GRADUAÇÃO EM REABILITAÇÃO AMBIENTAL PELA FACULDADE DE ARQUITETURA E URBANISMO PELA UNIVERSIDADE DE BRASÍLIA ONDE TAMBÉM ADQUIRIU SUA GRADUAÇÃO (2002). COM 17 (DEZESSETE) ANOS DE DOCÊNCIA, AJUDOU A ESTRUTURAR OS PRINCIPAIS CURSOS DE ARQUITETURA E URBANISMO DO DF E COLABOROU PARA A FORMAÇÃO DE UMA GRANDE QUANTIDADE DE PROFISSIONAIS. É PROPRIETÁRIO DA N! ARQUITETURA GESTÃO E NEGÓCIOS COM EXPERIÊNCIA NA ÁREA DE ARQUITETURA E URBANISMO COM ÊNFASE EM PLANEJAMENTO E PROJETOS DA EDIFICAÇÃO. AS ATIVIDADES PROFISSIONAIS SÃO DIVIDIDAS ENTRE O CAMPO TEÓRICO E O PRÁTICO, ATUANDO NO MERCADO DA CONSTRUÇÃO CIVIL TANTO NA ELABORAÇÃO DE PROJETOS ARQUITETÔNICOS QUANTO NA VIABILIZAÇÃO, COMPATIBILIZAÇÃO E CONSTRUÇÃO DE EMPREENDIMENTOS.",
       },
     },
     {
@@ -41,7 +41,7 @@ export default function Equipe() {
         title: "MÁRCIO OLIVEIRA",
         subtitle: "Arquiteto e Urbanista",
         description:
-          "Mestre em Arquitetura pela McGill University Atuou como consultor do Ministério da Saúde, FUNASA, ONU e OPAS, além de professor e coordenador de cursos de Especialização em Arquitetura em Hospitalar. Foi o presidente da Associação Brasileira para o Desenvolvimento do Edifício Hospitalar na gestão 2014-2017. Atualmente é Vice-Presidente de Desenvolvimento Tecnico-Científico da ABDEH, presidente da comissão científica do IX CBDEH, editor-convidado da revista do Instituto de Pesquisas Hospitalares Jarbas Karman (IPH), coordenador técnico do curso de Especialização em Arquitetura de Clínicas e Hospitais do Instituto ESP de Manaus e professor no Curso de Arquitetura e Urbanismo da Universidade Estadual do Maranhão (UEMA), atuando também em projetos e consultorias na área da saúde.",
+          "MESTRE EM ARQUITETURA PELA MCGILL UNIVERSITY ATUOU COMO CONSULTOR DO MINISTÉRIO DA SAÚDE, FUNASA, ONU E OPAS, ALÉM DE PROFESSOR E COORDENADOR DE CURSOS DE ESPECIALIZAÇÃO EM ARQUITETURA EM HOSPITALAR. FOI O PRESIDENTE DA ASSOCIAÇÃO BRASILEIRA PARA O DESENVOLVIMENTO DO EDIFÍCIO HOSPITALAR NA GESTÃO 2014-2017. ATUALMENTE É VICE-PRESIDENTE DE DESENVOLVIMENTO TECNICO-CIENTÍFICO DA ABDEH, PRESIDENTE DA COMISSÃO CIENTÍFICA DO IX CBDEH, EDITOR-CONVIDADO DA REVISTA DO INSTITUTO DE PESQUISAS HOSPITALARES JARBAS KARMAN (IPH), COORDENADOR TÉCNICO DO CURSO DE ESPECIALIZAÇÃO EM ARQUITETURA DE CLÍNICAS E HOSPITAIS DO INSTITUTO ESP DE MANAUS E PROFESSOR NO CURSO DE ARQUITETURA E URBANISMO DA UNIVERSIDADE ESTADUAL DO MARANHÃO (UEMA), ATUANDO TAMBÉM EM PROJETOS E CONSULTORIAS NA ÁREA DA SAÚDE.",
       },
     },
     {
@@ -79,7 +79,7 @@ export default function Equipe() {
         title: "NEI BORGES FILHO",
         subtitle: "Software Developer",
         description:
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+          "SED UT PERSPICIATIS UNDE OMNIS ISTE NATUS ERROR SIT VOLUPTATEM ACCUSANTIUM DOLOREMQUE LAUDANTIUM, TOTAM REM APERIAM, EAQUE IPSA QUAE AB ILLO INVENTORE VERITATIS ET QUASI ARCHITECTO BEATAE VITAE DICTA SUNT EXPLICABO. NEMO ENIM IPSAM VOLUPTATEM QUIA VOLUPTAS SIT ASPERNATUR AUT ODIT AUT FUGIT, SED QUIA CONSEQUUNTUR MAGNI DOLORES EOS QUI RATIONE VOLUPTATEM SEQUI NESCIUNT. NEQUE PORRO QUISQUAM EST, QUI DOLOREM IPSUM QUIA DOLOR SIT AMET, CONSECTETUR, ADIPISCI VELIT, SED QUIA NON NUMQUAM EIUS MODI TEMPORA INCIDUNT UT LABORE ET DOLORE MAGNAM ALIQUAM QUAERAT VOLUPTATEM. UT ENIM AD MINIMA VENIAM, QUIS NOSTRUM EXERCITATIONEM ULLAM CORPORIS SUSCIPIT LABORIOSAM, NISI UT ALIQUID EX EA COMMODI CONSEQUATUR? QUIS AUTEM VEL EUM IURE REPREHENDERIT QUI IN EA VOLUPTATE VELIT ESSE QUAM NIHIL MOLESTIAE.",
       },
     },
     {
