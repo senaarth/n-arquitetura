@@ -23,10 +23,6 @@
     text-decoration: none;
     filter: brightness(0.9);
   }
-
-  @media screen and (min-width: 400px) {
-    height: 115px;
-  }
  
   @media screen and (max-height: 768px) and (min-width: 768px) {
     height: 6rem;

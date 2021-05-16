@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { CarouselItem } from "../CarouselItem/";
 import styles from "./styles.module.scss";
 
@@ -13,10 +14,17 @@ interface ContentProps {
   subtitle?: string;
   description?: string;
   carouselProps?: CarouselProps;
+  mobileDescription?: string;
 }
 
 export function ContentContainer(props: ContentProps) {
-  return (
+  const [windowWidth, setWindowWidth] = useState(0);
+
+  React.useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  });
+
+  const content = (
     <div className={styles.contentContainer}>
       {props.carouselProps && (
         <CarouselItem
@@ -30,5 +38,14 @@ export function ContentContainer(props: ContentProps) {
       <h2 className={styles.subtitle}>{props.subtitle}</h2>
       <p className={styles.description}>{props.description}</p>
     </div>
+  )
+
+  const mobileContent = (
+    <div className={styles.contentContainer} style={{ fontSize: "0.7rem" }}>
+      <p>{props.mobileDescription}</p>
+    </div>
   );
+  
+  return windowWidth > 1023 ? content : mobileContent;
+
 }

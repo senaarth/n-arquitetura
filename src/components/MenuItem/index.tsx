@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { Dispatch, ReactElement, SetStateAction } from "react";
+import { Dispatch, ReactElement, SetStateAction, useState } from "react";
+import Modal from "react-bootstrap/Modal";
 
 import styles from "./styles.module.scss";
 
@@ -32,8 +33,50 @@ export function MenuItem(props: MenuItemProps) {
   if (props.title === "") {
     hoverStyle = {
       ...dynamicStyles,
-      filter: "none"
-    }
+      filter: "none",
+    };
+  }
+
+  if (props.type === "mobile") {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+      <>
+        <a
+          className={styles.menuItem}
+          style={{
+            ...dynamicStyles,
+            ...hoverStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          onClick={() => {
+            if (props.content) {
+              setIsModalOpen(true);
+            }
+          }}
+        >
+          {props.title}
+        </a>
+        <Modal
+          show={isModalOpen}
+          onHide={() => {
+            setIsModalOpen(false);
+          }}
+          size="lg"
+          style={{ maxWidth: "100%" }}
+          centered
+        >
+          <Modal.Header closeButton>
+            <h2 style={{ margin: 0, fontSize: "1.2rem" }}>{props.content.title}</h2>
+          </Modal.Header>
+          <Modal.Body>
+            {props.content.description}
+          </Modal.Body>
+        </Modal>
+      </>
+    );
   }
 
   if (props.type === "imageContainer") {
@@ -83,12 +126,20 @@ export function MenuItem(props: MenuItemProps) {
     return props.route ? (
       <Link href={`${props.route}`}>
         <a className={styles.menuItemLogo} style={dynamicStyles}>
-          <img src="/static/images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
+          <img
+            src="/static/images/exclamacao.png"
+            alt="N!"
+            style={{ height: "95%" }}
+          />
         </a>
       </Link>
     ) : (
       <a className={styles.menuItemLogo} style={dynamicStyles}>
-        <img src="/static/images/exclamacao.png" alt="N!" style={{ height: "95%" }} />
+        <img
+          src="/static/images/exclamacao.png"
+          alt="N!"
+          style={{ height: "95%" }}
+        />
       </a>
     );
   }

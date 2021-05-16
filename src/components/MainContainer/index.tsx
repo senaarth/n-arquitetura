@@ -25,10 +25,12 @@ interface ContentProps {
   subtitle?: string;
   description?: string;
   carouselProps?: CarouselProps;
+  mobileDescription?: string;
 }
 
 interface MenuProps {
   menuItems: MenuItem[];
+  mobileMenuItems?: MenuItem[];
   contentProps?: ContentProps;
   setContentProps?: Dispatch<SetStateAction<ContentProps>>;
 }
@@ -37,16 +39,22 @@ export function MainContainer({
   menuItems,
   contentProps,
   setContentProps,
+  mobileMenuItems,
 }: MenuProps) {
   return (
     <main className={styles.mainContainer}>
       <div className={styles.mainContent}>
-        <Menu menuItems={menuItems} setContent={setContentProps} />
+        <Menu
+          menuItems={menuItems}
+          setContent={setContentProps}
+          mobileMenuItems={mobileMenuItems}
+        />
         <ContentContainer
           title={contentProps?.title}
           subtitle={contentProps?.subtitle}
           description={contentProps?.description}
           carouselProps={contentProps?.carouselProps}
+          mobileDescription={contentProps?.mobileDescription}
         />
       </div>
     </main>
