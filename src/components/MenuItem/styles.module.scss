@@ -23,7 +23,7 @@
     text-decoration: none;
     filter: brightness(0.9);
   }
- 
+
   @media screen and (max-height: 768px) and (min-width: 768px) {
     height: 6rem;
     width: 10rem !important;
@@ -71,5 +71,22 @@
 
   @media screen and (min-width: 768px) {
     width: 100%;
+  }
+}
+
+.modalHeader {
+  button {
+    background-color: var(--red);
+    border-radius: 6px;
+    opacity: 1;
+    height: 1.6rem;
+    width: 1.6rem;
+    margin: 0 !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+
+    span {
+      display: none;
+    }
   }
 }

@@ -68,8 +68,7 @@ export function MenuItem(props: MenuItemProps) {
           style={{ maxWidth: "100%" }}
           centered
         >
-          <Modal.Header closeButton>
-            <h2 style={{ margin: 0, fontSize: "1.2rem" }}>{props.content.title}</h2>
+          <Modal.Header className={styles.modalHeader} closeButton>
           </Modal.Header>
           <Modal.Body>
             {props.content.description}
@@ -138,11 +137,12 @@ export function MenuItem(props: MenuItemProps) {
         <img
           src="/static/images/exclamacao.png"
           alt="N!"
-          style={{ height: "95%" }}
+          style={{ height: "95%", maxWidth: "100%", objectFit: "cover" }}
         />
       </a>
     );
   }
+
   return props.route ? (
     <Link href={`/${props.route}`}>
       <a
