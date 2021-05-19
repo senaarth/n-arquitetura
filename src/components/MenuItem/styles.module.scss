@@ -1,6 +1,8 @@
 .menuItem,
 .menuItemLogo {
-  height: 90px;
+  height: 100%;
+  width: 100%;
+  min-height: 90px;
   background-color: var(--white);
   padding: 0 0.5rem;
 
@@ -24,21 +26,12 @@
     filter: brightness(0.9);
   }
 
-  @media screen and (max-height: 768px) and (min-width: 768px) {
-    height: 6rem;
-    width: 10rem !important;
-    margin: 0 auto;
-  }
-
-  @media screen and (min-height: 768px) {
-    height: 10rem;
-  }
-
   @media screen and (min-width: 1024px) {
     font-size: 1rem;
     width: 30% !important;
     margin: 0;
     height: 8rem !important;
+    max-height: 32% !important;
   }
 }
 

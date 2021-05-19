@@ -7,8 +7,8 @@
   padding: 2rem;
 
   @media screen and (min-width: 768px) {
-    height: 29rem!important;
-    max-height: 29rem!important;
+    height: 27.3rem!important;
+    max-height: 27.3rem!important;
   }
 
   @media screen and (min-width: 1024px) {
@@ -25,9 +25,9 @@
   }
 
   @media screen and (max-width: 1024px) {
-    height: 7rem!important;
-    max-height: 7rem!important;
-    min-height: 7rem!important;
+    height: 20% !important;
+    max-height: 20% !important;
+    min-height: 20% !important;
     border-radius: 2rem;
   }
 }
