@@ -24,6 +24,7 @@ interface MenuItem {
   path?: string;
   type: string;
   content?: ContentProps;
+  windowWidth?: number;
 }
 
 interface MenuProps {
@@ -53,6 +54,7 @@ export function Menu({ menuItems, setContent, mobileMenuItems }: MenuProps) {
             setContent={setContent}
             path={s.path}
             type={s.type}
+            windowWidth={windowWidth}
           />
         );
       })}
@@ -74,6 +76,7 @@ export function Menu({ menuItems, setContent, mobileMenuItems }: MenuProps) {
               setContent={setContent}
               path={s.path}
               type={s.type}
+              windowWidth={windowWidth}
             />
           );
         })}

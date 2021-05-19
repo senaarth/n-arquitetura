@@ -28,15 +28,11 @@ interface MenuItemProps {
   content: ContentProps;
   type: string;
   setContent?: Dispatch<SetStateAction<ContentProps>>;
+  windowWidth?: number;
 }
 
 export function MenuItem(props: MenuItemProps) {
-  const [windowWidth, setWindowWidth] = useState(0);
   const router = useRouter();
-
-  React.useEffect(() => {
-    setWindowWidth(window.innerWidth);
-  }, []);
 
   let dynamicStyles = {
     cursor: props.isLink ? "pointer" : "auto",
@@ -138,7 +134,7 @@ export function MenuItem(props: MenuItemProps) {
             position: "relative",
           }}
           onClick={() => {
-            if (props.content && windowWidth > 1025) {
+            if (props.content && props.windowWidth > 1025) {
               props.setContent(props.content);
               return;
             }
