@@ -4,8 +4,8 @@ import Head from "next/head";
 export default function Projetos() {
   const habitacaoPopular = (
     <>
-      <li style={{listStyle: "none"}}>HABITAÇÃO</li>
-      <li style={{listStyle: "none"}}>POPULAR</li>
+      <li style={{ listStyle: "none" }}>HABITAÇÃO</li>
+      <li style={{ listStyle: "none" }}>POPULAR</li>
     </>
   );
 
@@ -76,7 +76,13 @@ export default function Projetos() {
       <Head>
         <title>Projetos | N!</title>
       </Head>
-      <MainContainer menuItems={menuItems} />
+      <MainContainer
+        menuItems={menuItems}
+        contentProps={{
+          mobileDescription:
+            "VOCÊ ESTÁ EM NOSSA PÁGINA DE PROJETOS, SELECIONE UMA CATEGORIA PARA VISUALIZAR NOSSO PORTFÓLIO.",
+        }}
+      />
     </>
   );
 }

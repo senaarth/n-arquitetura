@@ -1,7 +1,13 @@
+import React, { useState } from "react";
 import { MainContainer } from "../../../components/MainContainer";
 import Head from "next/head";
 
 export default function Urbanismo() {
+  const [contentProps, setContentProps] = useState({
+    mobileDescription:
+      "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE.",
+  });
+
   const menuItems = [
     {
       title: "",
@@ -65,7 +71,7 @@ export default function Urbanismo() {
       <Head>
         <title>Urbanismo | N!</title>
       </Head>
-      <MainContainer menuItems={menuItems} />
+      <MainContainer menuItems={menuItems} contentProps={contentProps} />
     </>
   );
 }

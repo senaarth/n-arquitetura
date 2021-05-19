@@ -6,10 +6,14 @@ interface ContentProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  mobileDescription?: string;
 }
 
 export default function Equipe() {
-  const [contentProps, setContentProps] = useState({} as ContentProps);
+  const [contentProps, setContentProps] = useState({
+    mobileDescription:
+      "VOCÊ ESTÁ EM NOSSA PÁGINA DE EQUIPE, ESCOLHA UM INTEGRANTE PARA VER SUA DESCRIÇÃO",
+  });
 
   const menuItems = [
     {

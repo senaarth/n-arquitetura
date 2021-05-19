@@ -6,10 +6,14 @@ interface ContentProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  mobileDescription?: string;
 }
 
 export default function Habitacao() {
-  const [contentProps, setContentProps] = useState({} as ContentProps);
+  const [contentProps, setContentProps] = useState({
+    mobileDescription: "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE."
+  });
+
   const habitacaoPopular = (
     <>
       <li style={{listStyle: "none"}}>HABITAÇÃO</li>

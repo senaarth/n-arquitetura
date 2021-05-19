@@ -3,9 +3,17 @@ import { MenuItem } from "../MenuItem";
 
 import styles from "./styles.module.scss";
 
+interface CarouselProps {
+  hasVideo: boolean;
+  slidesSources: string[];
+  videoSource: string;
+  title: string;
+}
+
 interface ContentProps {
   title?: string;
   description?: string;
+  carouselProps?: CarouselProps;
 }
 
 interface MenuItem {

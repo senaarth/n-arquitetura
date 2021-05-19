@@ -1,5 +1,4 @@
 import { MainContainer } from "../components/MainContainer";
-import { TeamCarousel } from "../components/TeamCarousel";
 import Head from "next/head";
 
 export default function About() {
@@ -131,12 +130,9 @@ export default function About() {
     {
       title: "EQUIPE",
       isActive: false,
-      isLink: false,
-      type: "mobile",
-      content: {
-        title: "EQUIPE N!",
-        description: <TeamCarousel />
-      }
+      isLink: true,
+      route: "equipe",
+      type: "text",
     },
     {
       title: "logo",

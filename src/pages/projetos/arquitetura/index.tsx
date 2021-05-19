@@ -6,10 +6,13 @@ interface ContentProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  mobileDescription?: string;
 }
 
 export default function Arquitetura() {
-  const [contentProps, setContentProps] = useState({} as ContentProps);
+  const [contentProps, setContentProps] = useState({
+    mobileDescription: "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE."
+  });
 
   const menuItems = [
     {
@@ -31,7 +34,7 @@ export default function Arquitetura() {
       type: "text",
     },
     {
-      title: "Projeto CSJ",
+      title: "PROJETO CSJ",
       isActive: false,
       isLink: true,
       path: "projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 01-100x55.png",
@@ -52,7 +55,7 @@ export default function Arquitetura() {
           ],
           hasVideo: true,
           videoSource: "/static/images/projetos/arquitetura/csj/video retrofit samonte.mp4",
-          title: "Projeto CSJ"
+          title: "PROJETO CSJ"
         },
       },
     },
@@ -70,7 +73,7 @@ export default function Arquitetura() {
       type: "text",
     },
     {
-      title: "Projeto FAT",
+      title: "PROJETO ADM",
       isActive: false,
       isLink: true,
       path: "projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 23-100x55.png",
@@ -102,11 +105,12 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 22-100x55.png",
             "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 23-100x55.png",
           ],
+          title: "PROJETO ADM"
         },
       },
     },
     {
-      title: "Projeto FAT",
+      title: "PROJETO FAT",
       isActive: false,
       isLink: true,
       path: "projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 01-100x55.png",
@@ -146,6 +150,7 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 30-100x55.png",
           ],
         },
+        title: "PROJETO FAT"
       },
     },
     {
@@ -168,6 +173,7 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 09-100x55.png",
           ],
         },
+        title: "PROJETO 120s"
       },
     },
   ];

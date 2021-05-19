@@ -1,22 +1,19 @@
 .carousel {
-    max-width: 60% !important;
-    padding-bottom: 5%;
+    margin-top: 1rem;
+    max-width: 100% !important;
+    padding-bottom: 9%;
     background-color: black;
     box-shadow: 7.5px 7.5px 7.5px rgba(1, 1, 1, 0.5);
 
-    @media (max-height: 800px) and (min-width: 900px) {
+    @media (min-width: 1025px) {
         max-width: 80% !important;
-        margin: 0 auto;
-    }
-
-    @media (min-width: 900px) and (min-height: 800px) {
-        max-width: 95% !important;
+        padding-bottom: 5%;
     }
 }
 
 .textContainer {
     max-width: 60% !important;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,11 +25,5 @@
 
     @media (max-height: 800px) and (min-width: 900px) {
         max-width: 80% !important;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    @media (min-width: 900px) and (min-height: 800px) {
-        max-width: 95% !important;
     }
 }

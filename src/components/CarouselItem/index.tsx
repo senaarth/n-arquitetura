@@ -44,7 +44,7 @@ export function CarouselItem({
         ))}
       </Carousel>
       <div className={styles.textContainer}>
-        <h5>Texto de Apoio</h5>
+        {/* <h5>{title}</h5> */}
         {hasVideo && (
           <FaPlayCircle
             color="black"

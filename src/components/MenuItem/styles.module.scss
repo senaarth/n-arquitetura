@@ -51,7 +51,7 @@
 }
 
 .teamMember {
-  border-radius: 25px;
+  border-radius: 20px;
   width: auto;
   max-width: 100%;
   margin-left: auto;
@@ -61,6 +61,7 @@
   top: 2px;
   left: 0;
   position: absolute;
+  object-fit: cover;
 
   @media screen and (min-width: 768px) {
     width: 100%;
@@ -68,6 +69,9 @@
 }
 
 .modalHeader {
+  border: 0;
+  padding-bottom: 0 !important;
+
   button {
     background-color: var(--red);
     border-radius: 6px;
