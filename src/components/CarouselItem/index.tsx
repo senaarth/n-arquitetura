@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import { FaPlayCircle } from "react-icons/fa";
 import ReactPlayer from "react-player";
@@ -32,13 +33,13 @@ export function CarouselItem({
         activeIndex={index}
         onSelect={handleSelect}
         indicators={false}
-        interval={10000}
+        interval={100000}
         className={styles.carousel}
       >
         {slidesSources.map((source) => (
           <Carousel.Item>
             <div className={styles.carouselContentContainer}>
-              <img className="d-block w-100" src={source} alt="First slide" />
+              <Image className="d-block w-100" src={source} alt="First slide" width="500" height="275" />
             </div>
           </Carousel.Item>
         ))}
