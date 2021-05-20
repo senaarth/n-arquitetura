@@ -75,10 +75,9 @@ export function CarouselItem({
           size="lg"
           style={{ maxWidth: "100%" }}
         >
-          {/* <Modal.Header closeButton>
-            <h2 style={{ margin: 0 }}>{title}</h2>
-          </Modal.Header> */}
-          <Modal.Body style={{ padding: 0 }}>
+          <Modal.Header className={styles.modalHeader} closeButton>
+          </Modal.Header>
+          <Modal.Body>
             <ReactPlayer
               playbackRate={2}
               playing={true}
