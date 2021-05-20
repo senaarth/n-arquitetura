@@ -124,7 +124,7 @@ export function MenuItem(props: MenuItemProps) {
 
   if (props.type === "teamMember" || props.type === "project") {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    
+
     return (
       <>
         <a
@@ -168,9 +168,26 @@ export function MenuItem(props: MenuItemProps) {
           <Modal.Body>
             {props.type === "teamMember" ? (
               <>
+                <img
+                  src={`/static/images/${props.path}`}
+                  alt={`${props.title}`}
+                  style={{
+                    width: "100%",
+                    height: "150px",
+                    borderRadius: "6px",
+                    marginTop: "1rem",
+                    marginBottom: "1rem",
+                    objectFit: "cover",
+                  }}
+                />
                 <h5 style={{ textAlign: "center" }}>{props.content.title}</h5>
                 <p
-                  style={{ textAlign: "center", fontSize: "0.8rem", margin: 0 }}
+                  style={{
+                    textAlign: "center",
+                    fontSize: "0.8rem",
+                    margin: 0,
+                    paddingBottom: "0.4rem",
+                  }}
                 >
                   {props.content.description}
                 </p>
@@ -191,7 +208,7 @@ export function MenuItem(props: MenuItemProps) {
 
   if (props.type === "logo" || props.type === "goBack") {
     return props.route ? (
-      <Link href={`${props.route}`}>
+      <Link href="/">
         <a className={styles.menuItemLogo} style={dynamicStyles}>
           <img
             src="/static/images/exclamacao.png"

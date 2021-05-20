@@ -9,7 +9,7 @@
 :root {
   --white: #fff;
   --black: #111;
-  --red-500: #CC0000;
+  --red-500: #cc0000;
 }
 
 * {
@@ -22,13 +22,13 @@
 html {
   height: 100%;
   min-height: 100%;
-  background-color: var(--white)!important;
+  background-color: var(--white) !important;
 }
 
 body {
   height: 100%;
   min-height: 100%;
-  background-color: var(--white)!important;
+  background-color: var(--white) !important;
 }
 
 #__next {
@@ -36,7 +36,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: var(--white)!important;
+  background-color: var(--white) !important;
 }
 
 @media (max-width: 1080px) {
@@ -74,20 +74,26 @@ a {
 }
 
 .carousel-control-next-icon,
-.carousel-control-prev-icon  {
+.carousel-control-prev-icon {
   max-height: 40% !important;
 }
 
 @media screen and (max-width: 1025px) {
   .modal-content {
     border: 0;
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 6px;
     max-width: 600px;
 
+    .modal-header {
+      padding: 0.6rem;
+      padding-bottom: 0 !important;
+    }
+
     .modal-body {
-      padding-top: 0!important;
+      padding: 0.6rem;
+      padding-top: 0 !important;
     }
   }
 }

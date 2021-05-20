@@ -36,10 +36,10 @@ export function CarouselItem({
         interval={100000}
         className={styles.carousel}
       >
-        {slidesSources.map((source) => (
-          <Carousel.Item>
+        {slidesSources.map((source, index) => (
+          <Carousel.Item key={index} >
             <div className={styles.carouselContentContainer}>
-              <Image className="d-block w-100" src={source} alt="First slide" width="500" height="275" />
+              <Image className="d-block w-100" src={source} alt="First slide" width="1000" height="550" />
             </div>
           </Carousel.Item>
         ))}

@@ -111,7 +111,7 @@ export default function About() {
       type: "text",
     },
     {
-      title: "SOBRE",
+      title: "A EMPRESA",
       isActive: false,
       isLink: false,
       type: "mobile",
