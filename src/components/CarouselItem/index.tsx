@@ -47,7 +47,7 @@ export function CarouselItem({
               <Image
                 className="d-block w-100"
                 src={source}
-                alt="First slide"
+                alt={title}
                 width="1000"
                 height="550"
               />
@@ -75,8 +75,10 @@ export function CarouselItem({
           size="lg"
           style={{ maxWidth: "100%" }}
         >
-          <Modal.Header className={styles.modalHeader} closeButton>
-          </Modal.Header>
+          <Modal.Header
+            className={styles.modalHeader}
+            closeButton
+          ></Modal.Header>
           <Modal.Body>
             <ReactPlayer
               playbackRate={2}
