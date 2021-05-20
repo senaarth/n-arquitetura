@@ -6,8 +6,10 @@
     box-shadow: 7.5px 7.5px 7.5px rgba(1, 1, 1, 0.5);
 
     @media (min-width: 1025px) {
-        max-width: 100% !important;
+        max-width: 75% !important;
         padding-bottom: 5%;
+        margin: 0 auto;
+        margin-top: 2%;
     }
 }
 
@@ -24,6 +26,8 @@
     }
 
     @media (max-height: 800px) and (min-width: 900px) {
-        max-width: 80% !important;
+        max-width: 75% !important;
+        margin: 0 auto;
+        margin-top: 1rem;
     }
 }

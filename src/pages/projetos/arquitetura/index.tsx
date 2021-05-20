@@ -149,8 +149,8 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 29-100x55.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 30-100x55.png",
           ],
+          title: "PROJETO FAT"
         },
-        title: "PROJETO FAT"
       },
     },
     {
@@ -172,8 +172,8 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 08-100x55.png",
             "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 09-100x55.png",
           ],
+          title: "PROJETO 120s"
         },
-        title: "PROJETO 120s"
       },
     },
   ];

@@ -40,6 +40,7 @@ export default function Container() {
             "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 08-100x55.png",
             "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 09-100x55.png",
           ],
+          title: "PROJETO PIR"
         },
       },
     },

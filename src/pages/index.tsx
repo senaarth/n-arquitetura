@@ -69,10 +69,16 @@ function Home() {
 
   return (
     <>
-    <Head>
-      <title>Home | N!</title>
-    </Head>
-    <MainContainer menuItems={menuItems} />
+      <Head>
+        <title>Home | N!</title>
+      </Head>
+      <MainContainer
+        menuItems={menuItems}
+        contentProps={{
+          mobileDescription:
+            "PARA NAVEGAR EM NOSSA PÁGINA BASTA UTILIZAR O MENU PARA SELECIONAR O CONTEÚDO DE SEU INTERESSE, PODENDO TOCAR NA EXCLAMAÇÃO PARA RETORNAR AO INÍCIO.",
+        }}
+      />
     </>
   );
 }

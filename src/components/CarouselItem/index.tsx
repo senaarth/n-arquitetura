@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import { FaPlayCircle } from "react-icons/fa";
@@ -22,13 +22,18 @@ export function CarouselItem({
 }: CarouselProps) {
   const [index, selectIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     selectIndex(selectedIndex);
   };
 
+  React.useEffect(() => {
+    setWindowWidth(window.innerWidth);
+  });
+
   return (
-    <>
+    <div>
       <Carousel
         activeIndex={index}
         onSelect={handleSelect}
@@ -37,15 +42,21 @@ export function CarouselItem({
         className={styles.carousel}
       >
         {slidesSources.map((source, index) => (
-          <Carousel.Item key={index} >
+          <Carousel.Item key={index}>
             <div className={styles.carouselContentContainer}>
-              <Image className="d-block w-100" src={source} alt="First slide" width="1000" height="550" />
+              <Image
+                className="d-block w-100"
+                src={source}
+                alt="First slide"
+                width="1000"
+                height="550"
+              />
             </div>
           </Carousel.Item>
         ))}
       </Carousel>
       <div className={styles.textContainer}>
-        {/* <h5>{title}</h5> */}
+        {windowWidth > 1024 && <h5>{title}</h5>}
         {hasVideo && (
           <FaPlayCircle
             color="black"
@@ -83,6 +94,6 @@ export function CarouselItem({
           </Modal.Body>
         </Modal>
       </div>
-    </>
+    </div>
   );
 }

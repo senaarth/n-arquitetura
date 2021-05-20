@@ -92,6 +92,7 @@ export function MenuItem(props: MenuItemProps) {
                 margin: "0 auto",
                 listStyle: "none",
                 paddingTop: "1rem",
+                paddingBottom: "1.2rem",
               }}
             >
               {props.content.description}
@@ -135,18 +136,26 @@ export function MenuItem(props: MenuItemProps) {
           }}
           onClick={() => {
             if (props.content && props.windowWidth > 1025) {
-              props.setContent(props.content);
+              if (props.content.carouselProps) {
+                props.setContent({
+                  carouselProps: props.content.carouselProps,
+                  title: props.content.carouselProps.title,
+                });
+              } else {
+                props.setContent(props.content);
+              }
 
               const images = document.querySelectorAll("img");
 
               images.forEach((img) => {
                 if (img.id === "grayScalable" && img.alt !== props.title) {
+                  img.style.transition = "filter 0.4s";
                   img.style.filter = "grayscale(1)";
                   return;
                 }
                 img.style.filter = "grayscale(0)";
               });
-              
+
               return;
             }
             setIsModalOpen(true);
@@ -198,7 +207,7 @@ export function MenuItem(props: MenuItemProps) {
                     textAlign: "center",
                     fontSize: "0.8rem",
                     margin: 0,
-                    paddingBottom: "0.4rem",
+                    paddingBottom: "1.2rem",
                   }}
                 >
                   {props.content.description}

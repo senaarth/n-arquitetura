@@ -53,6 +53,7 @@ export default function Habitacao() {
             "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 14-100x55.png",
             "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 15-100x55.png",
           ],
+          title: "PROJETO RBR"
         },
       },
     },
@@ -94,6 +95,7 @@ export default function Habitacao() {
             "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 08-100x55.png",
             "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 09-100x55.png",
           ],
+          title: "PROJETO RD1"
         },
       },
     },
