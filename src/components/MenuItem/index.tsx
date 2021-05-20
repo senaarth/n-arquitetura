@@ -136,6 +136,17 @@ export function MenuItem(props: MenuItemProps) {
           onClick={() => {
             if (props.content && props.windowWidth > 1025) {
               props.setContent(props.content);
+
+              const images = document.querySelectorAll("img");
+
+              images.forEach((img) => {
+                if (img.id === "grayScalable" && img.alt !== props.title) {
+                  img.style.filter = "grayscale(1)";
+                  return;
+                }
+                img.style.filter = "grayscale(0)";
+              });
+              
               return;
             }
             setIsModalOpen(true);
@@ -145,6 +156,7 @@ export function MenuItem(props: MenuItemProps) {
             src={`/static/images/${props.path}`}
             alt={`${props.title}`}
             className={styles.teamMember}
+            id="grayScalable"
           />
         </a>
         <Modal
