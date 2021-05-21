@@ -64,9 +64,11 @@ export function MenuItem(props: MenuItemProps) {
             alignItems: "center",
           }}
           onClick={() => {
-            if (props.content) {
+            if (props.content && props.windowWidth < 1025) {
               setIsModalOpen(true);
+              return;
             }
+            props.setContent(props.content);
           }}
         >
           {props.title}
@@ -95,6 +97,7 @@ export function MenuItem(props: MenuItemProps) {
               }}
             >
               <p className={styles.modalDescription}>
+                <h1>{props.content.title}</h1>
                 {props.content.description}
               </p>
             </div>

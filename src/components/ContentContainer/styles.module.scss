@@ -68,6 +68,14 @@
     font-family: "Calibri" !important;
   }
 
+  h1 {
+    font-size: 1rem;
+    font-family: "BankGothic" !important;
+    @media screen and (min-width: 1024px) {
+      font-size: 1.6rem;
+    }
+  }
+
   @media screen and (min-width: 768px) {
     font-size: 0.75rem;
   }
