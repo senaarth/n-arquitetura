@@ -92,10 +92,11 @@ export function MenuItem(props: MenuItemProps) {
                 margin: "0 auto",
                 listStyle: "none",
                 paddingTop: "1rem",
-                paddingBottom: "1.2rem",
               }}
             >
-              {props.content.description}
+              <p className={styles.modalDescription}>
+                {props.content.description}
+              </p>
             </div>
           </Modal.Body>
         </Modal>
@@ -205,10 +206,11 @@ export function MenuItem(props: MenuItemProps) {
                 <p
                   style={{
                     textAlign: "center",
-                    fontSize: "0.8rem",
+                    fontSize: "0.9rem",
                     margin: 0,
                     paddingBottom: "1.2rem",
                   }}
+                  className={styles.modalDescription}
                 >
                   {props.content.description}
                 </p>

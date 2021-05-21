@@ -5,6 +5,13 @@
   font-weight: 400;
   font-display: swap;
 }
+@font-face {
+  font-family: "Calibri";
+  src: url("/static/fonts/Calibri/Calibri Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
 
 :root {
   --white: #fff;

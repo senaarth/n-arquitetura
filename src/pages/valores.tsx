@@ -12,13 +12,13 @@ export default function About() {
 
   const valores = (
     <>
-      <li style={{ marginBottom: "1rem" }}>AGILIDADE COMO ESTRATÉGIA;</li>
-      <li style={{ marginBottom: "1rem" }}>TRANSPARÊNCIA COMO SEGURANÇA;</li>
-      <li style={{ marginBottom: "1rem" }}>EQUILÍBRIO COMO FORÇA;</li>
+      <li style={{ marginBottom: "1rem" }}>Agilidade como estratégia;</li>
+      <li style={{ marginBottom: "1rem" }}>Transparência como segurança;</li>
+      <li style={{ marginBottom: "1rem" }}>Equilíbrio como força;</li>
       <li style={{ marginBottom: "1rem" }}>
-        SUSTENTABILIDADE AGREGANDO VALOR;
+        Sustentabilidade agregando valor;
       </li>
-      <li style={{ marginBottom: "1rem" }}>NEGÓCIOS PRIORIZANDO PESSOAS;</li>
+      <li style={{ marginBottom: "1rem" }}>Negócios priorizando pessoas;</li>
     </>
   );
 
@@ -52,7 +52,7 @@ export default function About() {
       content: {
         title: "MISSÃO",
         description:
-          "APLICAR A ARQUITETURA E O URBANISMO APOIADOS EM UMA VISÃO MULTIDISCIPLINAR VALORIZANDO ATIVOS IMOBILIÁRIOS E PROMOVENDO GANHOS E CRESCIMENTO PATRIMONIAL AOS NOSSO CLIENTES.",
+          "Aplicar a arquitetura e o urbanismo apoiados em uma visão multidisciplinar valorizando ativos imobiliários e promovendo ganhos e crescimento patrimonial aos nosso clientes.",
       },
     },
     {
@@ -76,7 +76,7 @@ export default function About() {
       content: {
         title: "VISÃO",
         description:
-          "SE POSICIONAR COMO CONSULTORIA REFERÊNCIA EM PROJETOS IMOBILIÁRIOS.",
+          "Se posicionar como consultoria referência em projetos imobiliários.",
       },
     },
     {
