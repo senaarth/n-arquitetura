@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Image from "next/image";
 import React, { Dispatch, ReactElement, SetStateAction, useState } from "react";
 import Modal from "react-bootstrap/Modal";
 
@@ -165,11 +166,13 @@ export function MenuItem(props: MenuItemProps) {
             setIsModalOpen(true);
           }}
         >
-          <img
+          <Image
             src={`/static/images/${props.path}`}
             alt={`${props.title}`}
             className={styles.teamMember}
             id="grayScalable"
+            priority
+            layout="fill"
           />
         </a>
         <Modal

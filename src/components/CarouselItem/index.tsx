@@ -50,6 +50,7 @@ export function CarouselItem({
                 alt={title}
                 width="1000"
                 height="550"
+                priority
               />
             </div>
           </Carousel.Item>
