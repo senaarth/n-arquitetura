@@ -65,7 +65,7 @@ export function MenuItem(props: MenuItemProps) {
             alignItems: "center",
           }}
           onClick={() => {
-            if (props.content && props.windowWidth < 1025) {
+            if (props.content && props.windowWidth < 1024) {
               setIsModalOpen(true);
               return;
             }
@@ -140,7 +140,7 @@ export function MenuItem(props: MenuItemProps) {
             position: "relative",
           }}
           onClick={() => {
-            if (props.content && props.windowWidth > 1025) {
+            if (props.content && props.windowWidth > 1023) {
               if (props.content.carouselProps) {
                 props.setContent({
                   carouselProps: props.content.carouselProps,
