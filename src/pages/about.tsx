@@ -123,7 +123,6 @@ export default function About() {
       isLink: false,
       type: "mobile",
       content: {
-        title: "MISSÃO, VISÃO E VALORES",
         description: missao,
       },
     },

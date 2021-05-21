@@ -211,7 +211,6 @@ export function MenuItem(props: MenuItemProps) {
                 <h5 style={{ textAlign: "center" }}>{props.content.title}</h5>
                 <p
                   style={{
-                    textAlign: "center",
                     fontSize: "0.9rem",
                     margin: 0,
                     paddingBottom: "1.2rem",

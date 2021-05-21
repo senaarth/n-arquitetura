@@ -13,7 +13,7 @@ export default function Solucoes() {
   const arqDesc = (
     <>
       <p>
-        O time da N! Foi configurado para desenvolver projetos de arquitetura
+        O time da N! foi configurado para desenvolver projetos de arquitetura
         que atendam todos os requisitos funcionais, estéticos, simbólicos,
         econômicos e mercadológicos, e ainda, garantir que a aplicação da
         macrofunção sustentabilidade seja um norte que qualifique, diferencie e
@@ -32,7 +32,7 @@ export default function Solucoes() {
       </li>
       <li style={{ marginBottom: "0.1rem" }}>Construir mais rápido,</li>
       <li style={{ marginBottom: "0.1rem" }}>Otimizar os custos e,</li>
-      <li style={{ marginBottom: "0.1rem" }}>
+      <li style={{ marginBottom: "0.1rem", textAlign: "start" }}>
         Diminuir resíduos colaborando para um mundo mais N!.
       </li>
     </>
@@ -140,6 +140,61 @@ export default function Solucoes() {
     </>
   );
 
+  const develTitle = (
+    <>
+      <li style={{ listStyle: "none" }}>DESENVOLVIMENTO</li>
+      <li style={{ listStyle: "none" }}>DE NEGÓCIOS</li>
+    </>
+  );
+
+  const develDesc = (
+    <>
+      A construção civil tem sido uma ferramenta de impulsionamento da economia,
+      seja pelos aspectos econômicos do construir ou pelas condições colocadas
+      no mercado imobiliário que vai do processo de venda até a organização da
+      ocupação, o que percebemos é uma rede muito vasta de possibilidades de
+      negócios.
+      <br />
+      Quando avaliamos esse sistema econômico verticalizado, vimos que a
+      arquitetura e urbanismo se vincula a quase todas as etapas do processo,
+      desde a análise de viabilidade de um terreno até a especificação do sofá
+      na sala de espera de um consultório, nós arquitetos e urbanistas podemos
+      estar presentes.
+      <br />
+      Por essas possibilidades nossa equipe vem se especializando em usar
+      técnica e criatividade para projetos que tenham viés negocial, ou seja,
+      que sejam capazes de produzir ganhos e incremento patrimonial para nossos
+      clientes.
+      <br />
+      Estamos atentos ao mercado, às pessoas e ao novo jeito de morar....Prontos
+      para desenvolver produtos e negócios.
+    </>
+  );
+
+  const regDesc = (
+    <>
+      <p>
+        A N! atua na regularização de áreas já consolidadas e passíveis de tal
+        ordenamento.
+        <br />
+        As ações geralmente são baseadas em:
+      </p>
+      <li style={{ marginBottom: "0.1rem" }}>
+        Levantamento da situação atual;
+      </li>
+      <li style={{ marginBottom: "0.1rem" }}>Avaliação dos aspectos legais;</li>
+      <li style={{ marginBottom: "0.1rem" }}>Análise de conformidades;</li>
+      <li style={{ marginBottom: "0.1rem" }}>
+        Ajustes e adequações à legislação, e;
+      </li>
+      <li style={{ marginBottom: "0.1rem" }}>
+        Acompanhamento junto aos órgãos públicos, inclusive no ministério
+        público subsidiando a elaboração e planejamento de TAC’s (termo de
+        ajuste de conduta) quando necessário.
+      </li>
+    </>
+  );
+
   const menuItems = [
     {
       title: "ARQUITETURA",
@@ -185,6 +240,16 @@ export default function Solucoes() {
       type: "logo",
     },
     {
+      title: develTitle,
+      isActive: false,
+      isLink: true,
+      type: "mobile",
+      content: {
+        title: "DESENVOLVIMENTO DE NEGÓCIOS",
+        description: develDesc,
+      },
+    },
+    {
       title: direitoTitle,
       isActive: false,
       isLink: true,
@@ -195,10 +260,14 @@ export default function Solucoes() {
       },
     },
     {
-      title: "",
+      title: "REGULARIZAÇÕES",
       isActive: false,
-      isLink: false,
-      type: "text",
+      isLink: true,
+      type: "mobile",
+      content: {
+        title: "REGULARIZAÇÕES",
+        description: regDesc,
+      },
     },
     {
       title: "PERÍCIAS",
@@ -209,12 +278,6 @@ export default function Solucoes() {
         title: "PERÍCIAS",
         description: periciasDesc,
       },
-    },
-    {
-      title: "",
-      isActive: false,
-      isLink: false,
-      type: "text",
     },
   ];
 
