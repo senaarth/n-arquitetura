@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <MobileHeader />
       <Header />
       <Component {...pageProps} />
-      <Footer financeKey={"5a1951fa"} />
+      <Footer />
     </>
   );
 }

@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import {
   FaWhatsapp,
   FaLinkedin,
@@ -6,68 +5,16 @@ import {
   FaFacebook,
   FaYoutube,
 } from "react-icons/fa";
-import Carousel from "react-bootstrap/Carousel";
 
-import { getCurrencies } from "../../services/getCurrencies";
 import styles from "./styles.module.scss";
 
-interface FooterProps {
-  financeKey: string;
-}
-
-export function Footer({ financeKey } : FooterProps) {
+export function Footer() {
   const data = new Date();
   const year = data.toDateString().split(" ")[3];
-
-  const [index, selectIndex] = useState(0);
-  const handleSelect = (selectedIndex) => {
-    selectIndex(selectedIndex);
-  };
-
-  const [indices, setIndices] = useState({
-    USD: "",
-    EUR: "",
-    selic: "",
-    BTC: ""
-  });
-
-  useEffect(() => {
-    async function getIndices() {
-      await getCurrencies({ financeKey, setIndices });
-    }
-    getIndices();
-  }, []);
 
   return (
     <footer className={styles.footerContainer}>
       <div className={styles.footerContent}>
-        <div className={styles.indexesContent}>
-          <Carousel
-            activeIndex={index}
-            onSelect={handleSelect}
-            indicators={false}
-            controls={false}
-            interval={7500}
-            className="h-100 w-100 d-flex flex-row align-items-center"
-          >
-          <Carousel.Item>
-            <div className="d-flex flex-row align-items-center justify-content-between w-100 h-100">
-              <p className="m-0">USD {parseFloat(indices.USD).toPrecision(3)}</p>
-              <p className="m-0">EUR {parseFloat(indices.EUR).toPrecision(3)}</p>
-              <p className="m-0">BTC {parseFloat(indices.BTC).toPrecision(3)}k</p>
-              <p className="m-0">ETH 18.5k</p>
-            </div>
-          </Carousel.Item>
-            <Carousel.Item>
-              <div className="d-flex flex-row align-items-center justify-content-between w-100 h-100">
-                <p className="m-0">IGP-M 6.68%</p>
-                <p className="m-0">IPC-A 4.52%</p>
-                <p className="m-0">SELIC {parseFloat(indices.selic).toPrecision(3)}%</p>
-                <p className="m-0">INCC 4.14%</p>
-              </div>
-            </Carousel.Item>
-          </Carousel>
-        </div>
         <div className={styles.contactContent}>
           <div className={styles.socialContainer}>
             <a
