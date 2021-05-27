@@ -29,6 +29,11 @@ export function CarouselItem({
   };
 
   React.useEffect(() => {
+    if (!hasVideo && index >= slidesSources.length) {
+      selectIndex(0);
+    } else if (hasVideo && index > slidesSources.length) {
+      selectIndex(0);
+    }
     setWindowWidth(window.innerWidth);
   });
 
@@ -55,19 +60,49 @@ export function CarouselItem({
             </div>
           </Carousel.Item>
         ))}
+        {hasVideo && windowWidth > 1023 && (
+          <Carousel.Item>
+            <div
+              className={styles.carouselContentContainer}
+              style={{ position: "relative" }}
+              onClick={() => setIsModalOpen(true)}
+            >
+              <Image
+                className={styles.videoPlayImg}
+                src={slidesSources[0]}
+                alt={title}
+                width="1000"
+                height="550"
+                priority
+              />
+              <FaPlayCircle
+                color="white"
+                size={40}
+                className={styles.videoPlayIcon}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  margin: "auto",
+                  cursor: "pointer",
+                }}
+              />
+            </div>
+          </Carousel.Item>
+        )}
       </Carousel>
       <div className={styles.textContainer}>
-        {windowWidth > 1024 && <h5>{title}</h5>}
-        {hasVideo && (
-          <FaPlayCircle
-            color="black"
-            size={20}
-            onClick={() => {
-              setIsModalOpen(true);
-            }}
-            style={{ cursor: "pointer" }}
-          />
-        )}
+        {windowWidth > 1023 && <h5>{title}</h5>}
+        {
+          <h5 style={{ fontSize: "0.9rem", lineHeight: "0.9rem" }}>
+            {index + 1}/
+            {hasVideo && windowWidth > 1023
+              ? slidesSources.length + 1
+              : slidesSources.length}
+          </h5>
+        }
         <Modal
           show={isModalOpen}
           onHide={() => {
