@@ -61,15 +61,45 @@ export function MenuItem(props: MenuItemProps) {
     let icon;
 
     if (props.title === "WHATSAPP") {
-      icon = <FaWhatsapp color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+      icon = (
+        <FaWhatsapp
+          color="black"
+          size={20}
+          style={{ position: "absolute", top: 15, right: 15 }}
+        />
+      );
     } else if (props.title === "INSTAGRAM") {
-      icon = <FaInstagram color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+      icon = (
+        <FaInstagram
+          color="black"
+          size={20}
+          style={{ position: "absolute", top: 15, right: 15 }}
+        />
+      );
     } else if (props.title === "LINKEDIN") {
-      icon = <FaLinkedin color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+      icon = (
+        <FaLinkedin
+          color="black"
+          size={20}
+          style={{ position: "absolute", top: 15, right: 15 }}
+        />
+      );
     } else if (props.title === "YOUTUBE") {
-      icon = <FaYoutube color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+      icon = (
+        <FaYoutube
+          color="black"
+          size={20}
+          style={{ position: "absolute", top: 15, right: 15 }}
+        />
+      );
     } else if (props.title === "FACEBOOK") {
-      icon = <FaFacebook color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+      icon = (
+        <FaFacebook
+          color="black"
+          size={20}
+          style={{ position: "absolute", top: 15, right: 15 }}
+        />
+      );
     }
 
     return (
@@ -281,6 +311,45 @@ export function MenuItem(props: MenuItemProps) {
     );
   }
 
+  if (props.title === "CLIPPING" && props.windowWidth < 1024) {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+      <>
+        <a
+          className={styles.menuItemLogo}
+          style={{
+            ...dynamicStyles,
+            ...hoverStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
+          {props.title}
+        </a>
+        <Modal
+          show={isModalOpen}
+          onHide={() => {
+            setIsModalOpen(false);
+          }}
+          size="lg"
+          style={{ maxWidth: "100%" }}
+          centered
+        >
+          <Modal.Header
+            className={styles.modalHeader}
+            closeButton
+          ></Modal.Header>
+          <Modal.Body>{props.content}</Modal.Body>
+        </Modal>
+      </>
+    );
+  }
+
   if (props.type === "logo" || props.type === "goBack") {
     return props.route ? (
       <Link href="/">
@@ -314,7 +383,7 @@ export function MenuItem(props: MenuItemProps) {
           alignItems: "center",
         }}
         onClick={() => {
-          if (props.content) {
+          if (props.content && props.title !== "CLIPPING") {
             props.setContent(props.content);
           }
         }}
