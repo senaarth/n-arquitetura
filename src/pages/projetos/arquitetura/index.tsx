@@ -31,7 +31,8 @@ export default function Arquitetura() {
     {
       title: "PROJETOS",
       isActive: true,
-      isLink: false,
+      isLink: true,
+      route: "projetos",
       type: "text",
     },
     {

@@ -24,7 +24,8 @@ export default function Urbanismo() {
     {
       title: "PROJETOS",
       isActive: true,
-      isLink: false,
+      isLink: true,
+      route: "projetos",
       type: "text",
     },
     {

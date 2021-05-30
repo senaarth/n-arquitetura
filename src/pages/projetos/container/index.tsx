@@ -47,7 +47,8 @@ export default function Container() {
     {
       title: "PROJETOS",
       isActive: true,
-      isLink: false,
+      isLink: true,
+      route: "projetos",
       type: "text",
     },
     {

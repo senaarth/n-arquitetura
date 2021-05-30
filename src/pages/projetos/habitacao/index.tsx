@@ -55,7 +55,8 @@ export default function Habitacao() {
     {
       title: "PROJETOS",
       isActive: true,
-      isLink: false,
+      isLink: true,
+      route: "projetos",
       type: "text",
     },
     {
