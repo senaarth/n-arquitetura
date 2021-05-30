@@ -27,12 +27,12 @@ export default function Solucoes() {
         Do mesmo modo, a aplicação de novas tecnologias construtivas é uma
         diretriz primária nos nossos projetos e busca principalmente:
       </p>
-      <li style={{ marginBottom: "0.1rem" }}>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
         Usar a tecnologia como caminho estético,
       </li>
-      <li style={{ marginBottom: "0.1rem" }}>Construir mais rápido,</li>
-      <li style={{ marginBottom: "0.1rem" }}>Otimizar os custos e,</li>
-      <li style={{ marginBottom: "0.1rem", textAlign: "start" }}>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Construir mais rápido,</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Otimizar os custos e,</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
         Diminuir resíduos colaborando para um mundo mais N!.
       </li>
     </>
@@ -76,11 +76,11 @@ export default function Solucoes() {
       <br />
       Os estudos de viabilidade podem se configurar de diversas maneiras, como
       exemplo:
-      <li style={{ marginBottom: "0.1rem" }}>Viabilidade Mercadológica;</li>
-      <li style={{ marginBottom: "0.1rem" }}>Viabilidade Urbanística;</li>
-      <li style={{ marginBottom: "0.1rem" }}>Viabilidade Financeira;</li>
-      <li style={{ marginBottom: "0.1rem" }}>Viabilidade Ambiental;</li>
-      <li style={{ marginBottom: "0.1rem" }}>etc.</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Mercadológica;</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Urbanística;</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Financeira;</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Ambiental;</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>etc.</li>
       <p>
         No geral nossos estudos apresentam visões multidiscplinares que
         contemplam uma diversidade de fatores que quando avaliados em conjunto
@@ -147,6 +147,14 @@ export default function Solucoes() {
     </>
   );
 
+  const periciasTitle = (
+    <>
+      <li style={{ listStyle: "none" }}>PERÍCIAS</li>
+      <li style={{ listStyle: "none" }}>E</li>
+      <li style={{ listStyle: "none" }}>AVALIAÇÕES</li>
+    </>
+  );
+
   const develDesc = (
     <>
       A construção civil tem sido uma ferramenta de impulsionamento da economia,
@@ -179,15 +187,15 @@ export default function Solucoes() {
         <br />
         As ações geralmente são baseadas em:
       </p>
-      <li style={{ marginBottom: "0.1rem" }}>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
         Levantamento da situação atual;
       </li>
-      <li style={{ marginBottom: "0.1rem" }}>Avaliação dos aspectos legais;</li>
-      <li style={{ marginBottom: "0.1rem" }}>Análise de conformidades;</li>
-      <li style={{ marginBottom: "0.1rem" }}>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Avaliação dos aspectos legais;</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Análise de conformidades;</li>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
         Ajustes e adequações à legislação, e;
       </li>
-      <li style={{ marginBottom: "0.1rem" }}>
+      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
         Acompanhamento junto aos órgãos públicos, inclusive no ministério
         público subsidiando a elaboração e planejamento de TAC’s (termo de
         ajuste de conduta) quando necessário.
@@ -270,7 +278,7 @@ export default function Solucoes() {
       },
     },
     {
-      title: "PERÍCIAS",
+      title: periciasTitle,
       isActive: false,
       isLink: true,
       type: "mobile",
