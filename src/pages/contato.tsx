@@ -4,28 +4,32 @@ import Head from "next/head";
 export default function Solucoes() {
   const menuItems = [
     {
-      title: "",
+      title: "YOUTUBE",
       isActive: false,
-      isLink: false,
-      type: "text",
+      isLink: true,
+      route: "https://www.youtube.com/channel/UCFzQXHqQYS0IPLQNyJrBZLw",
+      type: "contact",
     },
     {
-      title: "",
+      title: "LINKEDIN",
       isActive: false,
-      isLink: false,
-      type: "text",
+      isLink: true,
+      route: "https://www.linkedin.com/company/n-arquitetura-gestão-e-negócios/",
+      type: "contact",
     },
     {
-      title: "",
+      title: "INSTAGRAM",
+      route: "https://www.instagram.com/n_arquiteturaegestao/",
       isActive: false,
-      isLink: false,
-      type: "text",
+      isLink: true,
+      type: "contact",
     },
     {
-      title: "",
+      title: "FACEBOOK",
       isActive: false,
-      isLink: false,
-      type: "text",
+      isLink: true,
+      route: "https://www.facebook.com/n.arquiteturaegestao",
+      type: "contact",
     },
     {
       title: "logo",
@@ -35,10 +39,11 @@ export default function Solucoes() {
       type: "logo",
     },
     {
-      title: "",
+      title: "WHATSAPP",
       isActive: false,
       isLink: false,
-      type: "text",
+      route: "https://wa.me/message/7NQ43WFZRLHKE1",
+      type: "contact",
     },
     {
       title: "",

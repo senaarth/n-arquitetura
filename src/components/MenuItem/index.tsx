@@ -3,6 +3,13 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { Dispatch, ReactElement, SetStateAction, useState } from "react";
 import Modal from "react-bootstrap/Modal";
+import {
+  FaWhatsapp,
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+} from "react-icons/fa";
 
 import styles from "./styles.module.scss";
 import { CarouselItem } from "../CarouselItem";
@@ -48,6 +55,46 @@ export function MenuItem(props: MenuItemProps) {
       ...dynamicStyles,
       filter: "none",
     };
+  }
+
+  if (props.type === "contact") {
+    let icon;
+
+    if (props.title === "WHATSAPP") {
+      icon = <FaWhatsapp color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+    } else if (props.title === "INSTAGRAM") {
+      icon = <FaInstagram color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+    } else if (props.title === "LINKEDIN") {
+      icon = <FaLinkedin color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+    } else if (props.title === "YOUTUBE") {
+      icon = <FaYoutube color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+    } else if (props.title === "FACEBOOK") {
+      icon = <FaFacebook color="black" size={20} style={{ position: "absolute", top: 15, right: 15 }} />;
+    }
+
+    return (
+      <a
+        className={styles.menuItem}
+        style={{
+          ...dynamicStyles,
+          ...hoverStyle,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          position: "relative",
+          cursor: "pointer",
+        }}
+        target="blank"
+        href={props.route}
+        onClick={() => {
+          if (props.content) {
+            props.setContent(props.content);
+          }
+        }}
+      >
+        {icon}
+      </a>
+    );
   }
 
   if (props.type === "mobile") {
