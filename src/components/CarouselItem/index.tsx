@@ -23,6 +23,8 @@ export function CarouselItem({
   const [index, selectIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
+  const [videoPlay, setVideoPlay] = useState(false);
+  const video = document.querySelector("video");
 
   const handleSelect = (selectedIndex) => {
     selectIndex(selectedIndex);
@@ -60,12 +62,21 @@ export function CarouselItem({
             </div>
           </Carousel.Item>
         ))}
-        {hasVideo && windowWidth > 1023 && (
+        {hasVideo && (
           <Carousel.Item>
             <div
               className={styles.carouselContentContainer}
               style={{ position: "relative" }}
-              onClick={() => setIsModalOpen(true)}
+              onClick={() => {
+                if (windowWidth > 1023) {
+                  setIsModalOpen(true);
+                  return;
+                }
+                setVideoPlay(true);
+                if (video.requestFullscreen) {
+                  video.requestFullscreen();
+                }
+              }}
             >
               <Image
                 className={styles.videoPlayImg}
@@ -89,6 +100,26 @@ export function CarouselItem({
                   cursor: "pointer",
                 }}
               />
+              <ReactPlayer
+                playing={videoPlay}
+                url={videoSource}
+                controls={true}
+                progressInterval={500}
+                style={{
+                  width: 0,
+                  height: 0,
+                  maxHeight: 0,
+                  maxWidth: 0,
+                }}
+                onProgress={() => {
+                  if (video && video.offsetHeight === 0) {
+                    setVideoPlay(false);
+                  }
+                }}
+                onEnded={() => {
+                  setVideoPlay(false);
+                }}
+              />
             </div>
           </Carousel.Item>
         )}
@@ -98,9 +129,7 @@ export function CarouselItem({
         {
           <h5 style={{ fontSize: "0.9rem", lineHeight: "0.9rem" }}>
             {index + 1}/
-            {hasVideo && windowWidth > 1023
-              ? slidesSources.length + 1
-              : slidesSources.length}
+            {hasVideo ? slidesSources.length + 1 : slidesSources.length}
           </h5>
         }
         <Modal

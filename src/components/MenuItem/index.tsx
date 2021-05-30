@@ -223,7 +223,7 @@ export function MenuItem(props: MenuItemProps) {
             ) : (
               <CarouselItem
                 slidesSources={props.content.carouselProps.slidesSources}
-                hasVideo={false}
+                hasVideo={props.content.carouselProps.hasVideo}
                 videoSource={props.content.carouselProps.videoSource}
                 title={props.content.carouselProps.title}
               />
