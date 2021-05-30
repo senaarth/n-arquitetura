@@ -39,7 +39,7 @@ export default function Arquitetura() {
       title: "PROJETO CSJ",
       isActive: false,
       isLink: true,
-      path: "projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 101-100x55.png",
+      path: "projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-bottom.png",
       type: "project",
       content: {
         carouselProps: {
@@ -94,6 +94,9 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/adm/antes depois wcm.png",
           ],
           title: "PROJETO ADM",
+          hasVideo: true,
+          videoSource:
+            "/static/images/projetos/arquitetura/adm/video reforma adm.mp4",
         },
       },
     },
@@ -101,11 +104,12 @@ export default function Arquitetura() {
       title: "PROJETO FAT",
       isActive: false,
       isLink: true,
-      path: "projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 101-100x55.png",
+      path: "projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-bottom.png",
       type: "project",
       content: {
         carouselProps: {
           slidesSources: [
+            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-bottom.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 101-100x55.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 102-100x55.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 103-100x55.png",
@@ -125,7 +129,6 @@ export default function Arquitetura() {
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 117-100x55.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 118-100x55.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 119-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-bottom.png",
           ],
           title: "PROJETO FAT",
         },
