@@ -10,7 +10,8 @@ import styles from "./styles.module.scss";
 interface CarouselProps {
   hasVideo: boolean;
   slidesSources: string[];
-  videoSource: string;
+  videoSource?: string;
+  videoPreview?: string;
   title: string;
 }
 
@@ -19,6 +20,7 @@ export function CarouselItem({
   hasVideo,
   videoSource,
   title,
+  videoPreview
 }: CarouselProps) {
   const [index, selectIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -80,7 +82,7 @@ export function CarouselItem({
             >
               <Image
                 className={styles.videoPlayImg}
-                src={slidesSources[0]}
+                src={videoPreview}
                 alt={title}
                 width="1000"
                 height="550"

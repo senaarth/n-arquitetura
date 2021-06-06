@@ -44,7 +44,7 @@ export default function Arquitetura() {
       content: {
         carouselProps: {
           slidesSources: [
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-bottom.png",
+            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 101-100x55.png",
             "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 102-100x55.png",
             "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 103-100x55.png",
             "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 104-100x55.png",
@@ -55,6 +55,8 @@ export default function Arquitetura() {
           hasVideo: true,
           videoSource:
             "/static/images/projetos/arquitetura/csj/video retrofit samonte.mp4",
+          videoPreview:
+            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-bottom.png",
           title: "PROJETO CSJ",
         },
       },
@@ -97,6 +99,8 @@ export default function Arquitetura() {
           hasVideo: true,
           videoSource:
             "/static/images/projetos/arquitetura/adm/video reforma adm.mp4",
+          videoPreview:
+            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 108-100x55.png",
         },
       },
     },
@@ -109,7 +113,6 @@ export default function Arquitetura() {
       content: {
         carouselProps: {
           slidesSources: [
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-bottom.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 101-100x55.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 102-100x55.png",
             "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 103-100x55.png",

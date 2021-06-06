@@ -46,7 +46,6 @@ export default function Habitacao() {
             "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 107-100x55.png",
             "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 108-100x55.png",
             "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 109-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-bottom.png",
           ],
           title: "PROJETO RBR"
         },

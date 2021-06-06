@@ -16,7 +16,8 @@ interface MenuItem {
 interface CarouselProps {
   slidesSources: string[];
   hasVideo: boolean;
-  videoSource: string;
+  videoSource?: string;
+  videoPreview?: string;
   title: string;
 }
 

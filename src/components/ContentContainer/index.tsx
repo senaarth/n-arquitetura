@@ -6,7 +6,8 @@ import styles from "./styles.module.scss";
 interface CarouselProps {
   slidesSources: string[];
   hasVideo: boolean;
-  videoSource: string;
+  videoSource?: string;
+  videoPreview?: string;
   title: string;
 }
 
@@ -32,6 +33,7 @@ export function ContentContainer(props: ContentProps) {
         <CarouselItem
           slidesSources={props.carouselProps.slidesSources}
           hasVideo={props.carouselProps.hasVideo}
+          videoPreview={props.carouselProps.videoPreview}
           videoSource={props.carouselProps.videoSource}
           title={props.title}
         />
