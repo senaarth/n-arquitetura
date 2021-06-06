@@ -27,12 +27,44 @@ export default function Solucoes() {
         Do mesmo modo, a aplicação de novas tecnologias construtivas é uma
         diretriz primária nos nossos projetos e busca principalmente:
       </p>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
         Usar a tecnologia como caminho estético,
       </li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Construir mais rápido,</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Otimizar os custos e,</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Construir mais rápido,
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Otimizar os custos e,
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
         Diminuir resíduos colaborando para um mundo mais N!.
       </li>
     </>
@@ -76,11 +108,56 @@ export default function Solucoes() {
       <br />
       Os estudos de viabilidade podem se configurar de diversas maneiras, como
       exemplo:
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Mercadológica;</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Urbanística;</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Financeira;</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Viabilidade Ambiental;</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>etc.</li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Viabilidade Mercadológica;
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Viabilidade Urbanística;
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Viabilidade Financeira;
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Viabilidade Ambiental;
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        etc.
+      </li>
       <p>
         No geral nossos estudos apresentam visões multidiscplinares que
         contemplam uma diversidade de fatores que quando avaliados em conjunto
@@ -187,15 +264,54 @@ export default function Solucoes() {
         <br />
         As ações geralmente são baseadas em:
       </p>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
         Levantamento da situação atual;
       </li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Avaliação dos aspectos legais;</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>Análise de conformidades;</li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Avaliação dos aspectos legais;
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
+        Análise de conformidades;
+      </li>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
         Ajustes e adequações à legislação, e;
       </li>
-      <li style={{ marginBottom: "0.1rem", marginLeft: "auto", marginRight: "auto", textAlign: "center" }}>
+      <li
+        style={{
+          marginBottom: "0.1rem",
+          marginLeft: "auto",
+          marginRight: "auto",
+          paddingLeft: "1.4rem",
+        }}
+      >
         Acompanhamento junto aos órgãos públicos, inclusive no ministério
         público subsidiando a elaboração e planejamento de TAC’s (termo de
         ajuste de conduta) quando necessário.
