@@ -26,6 +26,7 @@ interface ContentProps {
   description?: string;
   carouselProps?: CarouselProps;
   mobileDescription?: string;
+  hasForm?: boolean;
 }
 
 interface MenuProps {
@@ -55,6 +56,7 @@ export function MainContainer({
           description={contentProps?.description}
           carouselProps={contentProps?.carouselProps}
           mobileDescription={contentProps?.mobileDescription}
+          hasForm={contentProps?.hasForm}
         />
       </div>
     </main>

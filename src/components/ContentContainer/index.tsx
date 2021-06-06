@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CarouselItem } from "../CarouselItem/";
+import { ContactForm } from "../ContactForm/";
 import styles from "./styles.module.scss";
 
 interface CarouselProps {
@@ -15,6 +16,7 @@ interface ContentProps {
   description?: string;
   carouselProps?: CarouselProps;
   mobileDescription?: string;
+  hasForm?: boolean;
 }
 
 export function ContentContainer(props: ContentProps) {
@@ -35,9 +37,15 @@ export function ContentContainer(props: ContentProps) {
         />
       ) : (
         <div className={styles.content}>
-          <h1 className={styles.title}>{props.title}</h1>
-          <h2 className={styles.subtitle}>{props.subtitle}</h2>
-          <p className={styles.description}>{props.description}</p>
+          {props.hasForm ? (
+            <ContactForm />
+          ) : (
+            <>
+              <h1 className={styles.title}>{props.title}</h1>
+              <h2 className={styles.subtitle}>{props.subtitle}</h2>
+              <p className={styles.description}>{props.description}</p>
+            </>
+          )}
         </div>
       )}
     </div>

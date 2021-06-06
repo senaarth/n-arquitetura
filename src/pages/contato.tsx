@@ -1,5 +1,5 @@
-import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
+import { MainContainer } from "../components/MainContainer";
 
 export default function Solucoes() {
   const menuItems = [
@@ -46,10 +46,10 @@ export default function Solucoes() {
       type: "contact",
     },
     {
-      title: "",
+      title: "ENVIAR MENSAGEM",
       isActive: false,
       isLink: false,
-      type: "text",
+      type: "contact",
     },
     {
       title: "",
@@ -70,7 +70,7 @@ export default function Solucoes() {
       <Head>
         <title>Contato | N!</title>
       </Head>
-      <MainContainer menuItems={menuItems} />
+      <MainContainer menuItems={menuItems} contentProps={{ hasForm: true }} />
     </>
   );
 }

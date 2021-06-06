@@ -13,6 +13,7 @@ import {
 
 import styles from "./styles.module.scss";
 import { CarouselItem } from "../CarouselItem";
+import { ContactForm } from "../ContactForm";
 
 interface CarouselProps {
   hasVideo: boolean;
@@ -55,6 +56,62 @@ export function MenuItem(props: MenuItemProps) {
       ...dynamicStyles,
       filter: "none",
     };
+  }
+
+  if (props.type === "contact" && props.title === "ENVIAR MENSAGEM") {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+      <>
+        <a
+          className={styles.menuItem}
+          style={{
+            ...dynamicStyles,
+            ...hoverStyle,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            filter: props.windowWidth > 1023 && "none",
+          }}
+          onClick={() => {
+            if (props.windowWidth < 1024) {
+              setIsModalOpen(true);
+              return;
+            }
+          }}
+        >
+          {props.windowWidth < 1024 ? props.title : ""}
+        </a>
+        <Modal
+          show={isModalOpen}
+          onHide={() => {
+            setIsModalOpen(false);
+          }}
+          size="lg"
+          style={{ maxWidth: "100%" }}
+          centered
+        >
+          <Modal.Header
+            className={styles.modalHeader}
+            closeButton
+          ></Modal.Header>
+          <Modal.Body>
+            <div
+              style={{
+                textAlign: "center",
+                width: "100%",
+                margin: "0 auto",
+                listStyle: "none",
+                paddingTop: "1rem",
+                paddingBottom: "1rem",
+              }}
+            >
+              <ContactForm />
+            </div>
+          </Modal.Body>
+        </Modal>
+      </>
+    );
   }
 
   if (props.type === "contact") {
