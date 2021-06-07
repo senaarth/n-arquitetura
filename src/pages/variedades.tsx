@@ -2,15 +2,28 @@ import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
 import React, { useState } from "react";
 
-export default function Clipping() {
-  const [content, setContent] = useState({});
+interface ContentProps {
+  title?: string;
+  description?: string;
+}
 
-  const description = (
+export default function Clipping() {
+  const [contentProps, setContentProps] = useState({} as ContentProps);
+
+  const clipping = (
     <>
       <li style={{ listStyle: "none" }}>
-        <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
           <h5 style={{ margin: 0 }}>Lorem Ipsum</h5>
-          <a style={{ marginLeft: 10, color: "var(--red)", cursor: "pointer" }}>Ver Mais</a>
+          <a style={{ marginLeft: 10, color: "var(--red)", cursor: "pointer" }}>
+            Ver Mais
+          </a>
         </div>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -20,9 +33,17 @@ export default function Clipping() {
         </p>
       </li>
       <li style={{ listStyle: "none" }}>
-        <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
           <h5 style={{ margin: 0 }}>Lorem Ipsum</h5>
-          <a style={{ marginLeft: 10, color: "var(--red)", cursor: "pointer" }}>Ver Mais</a>
+          <a style={{ marginLeft: 10, color: "var(--red)", cursor: "pointer" }}>
+            Ver Mais
+          </a>
         </div>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -32,9 +53,17 @@ export default function Clipping() {
         </p>
       </li>
       <li style={{ listStyle: "none" }}>
-        <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
           <h5 style={{ margin: 0 }}>Lorem Ipsum</h5>
-          <a style={{ marginLeft: 10, color: "var(--red)", cursor: "pointer" }}>Ver Mais</a>
+          <a style={{ marginLeft: 10, color: "var(--red)", cursor: "pointer" }}>
+            Ver Mais
+          </a>
         </div>
         <p>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -46,35 +75,32 @@ export default function Clipping() {
     </>
   );
 
-  React.useEffect(() => {
-    setContent({
-      description,
-    });
-  }, []);
-
   const menuItems = [
     {
-      title: "",
-      isActive: false,
-      isLink: false,
-      type: "text",
-    },
-    {
-      title: "",
-      isActive: false,
-      isLink: false,
-      type: "text",
-    },
-    {
-      title: "",
-      isActive: false,
-      isLink: false,
-      type: "text",
-    },
-    {
       title: "CLIPPING",
+      isActive: false,
+      isLink: false,
+      type: "mobile",
+      content: {
+        description: clipping,
+      },
+    },
+    {
+      title: "",
+      isActive: false,
+      isLink: false,
+      type: "text",
+    },
+    {
+      title: "",
+      isActive: false,
+      isLink: false,
+      type: "text",
+    },
+    {
+      title: "VARIEDADES",
       isActive: true,
-      isLink: true,
+      isLink: false,
       type: "text",
     },
     {
@@ -115,7 +141,11 @@ export default function Clipping() {
       <Head>
         <title>Clipping | N!</title>
       </Head>
-      <MainContainer menuItems={menuItems} contentProps={content} />
+      <MainContainer
+        menuItems={menuItems}
+        contentProps={contentProps}
+        setContentProps={setContentProps}
+      />
     </>
   );
 }

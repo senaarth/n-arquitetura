@@ -193,7 +193,7 @@ export function MenuItem(props: MenuItemProps) {
           className={styles.menuItem}
           style={{
             ...dynamicStyles,
-            ...hoverStyle,
+            cursor: "pointer",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -363,45 +363,6 @@ export function MenuItem(props: MenuItemProps) {
               />
             )}
           </Modal.Body>
-        </Modal>
-      </>
-    );
-  }
-
-  if (props.title === "CLIPPING" && props.windowWidth < 1024) {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    return (
-      <>
-        <a
-          className={styles.menuItemLogo}
-          style={{
-            ...dynamicStyles,
-            ...hoverStyle,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-          onClick={() => {
-            setIsModalOpen(true);
-          }}
-        >
-          {props.title}
-        </a>
-        <Modal
-          show={isModalOpen}
-          onHide={() => {
-            setIsModalOpen(false);
-          }}
-          size="lg"
-          style={{ maxWidth: "100%" }}
-          centered
-        >
-          <Modal.Header
-            className={styles.modalHeader}
-            closeButton
-          ></Modal.Header>
-          <Modal.Body>{props.content}</Modal.Body>
         </Modal>
       </>
     );

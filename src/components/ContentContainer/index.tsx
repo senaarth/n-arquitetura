@@ -45,7 +45,7 @@ export function ContentContainer(props: ContentProps) {
             <>
               <h1 className={styles.title}>{props.title}</h1>
               <h2 className={styles.subtitle}>{props.subtitle}</h2>
-              <p className={styles.description}>{props.description}</p>
+              <div className={styles.description}>{props.description}</div>
             </>
           )}
         </div>
@@ -56,7 +56,7 @@ export function ContentContainer(props: ContentProps) {
   const mobileContent = (
     <div className={styles.contentContainer} style={{ fontSize: "0.7rem" }}>
       <div className={styles.content}>
-        <p>{props.mobileDescription}</p>
+        <div>{props.mobileDescription}</div>
       </div>
     </div>
   );
