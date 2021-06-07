@@ -231,10 +231,10 @@ export function MenuItem(props: MenuItemProps) {
                 paddingTop: "1rem",
               }}
             >
-              <p className={styles.modalDescription}>
+              <div className={styles.modalDescription}>
                 <h1>{props.content.title}</h1>
                 {props.content.description}
-              </p>
+              </div>
             </div>
           </Modal.Body>
         </Modal>

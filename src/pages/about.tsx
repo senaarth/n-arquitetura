@@ -22,23 +22,23 @@ export default function About() {
     <>
       <h1 style={{ fontSize: "1.1rem" }}>MISSÃO</h1>
       <p style={{ fontSize: "0.9rem" }}>
-        APLICAR A ARQUITETURA E O URBANISMO APOIADOS EM UMA VISÃO
-        MULTIDISCIPLINAR VALORIZANDO ATIVOS IMOBILIÁRIOS E PROMOVENDO GANHOS E
-        CRESCIMENTO PATRIMONIAL AOS NOSSO CLIENTES.
+        Aplicar a arquitetura e o urbanismo apoiados em uma visão
+        multidisciplinar valorizando ativos imobiliários e promovendo ganhos e
+        crescimento patrimonial aos nosso clientes.
       </p>
       <h1 style={{ fontSize: "1.1rem", marginTop: "1rem" }}>VISÃO</h1>
       <p style={{ fontSize: "0.9rem" }}>
-        SE POSICIONAR COMO CONSULTORIA REFERÊNCIA EM PROJETOS IMOBILIÁRIOS.
+        Se posicionar como consultoria referência em projetos imobiliários.
       </p>
       <h1 style={{ fontSize: "1.1rem", marginTop: "1rem" }}>VALORES</h1>
       <>
-        <li style={{ fontSize: "0.9rem" }}>AGILIDADE COMO ESTRATÉGIA;</li>
-        <li style={{ fontSize: "0.9rem" }}>TRANSPARÊNCIA COMO SEGURANÇA;</li>
-        <li style={{ fontSize: "0.9rem" }}>EQUILÍBRIO COMO FORÇA;</li>
+        <li style={{ fontSize: "0.9rem" }}>Agilidade como estratégia;</li>
+        <li style={{ fontSize: "0.9rem" }}>Transparência como segurança;</li>
+        <li style={{ fontSize: "0.9rem" }}>Equilíbrio como força;</li>
         <li style={{ fontSize: "0.9rem" }}>
-          SUSTENTABILIDADE AGREGANDO VALOR;
+          Sustentabilidade agregando valor;
         </li>
-        <li style={{ fontSize: "0.9rem" }}>NEGÓCIOS PRIORIZANDO PESSOAS;</li>
+        <li style={{ fontSize: "0.9rem" }}>Negócios priorizando pessoas;</li>
       </>
     </>
   );
