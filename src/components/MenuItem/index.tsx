@@ -38,6 +38,7 @@ interface MenuItemProps {
   type: string;
   setContent?: Dispatch<SetStateAction<ContentProps>>;
   windowWidth?: number;
+  filePath?: string;
 }
 
 export function MenuItem(props: MenuItemProps) {
@@ -390,6 +391,26 @@ export function MenuItem(props: MenuItemProps) {
     );
   }
 
+  if (props.type === "investir") {
+    return (
+      <a
+        className={styles.menuItem}
+        style={{
+          ...dynamicStyles,
+          cursor: "pointer",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+        onClick={() => {
+          console.log(props.filePath);
+        }}
+      >
+        {props.title}
+      </a>
+    );
+  }
+
   return props.route ? (
     <Link href={`/${props.route}`}>
       <a
@@ -414,7 +435,7 @@ export function MenuItem(props: MenuItemProps) {
       className={styles.menuItem}
       style={{
         ...dynamicStyles,
-        ...hoverStyle,
+        cursor: "pointer",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -422,6 +443,9 @@ export function MenuItem(props: MenuItemProps) {
       onClick={() => {
         if (props.content) {
           props.setContent(props.content);
+        }
+        if (props.filePath) {
+          window.open(props.filePath);
         }
       }}
     >

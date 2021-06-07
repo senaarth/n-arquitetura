@@ -11,6 +11,7 @@ interface MenuItem {
   route?: string;
   path?: string;
   type: string;
+  filePath?: string;
 }
 
 interface CarouselProps {

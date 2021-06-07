@@ -28,6 +28,7 @@ export default function Invest() {
       isActive: false,
       isLink: false,
       type: "text",
+      filePath: "/static/div-promocao-zema-2018-12-02.pdf",
     },
     {
       title: "",
