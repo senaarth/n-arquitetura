@@ -104,3 +104,19 @@ a {
     }
   }
 }
+
+*::-webkit-input-placeholder {
+  font-family: 'Calibri', sans-serif;
+}
+
+*:-ms-input-placeholder {
+  font-family: 'Calibri', sans-serif;
+}
+
+*:-moz-placeholder {
+  font-family: 'Calibri', sans-serif;
+}
+
+*::-moz-placeholder {
+  font-family: 'Calibri', sans-serif;
+}
