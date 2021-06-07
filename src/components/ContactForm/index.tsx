@@ -35,7 +35,7 @@ export function ContactForm() {
     };
 
     await axios
-      .post("http://localhost:3000/api/mail", mail, {
+      .post("/api/mail", mail, {
         headers: {
           "Content-Type": "application/json",
         },

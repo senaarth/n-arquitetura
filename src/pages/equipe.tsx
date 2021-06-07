@@ -26,7 +26,7 @@ export default function Equipe() {
         title: "NELTON KETI BORGES",
         subtitle: "Arquiteto e Urbanista",
         description:
-          "Possui pós-graduação em reabilitação ambiental pela faculdade de arquitetura e urbanismo pela universidade de Brasília onde também adquiriu sua graduação (2002). Com 17 (dezessete) anos de docência, ajudou a estruturar os principais cursos de arquitetura e urbanismo do df e colaborou para a formação de uma grande quantidade de profissionais. É proprietário da N! Arquitetura Gestão e Negócios com experiência na área de arquitetura e urbanismo com ênfase em planejamento e projetos da edificação. As atividades profissionais são divididas entre o campo teórico e o prático, atuando no mercado da construção civil tanto na elaboração de projetos arquitetônicos quanto na viabilização, compatibilização e construção de empreendimentos.",
+          "Possui pós-graduação em reabilitação ambiental pela faculdade de arquitetura e urbanismo pela universidade de Brasília onde também adquiriu sua graduação (2002). Com 17 (dezessete) anos de docência, ajudou a estruturar os principais cursos de arquitetura e urbanismo do DF e colaborou para a formação de uma grande quantidade de profissionais. É proprietário da N! Arquitetura Gestão e Negócios com experiência na área de arquitetura e urbanismo com ênfase em planejamento e projetos da edificação. As atividades profissionais são divididas entre o campo teórico e o prático, atuando no mercado da construção civil tanto na elaboração de projetos arquitetônicos quanto na viabilização, compatibilização e construção de empreendimentos.",
       },
     },
     {
