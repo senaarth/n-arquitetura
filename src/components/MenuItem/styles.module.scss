@@ -21,6 +21,16 @@
     height: 100%;
   }
 
+  li {
+    list-style: none;
+  }
+
+  ol,
+  ul,
+  p {
+    margin: 0;
+  }
+
   &:hover {
     text-decoration: none;
     filter: brightness(0.9);
@@ -101,5 +111,19 @@
 
   li {
     list-style-type: disc;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ol,
+  ul {
+    margin: 0.5rem 0;
+    padding-left: 2rem;
+  }
+
+  p + h1 {
+    margin: 0.5rem 0;
   }
 }

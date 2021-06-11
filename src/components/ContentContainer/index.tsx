@@ -45,7 +45,10 @@ export function ContentContainer(props: ContentProps) {
             <>
               <h1 className={styles.title}>{props.title}</h1>
               <h2 className={styles.subtitle}>{props.subtitle}</h2>
-              <div className={styles.description}>{props.description}</div>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: props.description }}
+              />
             </>
           )}
         </div>

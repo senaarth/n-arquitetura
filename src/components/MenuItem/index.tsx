@@ -226,7 +226,7 @@ export function MenuItem(props: MenuItemProps) {
             <div
               style={{
                 textAlign: "center",
-                width: "80%",
+                width: "90%",
                 margin: "0 auto",
                 listStyle: "none",
                 paddingTop: "1rem",
@@ -234,7 +234,11 @@ export function MenuItem(props: MenuItemProps) {
             >
               <div className={styles.modalDescription}>
                 <h1>{props.content.title}</h1>
-                {props.content.description}
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: props.content.description,
+                  }}
+                />
               </div>
             </div>
           </Modal.Body>
@@ -435,7 +439,6 @@ export function MenuItem(props: MenuItemProps) {
       className={styles.menuItem}
       style={{
         ...dynamicStyles,
-        cursor: "pointer",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
