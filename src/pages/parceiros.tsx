@@ -5,28 +5,35 @@ import getPrismicClient from "../services/prismic";
 import { RichText } from "prismic-dom";
 import Prismic from "@prismicio/client";
 
-export default function Parceiros() {
-  const menuItems = [
+type Parceiro = {
+  place: number;
+  title: string;
+  imgUrl: string;
+};
+
+interface ParceirosProps {
+  parceiros: Parceiro[];
+}
+
+export default function Parceiros({ parceiros }: ParceirosProps) {
+  const emptyMenu = [
     {
       title: "",
       isActive: false,
       isLink: false,
-      path: "katai_logo.png",
-      type: "imageContainer",
+      type: "text",
     },
     {
       title: "",
       isActive: false,
       isLink: false,
-      path: "imo-logo.jpg",
-      type: "imageContainer",
+      type: "text",
     },
     {
       title: "",
       isActive: false,
       isLink: false,
-      path: "cima_logo.png",
-      type: "imageContainer",
+      type: "text",
     },
     {
       title: "",
@@ -45,8 +52,7 @@ export default function Parceiros() {
       title: "",
       isActive: false,
       isLink: false,
-      path: "allsix_logo.png",
-      type: "imageContainer",
+      type: "text",
     },
     {
       title: "",
@@ -67,6 +73,27 @@ export default function Parceiros() {
       type: "text",
     },
   ];
+
+  const parceirosContent = parceiros.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        title: item.title,
+        isActive: false,
+        isLink: false,
+        path: item.imgUrl,
+        type: "imageContainer",
+      },
+    ];
+  }, []);
+
+  let menuItems = emptyMenu;
+
+  parceiros.forEach((value, index) => {
+    if (value.place !== 5 && value.place !== 8) {
+      menuItems[value.place - 1] = parceirosContent[index];
+    }
+  });
 
   return (
     <>
@@ -92,7 +119,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       place: post.data.place,
       title: RichText.asText(post.data.title),
-      imgUrl: post.data.logo.url
+      imgUrl: post.data.logo.url,
     };
   });
 

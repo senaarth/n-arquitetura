@@ -259,7 +259,7 @@ export function MenuItem(props: MenuItemProps) {
         }}
       >
         <img
-          src={`/static/images/${props.path}`}
+          src={`${props.path}`}
           alt={`${props.title}`}
           className={styles.partnerLogo}
         />
