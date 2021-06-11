@@ -305,13 +305,11 @@ export function MenuItem(props: MenuItemProps) {
             setIsModalOpen(true);
           }}
         >
-          <Image
-            src={`/static/images/${props.path}`}
+          <img
+            src={props.type === "teamMember" ? `${props.path}` : `/static/images/${props.path}`}
             alt={`${props.title}`}
             className={styles.teamMember}
             id="grayScalable"
-            priority
-            layout="fill"
           />
         </a>
         <Modal
@@ -336,7 +334,7 @@ export function MenuItem(props: MenuItemProps) {
             {props.type === "teamMember" ? (
               <>
                 <img
-                  src={`/static/images/${props.path}`}
+                  src={`${props.path}`}
                   alt={`${props.title}`}
                   style={{
                     width: "100%",
@@ -439,6 +437,7 @@ export function MenuItem(props: MenuItemProps) {
       className={styles.menuItem}
       style={{
         ...dynamicStyles,
+        filter: "none",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
