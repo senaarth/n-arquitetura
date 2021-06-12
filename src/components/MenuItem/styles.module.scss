@@ -101,6 +101,12 @@
 
   * {
     font-family: "Calibri" !important;
+    text-decoration: none !important;
+  }
+
+  h1, h2, h3, h4, h5 {
+    margin: 0;
+    margin-bottom: 0.4rem;
   }
 
   h1 {
@@ -123,7 +129,16 @@
     padding-left: 2rem;
   }
 
-  p + h1 {
-    margin: 0.5rem 0;
+  p + p {
+    margin-top: 0.4rem;
+  }
+
+  p + h5 {
+    margin-top: 0.4rem;
+  }
+
+  strong {
+    font-size: 1rem;
+    color: var(--red-500);
   }
 }
