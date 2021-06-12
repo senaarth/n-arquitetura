@@ -335,7 +335,12 @@ export function MenuItem(props: MenuItemProps) {
           ></Modal.Header>
           <Modal.Body>
             {props.type === "teamMember" ? (
-              <>
+              <div style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                alignSelf: "center"
+              }}>
                 <img
                   src={`${props.path}`}
                   alt={`${props.title}`}
@@ -349,17 +354,18 @@ export function MenuItem(props: MenuItemProps) {
                   }}
                 />
                 <h5 style={{ textAlign: "center" }}>{props.content.title}</h5>
-                <p
+                <div
                   style={{
                     fontSize: "0.9rem",
                     margin: 0,
                     paddingBottom: "1.2rem",
                   }}
                   className={styles.modalDescription}
-                >
-                  {props.content.description}
-                </p>
-              </>
+                  dangerouslySetInnerHTML={{
+                    __html: props.content.description,
+                  }}
+                />
+              </div>
             ) : (
               <CarouselItem
                 slidesSources={props.content.carouselProps.slidesSources}
