@@ -59,7 +59,9 @@ export function ContentContainer(props: ContentProps) {
   const mobileContent = (
     <div className={styles.contentContainer} style={{ fontSize: "0.7rem" }}>
       <div className={styles.content}>
-        <div>{props.mobileDescription}</div>
+        <div
+          dangerouslySetInnerHTML={{ __html: props.mobileDescription }}
+        />
       </div>
     </div>
   );

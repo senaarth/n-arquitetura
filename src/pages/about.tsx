@@ -1,13 +1,24 @@
+import React, { useState } from "react";
 import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
+import getPrismicClient from "../services/prismic";
+import Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
+import { GetStaticProps } from "next";
 
-export default function About() {
+interface AboutProps {
+  aboutContent: {
+    description: string;
+    mobileDescription: string;
+    modalContent: string;
+  };
+}
+
+export default function About({ aboutContent }: AboutProps) {
   const content = {
     title: "N!",
-    description:
-      "A N! Arquitetura gestão e negócios é uma equipe multidisciplinar de gestão de negócios em Brasília - DF. O foco da nossa empresa é subsidiar tecnicamente a tomada de decisões no cenário imobiliário, assim como promover a gestão dos principais vetores envolvidos, sejam eles proprietários de terrenos, projetistas, construtoras, empreiteiros, investidores, operações de crédito e gestão de carteira.",
-    mobileDescription:
-      "VOCÊ ESTÁ EM NOSSA PÁGINA DE SOBRE, SELECIONE UM DOS ITENS DO MENU PARA VISUALIZAR SEU CONTEÚDO OU NA EXCLAMAÇÃO CENTRAL PARA RETORNAR A PÁGINA ANTERIOR.",
+    description: aboutContent.description,
+    mobileDescription: aboutContent.mobileDescription,
   };
 
   const titleGroup = (
@@ -15,31 +26,6 @@ export default function About() {
       <li style={{ listStyle: "none" }}>MISSÃO</li>
       <li style={{ listStyle: "none" }}>VISÃO</li>
       <li style={{ listStyle: "none" }}>VALORES</li>
-    </>
-  );
-
-  const missao = (
-    <>
-      <h1 style={{ fontSize: "1.1rem" }}>MISSÃO</h1>
-      <p style={{ fontSize: "0.9rem" }}>
-        Aplicar a arquitetura e o urbanismo apoiados em uma visão
-        multidisciplinar valorizando ativos imobiliários e promovendo ganhos e
-        crescimento patrimonial aos nosso clientes.
-      </p>
-      <h1 style={{ fontSize: "1.1rem", marginTop: "1rem" }}>VISÃO</h1>
-      <p style={{ fontSize: "0.9rem" }}>
-        Se posicionar como consultoria referência em projetos imobiliários.
-      </p>
-      <h1 style={{ fontSize: "1.1rem", marginTop: "1rem" }}>VALORES</h1>
-      <>
-        <li style={{ fontSize: "0.9rem" }}>Agilidade como estratégia;</li>
-        <li style={{ fontSize: "0.9rem" }}>Transparência como segurança;</li>
-        <li style={{ fontSize: "0.9rem" }}>Equilíbrio como força;</li>
-        <li style={{ fontSize: "0.9rem" }}>
-          Sustentabilidade agregando valor;
-        </li>
-        <li style={{ fontSize: "0.9rem" }}>Negócios priorizando pessoas;</li>
-      </>
     </>
   );
 
@@ -123,7 +109,7 @@ export default function About() {
       isLink: false,
       type: "mobile",
       content: {
-        description: missao,
+        description: aboutContent.modalContent,
       },
     },
     {
@@ -179,3 +165,23 @@ export default function About() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const res = await prismic.query([
+    Prismic.predicates.at("document.type", "about"),
+  ]);
+
+  const aboutContent = {
+    description: RichText.asHtml(res.results[0].data.about),
+    mobileDescription: RichText.asHtml(res.results[0].data.mobile_description),
+    modalContent: RichText.asHtml(res.results[0].data.modal_content),
+  };
+
+  return {
+    props: {
+      aboutContent,
+    },
+  };
+};

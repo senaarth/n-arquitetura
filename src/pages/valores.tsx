@@ -1,26 +1,26 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
+import getPrismicClient from "../services/prismic";
+import Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
+import { GetStaticProps } from "next";
+
+interface AboutProps {
+  aboutContent: {
+    missao: string;
+    visao: string;
+    valores: string;
+  };
+}
 
 interface ContentProps {
   title?: string;
   description?: string;
 }
 
-export default function About() {
+export default function About({ aboutContent }: AboutProps) {
   const [contentProps, setContentProps] = useState({} as ContentProps);
-
-  const valores = (
-    <>
-      <li style={{ marginBottom: "1rem" }}>Agilidade como estratégia;</li>
-      <li style={{ marginBottom: "1rem" }}>Transparência como segurança;</li>
-      <li style={{ marginBottom: "1rem" }}>Equilíbrio como força;</li>
-      <li style={{ marginBottom: "1rem" }}>
-        Sustentabilidade agregando valor;
-      </li>
-      <li style={{ marginBottom: "1rem" }}>Negócios priorizando pessoas;</li>
-    </>
-  );
 
   const titleGroup = (
     <>
@@ -51,8 +51,7 @@ export default function About() {
       type: "text",
       content: {
         title: "MISSÃO",
-        description:
-          "Aplicar a arquitetura e o urbanismo apoiados em uma visão multidisciplinar valorizando ativos imobiliários e promovendo ganhos e crescimento patrimonial aos nosso clientes.",
+        description: aboutContent.missao,
       },
     },
     {
@@ -75,8 +74,7 @@ export default function About() {
       type: "text",
       content: {
         title: "VISÃO",
-        description:
-          "Se posicionar como consultoria referência em projetos imobiliários.",
+        description: aboutContent.visao,
       },
     },
     {
@@ -98,8 +96,8 @@ export default function About() {
       isLink: true,
       type: "text",
       content: {
-        title: "valores",
-        description: valores,
+        title: "VALORES",
+        description: aboutContent.valores,
       },
     },
   ];
@@ -117,3 +115,23 @@ export default function About() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const res = await prismic.query([
+    Prismic.predicates.at("document.type", "about"),
+  ]);
+
+  const aboutContent = {
+    missao: RichText.asHtml(res.results[0].data.missao),
+    visao: RichText.asHtml(res.results[0].data.visao),
+    valores: RichText.asHtml(res.results[0].data.valores),
+  };
+
+  return {
+    props: {
+      aboutContent,
+    },
+  };
+};
