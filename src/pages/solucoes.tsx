@@ -7,6 +7,7 @@ import { RichText } from "prismic-dom";
 import { GetStaticProps } from "next";
 
 type Solucao = {
+  place: number;
   title: string;
   menuTitle: string;
   content: string;
@@ -98,18 +99,13 @@ export default function Solucoes({ solucoes }: SolucoesProps) {
     ];
   }, []);
 
-  const menuItems = emptyMenu.reduce((acc, item, index) => {
-    if (index === 0 && solucoesContent[0]) {
-      return [...acc, solucoesContent[0]];
+  let menuItems = emptyMenu;
+
+  solucoes.forEach((value, index) => {
+    if (value.place !== 5 && value.place !== 2) {
+      menuItems[value.place - 1] = solucoesContent[index];
     }
-    if (index > 1 && index < 4 && solucoesContent[index - 1]) {
-      return [...acc, solucoesContent[index - 1]];
-    }
-    if (index > 4 && solucoesContent[index - 2]) {
-      return [...acc, solucoesContent[index - 2]];
-    }
-    return [...acc, item];
-  }, []);
+  });
 
   return (
     <>
