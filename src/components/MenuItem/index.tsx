@@ -18,7 +18,8 @@ import { ContactForm } from "../ContactForm";
 interface CarouselProps {
   hasVideo: boolean;
   slidesSources: string[];
-  videoSource: string;
+  videoSource?: string;
+  videoPreview?: string;
   title: string;
 }
 
@@ -305,11 +306,13 @@ export function MenuItem(props: MenuItemProps) {
             setIsModalOpen(true);
           }}
         >
-          <img
-            src={props.type === "teamMember" ? `${props.path}` : `/static/images/${props.path}`}
+          <Image
+            src={props.path}
             alt={`${props.title}`}
             className={styles.teamMember}
             id="grayScalable"
+            priority
+            layout="fill"
           />
         </a>
         <Modal
@@ -362,6 +365,7 @@ export function MenuItem(props: MenuItemProps) {
                 slidesSources={props.content.carouselProps.slidesSources}
                 hasVideo={props.content.carouselProps.hasVideo}
                 videoSource={props.content.carouselProps.videoSource}
+                videoPreview={props.content.carouselProps.videoPreview}
                 title={props.content.carouselProps.title}
               />
             )}

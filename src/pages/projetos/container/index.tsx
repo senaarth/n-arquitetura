@@ -1,20 +1,32 @@
-import { useState } from "react";
-import Head from "next/head";
+import React, { useState } from "react";
 import { MainContainer } from "../../../components/MainContainer";
+import Head from "next/head";
+import getPrismicClient from "../../../services/prismic";
+import Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
+import { GetStaticProps } from "next";
 
-interface ContentProps {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  mobileDescription?: string;
+type Project = {
+  place: number;
+  title: string;
+  hasVideo: boolean;
+  videoSource: string;
+  buttonImg: string;
+  slidesSources: string[];
+  videoPreview: string;
+};
+
+interface ContainerProps {
+  projetos: Project[];
 }
 
-export default function Container() {
+export default function Container({ projetos }: ContainerProps) {
   const [contentProps, setContentProps] = useState({
-    mobileDescription: "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE."
+    mobileDescription:
+      "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE.",
   });
 
-  const menuItems = [
+  const emptyMenu = [
     {
       title: "",
       isActive: false,
@@ -22,27 +34,10 @@ export default function Container() {
       type: "text",
     },
     {
-      title: "Projeto PIR",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "projetos/container/pir/n-site-projetos-container-pir-imagem 108-100x55.png",
-      type: "project",
-      content: {
-        carouselProps: {
-          slidesSources: [
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 101-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 102-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 103-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 104-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 105-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 106-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 107-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 108-100x55.png",
-            "/static/images/projetos/container/pir/n-site-projetos-container-pir-imagem 109-100x55.png",
-          ],
-          title: "PROJETO PIR"
-        },
-      },
+      isLink: false,
+      type: "text",
     },
     {
       title: "PROJETOS",
@@ -61,7 +56,7 @@ export default function Container() {
       title: "logo",
       isActive: false,
       isLink: true,
-      route: "/projetos",
+      route: "/about",
       type: "logo",
     },
     {
@@ -90,6 +85,36 @@ export default function Container() {
     },
   ];
 
+  let menuItems = emptyMenu;
+
+  const projetosContent = projetos.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        title: item.title,
+        isActive: false,
+        isLink: true,
+        path: item.buttonImg,
+        type: "project",
+        content: {
+          carouselProps: {
+            slidesSources: item.slidesSources,
+            hasVideo: item.hasVideo,
+            videoSource: item.videoSource,
+            videoPreview: item.videoPreview,
+            title: item.title,
+          },
+        },
+      },
+    ];
+  }, []);
+
+  projetos.forEach((value, index) => {
+    if (value.place < 3 || value.place > 5) {
+      menuItems[value.place - 1] = projetosContent[index];
+    }
+  });
+
   return (
     <>
       <Head>
@@ -103,3 +128,47 @@ export default function Container() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const res = await prismic.query(
+    [Prismic.predicates.at("document.type", "projeto")],
+    {
+      pageSize: 7,
+    }
+  );
+
+  const projectsResults = res.results.filter(
+    (item) => item.data.categoria === "CONTAINER"
+  );
+
+  const projetos = projectsResults.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        place: item.data.ordenacao,
+        title: RichText.asText(item.data.title),
+        hasVideo: item.data.has_video,
+        videoSource: item.data.video?.url ?? "",
+        buttonImg: item.data.btn_img?.url ?? "",
+        videoPreview: item.data.video_preview?.url ?? "",
+        slidesSources: item.data.body[0].items,
+      },
+    ];
+  }, []);
+
+  projetos.forEach((item) => {
+    if (item.slidesSources) {
+      item.slidesSources = item.slidesSources.reduce((acc, item) => {
+        return [...acc, item.image.url];
+      }, []);
+    }
+  });
+
+  return {
+    props: {
+      projetos,
+    },
+  };
+};

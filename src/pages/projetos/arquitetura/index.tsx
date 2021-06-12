@@ -1,21 +1,32 @@
-import { useState } from "react";
-import Head from "next/head";
+import React, { useState } from "react";
 import { MainContainer } from "../../../components/MainContainer";
+import Head from "next/head";
+import getPrismicClient from "../../../services/prismic";
+import Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
+import { GetStaticProps } from "next";
 
-interface ContentProps {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  mobileDescription?: string;
+type Project = {
+  place: number;
+  title: string;
+  hasVideo: boolean;
+  videoSource: string;
+  buttonImg: string;
+  slidesSources: string[];
+  videoPreview: string;
+};
+
+interface ArquiteturaProps {
+  projetos: Project[];
 }
 
-export default function Arquitetura() {
+export default function Arquitetura({ projetos }: ArquiteturaProps) {
   const [contentProps, setContentProps] = useState({
     mobileDescription:
       "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE.",
   });
 
-  const menuItems = [
+  const emptyMenu = [
     {
       title: "ARQUITETURA",
       isActive: false,
@@ -36,36 +47,16 @@ export default function Arquitetura() {
       type: "text",
     },
     {
-      title: "PROJETO CSJ",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-bottom.png",
-      type: "project",
-      content: {
-        carouselProps: {
-          slidesSources: [
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 101-100x55.png",
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 102-100x55.png",
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 103-100x55.png",
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 104-100x55.png",
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 105-100x55.png",
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 106-100x55.png",
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-imagem 107-100x55.png",
-          ],
-          hasVideo: true,
-          videoSource:
-            "/static/images/projetos/arquitetura/csj/video retrofit samonte.mp4",
-          videoPreview:
-            "/static/images/projetos/arquitetura/csj/n-site-projetos-arquitetura-csj-bottom.png",
-          title: "PROJETO CSJ",
-        },
-      },
+      isLink: false,
+      type: "text",
     },
     {
       title: "logo",
       isActive: false,
       isLink: true,
-      route: "/projetos",
+      route: "/about",
       type: "logo",
     },
     {
@@ -75,90 +66,54 @@ export default function Arquitetura() {
       type: "text",
     },
     {
-      title: "PROJETO ADM",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 108-100x55.png",
-      type: "project",
-      content: {
-        carouselProps: {
-          slidesSources: [
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 101-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 102-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 103-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 104-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 105-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 106-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 107-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 108-100x55.png",
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 109-100x55.png",
-            "/static/images/projetos/arquitetura/adm/antes depois wcf.png",
-            "/static/images/projetos/arquitetura/adm/antes depois wcm.png",
-          ],
-          title: "PROJETO ADM",
-          hasVideo: true,
-          videoSource:
-            "/static/images/projetos/arquitetura/adm/video reforma adm.mp4",
-          videoPreview:
-            "/static/images/projetos/arquitetura/adm/n-site-projetos-arquitetura-adm-imagem 108-100x55.png",
-        },
-      },
+      isLink: false,
+      type: "text",
     },
     {
-      title: "PROJETO FAT",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-bottom.png",
-      type: "project",
-      content: {
-        carouselProps: {
-          slidesSources: [
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 101-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 102-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 103-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 104-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 105-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 106-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 107-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 108-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 109-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 110-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 111-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 112-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 113-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 114-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 115-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 116-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 117-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 118-100x55.png",
-            "/static/images/projetos/arquitetura/fat/n-site-projetos-arquitetura-fat-imagem 119-100x55.png",
-          ],
-          title: "PROJETO FAT",
-        },
-      },
+      isLink: false,
+      type: "text",
     },
     {
-      title: "Projeto 120s",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 101-100x55.png",
-      type: "project",
-      content: {
-        carouselProps: {
-          slidesSources: [
-            "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 101-100x55.png",
-            "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 102-100x55.png",
-            "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 103-100x55.png",
-            "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 104-100x55.png",
-            "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 105-100x55.png",
-            "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 106-100x55.png",
-            "/static/images/projetos/arquitetura/120s/n-site-projetos-arquitetura-120s-imagem 107-100x55.png",
-          ],
-          title: "PROJETO 120s",
-        },
-      },
+      isLink: false,
+      type: "text",
     },
   ];
+
+  let menuItems = emptyMenu;
+
+  const projetosContent = projetos.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        title: item.title,
+        isActive: false,
+        isLink: true,
+        path: item.buttonImg,
+        type: "project",
+        content: {
+          carouselProps: {
+            slidesSources: item.slidesSources,
+            hasVideo: item.hasVideo,
+            videoSource: item.videoSource,
+            videoPreview: item.videoPreview,
+            title: item.title,
+          },
+        },
+      },
+    ];
+  }, []);
+
+  projetos.forEach((value, index) => {
+    if (value.place !== 5 && value.place !== 3 && value.place !== 1) {
+      menuItems[value.place - 1] = projetosContent[index];
+    }
+  });
 
   return (
     <>
@@ -173,3 +128,47 @@ export default function Arquitetura() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const res = await prismic.query(
+    [Prismic.predicates.at("document.type", "projeto")],
+    {
+      pageSize: 7,
+    }
+  );
+
+  const projectsResults = res.results.filter(
+    (item) => item.data.categoria === "ARQUITETURA"
+  );
+
+  const projetos = projectsResults.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        place: item.data.ordenacao,
+        title: RichText.asText(item.data.title),
+        hasVideo: item.data.has_video,
+        videoSource: item.data.video?.url ?? "",
+        buttonImg: item.data.btn_img?.url ?? "",
+        videoPreview: item.data.video_preview?.url ?? "",
+        slidesSources: item.data.body[0].items,
+      },
+    ];
+  }, []);
+
+  projetos.forEach((item) => {
+    if (item.slidesSources) {
+      item.slidesSources = item.slidesSources.reduce((acc, item) => {
+        return [...acc, item.image.url];
+      }, []);
+    }
+  });
+
+  return {
+    props: {
+      projetos,
+    },
+  };
+};

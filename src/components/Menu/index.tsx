@@ -6,7 +6,8 @@ import styles from "./styles.module.scss";
 interface CarouselProps {
   hasVideo: boolean;
   slidesSources: string[];
-  videoSource: string;
+  videoSource?: string;
+  videoPreview?:string;
   title: string;
 }
 

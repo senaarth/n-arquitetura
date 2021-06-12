@@ -1,27 +1,32 @@
-import { useState } from "react";
-import Head from "next/head";
+import React, { useState } from "react";
 import { MainContainer } from "../../../components/MainContainer";
+import Head from "next/head";
+import getPrismicClient from "../../../services/prismic";
+import Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
+import { GetStaticProps } from "next";
 
-interface ContentProps {
-  title?: string;
-  subtitle?: string;
-  description?: string;
-  mobileDescription?: string;
+type Project = {
+  place: number;
+  title: string;
+  hasVideo: boolean;
+  videoSource: string;
+  buttonImg: string;
+  slidesSources: string[];
+  videoPreview: string;
+};
+
+interface HabitacaoProps {
+  projetos: Project[];
 }
 
-export default function Habitacao() {
+export default function Habitacao({ projetos }: HabitacaoProps) {
   const [contentProps, setContentProps] = useState({
-    mobileDescription: "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE."
+    mobileDescription:
+      "NESTA PÁGINA VOCÊ PODE SELECIONAR UM PROJETO PARA VISUALIZAR, BASTA UM TOQUE.",
   });
 
-  const habitacaoPopular = (
-    <>
-      <li style={{listStyle: "none"}}>HABITAÇÃO</li>
-      <li style={{listStyle: "none"}}>POPULAR</li>
-    </>
-  );
-
-  const menuItems = [
+  const emptyMenu = [
     {
       title: "",
       isActive: false,
@@ -29,27 +34,10 @@ export default function Habitacao() {
       type: "text",
     },
     {
-      title: "Projeto RBR",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-bottom.png",
-      type: "project",
-      content: {
-        carouselProps: {
-          slidesSources: [
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 101-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 102-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 103-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 104-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 105-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 106-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 107-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 108-100x55.png",
-            "/static/images/projetos/habitacao/rbr/n-site-projetos-arquitetura-rbr-imagem 109-100x55.png",
-          ],
-          title: "PROJETO RBR"
-        },
-      },
+      isLink: false,
+      type: "text",
     },
     {
       title: "PROJETOS",
@@ -68,32 +56,14 @@ export default function Habitacao() {
       title: "logo",
       isActive: false,
       isLink: true,
-      route: "/projetos",
+      route: "/about",
       type: "logo",
     },
     {
-      title: "Projeto RD1",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-bottom.png",
-      type: "project",
-      content: {
-        carouselProps: {
-          slidesSources: [
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 101-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 102-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 103-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 104-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 105-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 106-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 107-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 108-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 109-100x55.png",
-            "/static/images/projetos/habitacao/rdq/n-site-projetos-arquitetura-rdq-imagem 109-100x55.png",
-          ],
-          title: "PROJETO RD1"
-        },
-      },
+      isLink: false,
+      type: "text",
     },
     {
       title: "",
@@ -108,13 +78,47 @@ export default function Habitacao() {
       type: "text",
     },
     {
-      title: habitacaoPopular,
+      title: (
+        <>
+          <li>HABITAÇÃO</li>
+          <li>POPULAR</li>
+        </>
+      ),
       isActive: false,
       isLink: false,
-      route: "projetos/habitacao",
       type: "text",
     },
   ];
+
+  let menuItems = emptyMenu;
+
+  const projetosContent = projetos.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        title: item.title,
+        isActive: false,
+        isLink: true,
+        path: item.buttonImg,
+        type: "project",
+        content: {
+          carouselProps: {
+            slidesSources: item.slidesSources,
+            hasVideo: item.hasVideo,
+            videoSource: item.videoSource,
+            videoPreview: item.videoPreview,
+            title: item.title,
+          },
+        },
+      },
+    ];
+  }, []);
+
+  projetos.forEach((value, index) => {
+    if (value.place !== 5 && value.place !== 3 && value.place !== 9) {
+      menuItems[value.place - 1] = projetosContent[index];
+    }
+  });
 
   return (
     <>
@@ -129,3 +133,47 @@ export default function Habitacao() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const res = await prismic.query(
+    [Prismic.predicates.at("document.type", "projeto")],
+    {
+      pageSize: 7,
+    }
+  );
+
+  const projectsResults = res.results.filter(
+    (item) => item.data.categoria === "HABITACAO POPULAR"
+  );
+
+  const projetos = projectsResults.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        place: item.data.ordenacao,
+        title: RichText.asText(item.data.title),
+        hasVideo: item.data.has_video,
+        videoSource: item.data.video?.url ?? "",
+        buttonImg: item.data.btn_img?.url ?? "",
+        videoPreview: item.data.video_preview?.url ?? "",
+        slidesSources: item.data.body[0].items,
+      },
+    ];
+  }, []);
+
+  projetos.forEach((item) => {
+    if (item.slidesSources) {
+      item.slidesSources = item.slidesSources.reduce((acc, item) => {
+        return [...acc, item.image.url];
+      }, []);
+    }
+  });
+
+  return {
+    props: {
+      projetos,
+    },
+  };
+};
