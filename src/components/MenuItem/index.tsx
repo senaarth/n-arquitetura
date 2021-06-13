@@ -335,12 +335,14 @@ export function MenuItem(props: MenuItemProps) {
           ></Modal.Header>
           <Modal.Body>
             {props.type === "teamMember" ? (
-              <div style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                alignSelf: "center"
-              }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  alignSelf: "center",
+                }}
+              >
                 <img
                   src={`${props.path}`}
                   alt={`${props.title}`}
@@ -461,7 +463,11 @@ export function MenuItem(props: MenuItemProps) {
         }
       }}
     >
-      {props.title}
+      <div
+        dangerouslySetInnerHTML={{
+          __html: props.title.toString(),
+        }}
+      />
     </a>
   );
 }
