@@ -8,10 +8,27 @@ import "../styles/global.scss";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
-      <MobileHeader />
+      {/* <MobileHeader />
       <Header />
       <Component {...pageProps} />
-      <Footer />
+      <Footer /> */}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          height: "100%",
+        }}
+      >
+        <img
+          src="/images/exclamacao.png"
+          style={{ width: "50%", maxWidth: "700px", marginTop: "auto" }}
+        />
+        <br/>
+        <strong style={{ textAlign: "center", width: "80%", fontSize: 30, marginBottom: "auto" }}>
+          OBRIGADO POR NOS VISITAR!<br/><br/>ESTAMOS FINALIZANDO UM CONTEÚDO BEM LEGAL PARA VOCÊ,<br/><br/>NOS ENCONTRAMOS AQUI NOVAMENTE NO DIA 05/07.
+        </strong>
+      </div>
     </>
   );
 }
