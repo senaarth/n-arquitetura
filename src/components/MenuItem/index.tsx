@@ -292,7 +292,11 @@ export function MenuItem(props: MenuItemProps) {
             props.setContent(props.content);
           }}
         >
-          {props.title}
+          <div
+            dangerouslySetInnerHTML={{
+              __html: props.title.toString(),
+            }}
+          />
         </a>
         <Modal
           show={isModalOpen}
@@ -525,7 +529,11 @@ export function MenuItem(props: MenuItemProps) {
           }
         }}
       >
-        {props.title}
+        <div
+          dangerouslySetInnerHTML={{
+            __html: props.title.toString(),
+          }}
+        />
       </a>
     </Link>
   ) : (

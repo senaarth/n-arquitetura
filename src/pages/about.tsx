@@ -21,13 +21,7 @@ export default function About({ aboutContent }: AboutProps) {
     mobileDescription: aboutContent.mobileDescription,
   };
 
-  const titleGroup = (
-    <>
-      <li style={{ listStyle: "none" }}>MISSÃO</li>
-      <li style={{ listStyle: "none" }}>VISÃO</li>
-      <li style={{ listStyle: "none" }}>VALORES</li>
-    </>
-  );
+  const titleGroup = `<li style={{ listStyle: "none" }}>MISSÃO</li><li style={{ listStyle: "none" }}>VISÃO</li><li style={{ listStyle: "none" }}>VALORES</li></>`;
 
   const menuItems = [
     {

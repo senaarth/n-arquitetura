@@ -46,7 +46,7 @@ function Home() {
       type: "text",
     },
     {
-      title: "ÍNDICES ECONÔMICOS",
+      title: "<li>ÍNDICES</li><li>ECONÔMICOS</li>",
       isActive: false,
       isLink: true,
       route: "indices",

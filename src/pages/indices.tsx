@@ -61,7 +61,7 @@ export default function Indices({ indicesItems }: IndicesProps) {
       type: "text",
     },
     {
-      title: "ÍNDICES ECONÔMICOS",
+      title: "<li>ÍNDICES</li><li>ECONÔMICOS</li>",
       isActive: true,
       isLink: false,
       type: "text",
@@ -79,7 +79,6 @@ export default function Indices({ indicesItems }: IndicesProps) {
       type: "text",
     },
   ];
-
 
   const formattedItems = indicesItems.reduce((acc, item) => {
     return [
@@ -124,7 +123,15 @@ export const getStaticProps: GetStaticProps = async () => {
     Prismic.predicates.at("document.type", "indices"),
   ]);
 
-  const currencies = `<ul><li>USD: ${USD}</li><li>EUR: ${EUR}</li><li>BTC: ${BTC}k</li><li>ETH: ${ETH}k</li></ul>`;
+  let currencies = `<ul><li>USD: ${USD}</li><li>EUR: ${EUR}</li>`;
+
+
+  if (BTC) {
+    currencies = currencies + `<li>BTC: ${BTC}k</li></ul>`;
+  }
+  if (ETH) {
+    currencies = currencies + `<li>ETH: ${ETH}k</li></ul>`;
+  }
 
   const currenciesItem = {
     place: res.results[0].data.currencies_place,

@@ -41,7 +41,15 @@ export async function getBtc() {
       `${process.env.ALPHA_CURRENCY_URL}BTC&to_currency=BRL&apikey=${process.env.ALPHA_KEY}`
     );
     const btcResData = btcRes.data["Realtime Currency Exchange Rate"];
-    const BTC = btcResData["5. Exchange Rate"];
+
+    let BTC = 0;
+
+    if (btcResData) {
+      BTC = btcResData["5. Exchange Rate"];
+    } else {
+      console.log(btcRes.data);
+      return false;
+    }
 
     return new Intl.NumberFormat("pt-BR", {
       maximumSignificantDigits: 3,
@@ -60,7 +68,15 @@ export async function getEth() {
       `${process.env.ALPHA_CURRENCY_URL}ETH&to_currency=BRL&apikey=${process.env.ALPHA_KEY}`
     );
     const ethResData = ethRes.data["Realtime Currency Exchange Rate"];
-    const ETH = ethResData["5. Exchange Rate"];
+
+    let ETH = 0;
+
+    if (ethResData) {
+      ETH = ethResData["5. Exchange Rate"];
+    } else {
+      console.log(ethRes.data);
+      return false;
+    }
 
     return new Intl.NumberFormat("pt-BR", {
       maximumSignificantDigits: 3,

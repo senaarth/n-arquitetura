@@ -2,12 +2,7 @@ import { MainContainer } from "../../components/MainContainer";
 import Head from "next/head";
 
 export default function Projetos() {
-  const habitacaoPopular = (
-    <>
-      <li style={{ listStyle: "none" }}>HABITAÇÃO</li>
-      <li style={{ listStyle: "none" }}>POPULAR</li>
-    </>
-  );
+  const habitacaoPopular = `<li style={{ listStyle: "none" }}>HABITAÇÃO</li><li style={{ listStyle: "none" }}>POPULAR</li>`;
 
   const menuItems = [
     {

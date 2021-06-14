@@ -78,12 +78,7 @@ export default function Habitacao({ projetos }: HabitacaoProps) {
       type: "text",
     },
     {
-      title: (
-        <>
-          <li>HABITAÇÃO</li>
-          <li>POPULAR</li>
-        </>
-      ),
+      title: `<li>HABITAÇÃO</li><li>POPULAR</li>`,
       isActive: false,
       isLink: false,
       type: "text",

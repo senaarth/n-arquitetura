@@ -22,13 +22,8 @@ interface ContentProps {
 export default function About({ aboutContent }: AboutProps) {
   const [contentProps, setContentProps] = useState({} as ContentProps);
 
-  const titleGroup = (
-    <>
-      <li style={{ listStyle: "none" }}>MISSÃO</li>
-      <li style={{ listStyle: "none" }}>VISÃO</li>
-      <li style={{ listStyle: "none" }}>VALORES</li>
-    </>
-  );
+  const titleGroup = `<li style={{ listStyle: "none" }}>MISSÃO</li><li style={{ listStyle: "none" }}>VISÃO</li><li style={{ listStyle: "none" }}>VALORES</li></>`;
+
 
   const menuItems = [
     {
