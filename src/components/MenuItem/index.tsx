@@ -40,6 +40,10 @@ interface MenuItemProps {
   setContent?: Dispatch<SetStateAction<ContentProps>>;
   windowWidth?: number;
   filePath?: string;
+  locationData?: {
+    latitude?: number;
+    longitude?: number;
+  };
 }
 
 export function MenuItem(props: MenuItemProps) {
@@ -60,7 +64,74 @@ export function MenuItem(props: MenuItemProps) {
     };
   }
 
-  if (props.type === "contact" && props.title === "ENVIAR MENSAGEM") {
+  if (props.type === "location") {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+      <>
+        <a
+          className={styles.menuItem}
+          style={{
+            ...dynamicStyles,
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+          onClick={() => {
+            setIsModalOpen(true);
+          }}
+        >
+          <div
+            dangerouslySetInnerHTML={{
+              __html: props.title.toString(),
+            }}
+          />
+        </a>
+        <Modal
+          show={isModalOpen}
+          onHide={() => {
+            setIsModalOpen(false);
+          }}
+          size="lg"
+          style={{ maxWidth: "100%" }}
+          centered
+        >
+          <Modal.Header
+            className={styles.modalHeader}
+            closeButton
+          ></Modal.Header>
+          <Modal.Body>
+            <div
+              style={{
+                textAlign: "center",
+                width: "100%",
+                margin: "0 auto",
+                listStyle: "none",
+                paddingTop: "1rem",
+                paddingBottom: "1rem",
+              }}
+            >
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyBTTvmg5lseiIJZfbamPxHJl76T-8Rd-gA&q=N!+Arquitetos+DF&center=${props.locationData.latitude},${props.locationData.longitude}&zoom=15`}
+                width="100%"
+                height="100%"
+                style={{
+                  border: 0,
+                  maxWidth: "100%",
+                  minHeight: "calc(50vh)",
+                  padding: 0,
+                }}
+                loading="lazy"
+              ></iframe>
+            </div>
+          </Modal.Body>
+        </Modal>
+      </>
+    );
+  }
+
+  if (props.type === "contactForm") {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
@@ -82,7 +153,14 @@ export function MenuItem(props: MenuItemProps) {
             }
           }}
         >
-          {props.windowWidth < 1024 ? props.title : ""}
+          {props.windowWidth < 1024 ? (
+            <>
+              <li>ENVIAR</li>
+              <li>MENSAGEM</li>
+            </>
+          ) : (
+            ""
+          )}
         </a>
         <Modal
           show={isModalOpen}
@@ -119,46 +197,52 @@ export function MenuItem(props: MenuItemProps) {
   if (props.type === "contact") {
     let icon;
 
-    if (props.title === "WHATSAPP") {
-      icon = (
-        <FaWhatsapp
-          color="black"
-          size={20}
-          style={{ position: "absolute", top: 15, right: 15 }}
-        />
-      );
-    } else if (props.title === "INSTAGRAM") {
-      icon = (
-        <FaInstagram
-          color="black"
-          size={20}
-          style={{ position: "absolute", top: 15, right: 15 }}
-        />
-      );
-    } else if (props.title === "LINKEDIN") {
-      icon = (
-        <FaLinkedin
-          color="black"
-          size={20}
-          style={{ position: "absolute", top: 15, right: 15 }}
-        />
-      );
-    } else if (props.title === "YOUTUBE") {
-      icon = (
-        <FaYoutube
-          color="black"
-          size={20}
-          style={{ position: "absolute", top: 15, right: 15 }}
-        />
-      );
-    } else if (props.title === "FACEBOOK") {
-      icon = (
-        <FaFacebook
-          color="black"
-          size={20}
-          style={{ position: "absolute", top: 15, right: 15 }}
-        />
-      );
+    switch (props.title) {
+      case "WHATSAPP":
+        icon = (
+          <FaWhatsapp
+            color="black"
+            size={20}
+            style={{ position: "absolute", top: 15, right: 15 }}
+          />
+        );
+        break;
+      case "INSTAGRAM":
+        icon = (
+          <FaInstagram
+            color="black"
+            size={20}
+            style={{ position: "absolute", top: 15, right: 15 }}
+          />
+        );
+        break;
+      case "LINKEDIN":
+        icon = (
+          <FaLinkedin
+            color="black"
+            size={20}
+            style={{ position: "absolute", top: 15, right: 15 }}
+          />
+        );
+        break;
+      case "YOUTUBE":
+        icon = (
+          <FaYoutube
+            color="black"
+            size={20}
+            style={{ position: "absolute", top: 15, right: 15 }}
+          />
+        );
+        break;
+      case "FACEBOOK":
+        icon = (
+          <FaFacebook
+            color="black"
+            size={20}
+            style={{ position: "absolute", top: 15, right: 15 }}
+          />
+        );
+        break;
     }
 
     return (

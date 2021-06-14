@@ -12,6 +12,10 @@ interface MenuItem {
   path?: string;
   type: string;
   filePath?: string;
+  locationData?: {
+    latitude?: number;
+    longitude?: number;
+  }
 }
 
 interface CarouselProps {
