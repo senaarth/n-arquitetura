@@ -1,7 +1,8 @@
 import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
 
-export default function Home() {
+function Home() {
+
   const menuItems = [
     {
       title: "N!",
@@ -25,11 +26,11 @@ export default function Home() {
       type: "text",
     },
     {
-      title: "CLIPPING",
+      title: "VARIEDADES",
       isActive: false,
       isLink: true,
-      route: "clipping",
       type: "text",
+      route: "variedades"
     },
     {
       title: "logo",
@@ -45,7 +46,7 @@ export default function Home() {
       type: "text",
     },
     {
-      title: "ÍNDICES ECONÔMICOS",
+      title: "<li>ÍNDICES</li><li>ECONÔMICOS</li>",
       isActive: false,
       isLink: true,
       route: "indices",
@@ -69,10 +70,18 @@ export default function Home() {
 
   return (
     <>
-    <Head>
-      <title>Home | N!</title>
-    </Head>
-    <MainContainer menuItems={menuItems} />
+      <Head>
+        <title>Home | N!</title>
+      </Head>
+      <MainContainer
+        menuItems={menuItems}
+        contentProps={{
+          mobileDescription:
+            "PARA NAVEGAR EM NOSSA PÁGINA BASTA SELECIONAR O CONTEÚDO DESEJADO, UTILIZANDO A EXCLAMAÇÃO PARA RETORNAR À HOME SE NECESSÁRIO.",
+        }}
+      />
     </>
   );
 }
+
+export default Home;

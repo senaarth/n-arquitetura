@@ -1,20 +1,36 @@
 .footerContainer {
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   background-color: black;
-  margin-top: auto;
   padding: 1rem 0;
 }
 
 .footerContent {
-  width: 100%;
+  width: 95%;
   max-width: 1400px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @media (min-width: 1024px) {
+    padding-left: 0.8rem;
+  }
+}
+
+.indexesContent {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  color: var(--white);
+  opacity: 0.5;
+  
+  @media (min-width: 1024px) {
+    display: flex;
+  }
 }
 
 .contactContent {
@@ -23,8 +39,11 @@
   opacity: 0.5;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+
+  width: 50%;
+  max-width: 170px;
 
   * + * {
     margin-left: 1rem;
@@ -32,11 +51,41 @@
 
   p {
     margin: 0;
-    font-size: 0.86rem;
+    font-size: 0.75rem;
   }
 
   @media screen and (min-width: 1024px) {
     margin: 0;
     margin-left: auto;
+  }
+
+  .socialContainer {
+    margin-bottom: 0.4rem;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    a {
+      transition: filter 0.2s;
+
+      &:hover {
+        filter: brightness(0.8);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      padding-right: 0.2rem;
+    }
+  }
+
+  .companyContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
   }
 }

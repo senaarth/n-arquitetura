@@ -1,34 +1,29 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
+import getPrismicClient from "../services/prismic";
+import Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
+import { GetStaticProps } from "next";
+
+interface AboutProps {
+  aboutContent: {
+    missao: string;
+    visao: string;
+    valores: string;
+  };
+}
 
 interface ContentProps {
   title?: string;
   description?: string;
 }
 
-export default function About() {
+export default function About({ aboutContent }: AboutProps) {
   const [contentProps, setContentProps] = useState({} as ContentProps);
 
-  const valores = (
-    <>
-      <li style={{ marginBottom: "1rem" }}>AGILIDADE COMO ESTRATÉGIA;</li>
-      <li style={{ marginBottom: "1rem" }}>TRANSPARÊNCIA COMO SEGURANÇA;</li>
-      <li style={{ marginBottom: "1rem" }}>EQUILÍBRIO COMO FORÇA;</li>
-      <li style={{ marginBottom: "1rem" }}>
-        SUSTENTABILIDADE AGREGANDO VALOR;
-      </li>
-      <li style={{ marginBottom: "1rem" }}>NEGÓCIOS PRIORIZANDO PESSOAS;</li>
-    </>
-  );
+  const titleGroup = `<li style={{ listStyle: "none" }}>MISSÃO</li><li style={{ listStyle: "none" }}>VISÃO</li><li style={{ listStyle: "none" }}>VALORES</li></>`;
 
-  const titleGroup = (
-    <>
-      <li style={{ listStyle: "none" }}>MISSÃO</li>
-      <li style={{ listStyle: "none" }}>VISÃO</li>
-      <li style={{ listStyle: "none" }}>VALORES</li>
-    </>
-  );
 
   const menuItems = [
     {
@@ -51,8 +46,7 @@ export default function About() {
       type: "text",
       content: {
         title: "MISSÃO",
-        description:
-          "APLICAR A ARQUITETURA E O URBANISMO APOIADOS EM UMA VISÃO MULTIDISCIPLINAR VALORIZANDO ATIVOS IMOBILIÁRIOS E PROMOVENDO GANHOS E CRESCIMENTO PATRIMONIAL AOS NOSSO CLIENTES.",
+        description: aboutContent.missao,
       },
     },
     {
@@ -71,12 +65,11 @@ export default function About() {
     {
       title: "VISÃO",
       isActive: false,
-      isLink: false,
+      isLink: true,
       type: "text",
       content: {
         title: "VISÃO",
-        description:
-          "SE POSICIONAR COMO CONSULTORIA REFERÊNCIA EM PROJETOS IMOBILIÁRIOS.",
+        description: aboutContent.visao,
       },
     },
     {
@@ -95,11 +88,11 @@ export default function About() {
     {
       title: "VALORES",
       isActive: false,
-      isLink: false,
+      isLink: true,
       type: "text",
       content: {
-        title: "valores",
-        description: valores,
+        title: "VALORES",
+        description: aboutContent.valores,
       },
     },
   ];
@@ -117,3 +110,23 @@ export default function About() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const res = await prismic.query([
+    Prismic.predicates.at("document.type", "about"),
+  ]);
+
+  const aboutContent = {
+    missao: RichText.asHtml(res.results[0].data.missao),
+    visao: RichText.asHtml(res.results[0].data.visao),
+    valores: RichText.asHtml(res.results[0].data.valores),
+  };
+
+  return {
+    props: {
+      aboutContent,
+    },
+  };
+};

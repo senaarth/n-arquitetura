@@ -2,13 +2,7 @@ import { MainContainer } from "../components/MainContainer";
 import Head from "next/head";
 
 export default function Invest() {
-  const titleGroup = (
-    <>
-      <li style={{ listStyle: "none" }}>DIVINÓPOLIS</li>
-      <li style={{ listStyle: "none" }}>MG</li>
-      <li style={{ listStyle: "none" }}>USO MISTO</li>
-    </>
-  );
+  const titleGroup = `<li style={{ listStyle: "none" }}>DIVINÓPOLIS</li><li style={{ listStyle: "none" }}>MG</li><li style={{ listStyle: "none" }}>USO MISTO</li>`;
 
   const menuItems = [
     {
@@ -28,6 +22,7 @@ export default function Invest() {
       isActive: false,
       isLink: false,
       type: "text",
+      filePath: "/static/div-promocao-zema-2018-12-02.pdf",
     },
     {
       title: "",

@@ -1,29 +1,35 @@
-import { useState } from "react";
-import Head from "next/head";
 import { MainContainer } from "../components/MainContainer";
+import Head from "next/head";
+import { GetStaticProps } from "next";
+import getPrismicClient from "../services/prismic";
+import { RichText } from "prismic-dom";
+import Prismic from "@prismicio/client";
+import { useState } from "react";
 
-interface ContentProps {
-  title?: string;
-  subtitle?: string;
-  description?: string;
+type Integrante = {
+  place: number;
+  title: string;
+  subtitle: string;
+  description: string;
+  imgUrl: string;
+};
+
+interface EquipeProps {
+  integrantes: Integrante[];
 }
 
-export default function Equipe() {
-  const [contentProps, setContentProps] = useState({} as ContentProps);
+export default function Equipe({ integrantes }: EquipeProps) {
+  const [contentProps, setContentProps] = useState({
+    mobileDescription:
+      "VOCÊ ESTÁ EM NOSSA PÁGINA DE EQUIPE, ESCOLHA UM INTEGRANTE PARA VER SUA DESCRIÇÃO",
+  });
 
-  const menuItems = [
+  const emptyMenu = [
     {
-      title: "Nelton",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "nelton.jpg",
-      type: "teamMember",
-      content: {
-        title: "NELTON KETI BORGES",
-        subtitle: "Arquiteto e Urbanista",
-        description:
-          "Possui Pós-graduação em Reabilitação Ambiental pela Faculdade de Arquitetura e Urbanismo pela Universidade de Brasília onde também adquiriu sua graduação (2002). Com 17 (dezessete) anos de docência, ajudou a estruturar os principais cursos de Arquitetura e Urbanismo do DF e colaborou para a formação de uma grande quantidade de profissionais. É proprietário da N! Arquitetura Gestão e Negócios com experiência na área de Arquitetura e Urbanismo com ênfase em Planejamento e Projetos da Edificação. As atividades profissionais são divididas entre o campo teórico e o prático, atuando no mercado da construção civil tanto na elaboração de projetos arquitetônicos quanto na viabilização, compatibilização e construção de empreendimentos.",
-      },
+      isLink: false,
+      type: "text",
     },
     {
       title: "",
@@ -32,17 +38,10 @@ export default function Equipe() {
       type: "text",
     },
     {
-      title: "Marcio",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "marcio.jpeg",
-      type: "teamMember",
-      content: {
-        title: "MÁRCIO OLIVEIRA",
-        subtitle: "Arquiteto e Urbanista",
-        description:
-          "Mestre em Arquitetura pela McGill University Atuou como consultor do Ministério da Saúde, FUNASA, ONU e OPAS, além de professor e coordenador de cursos de Especialização em Arquitetura em Hospitalar. Foi o presidente da Associação Brasileira para o Desenvolvimento do Edifício Hospitalar na gestão 2014-2017. Atualmente é Vice-Presidente de Desenvolvimento Tecnico-Científico da ABDEH, presidente da comissão científica do IX CBDEH, editor-convidado da revista do Instituto de Pesquisas Hospitalares Jarbas Karman (IPH), coordenador técnico do curso de Especialização em Arquitetura de Clínicas e Hospitais do Instituto ESP de Manaus e professor no Curso de Arquitetura e Urbanismo da Universidade Estadual do Maranhão (UEMA), atuando também em projetos e consultorias na área da saúde.",
-      },
+      isLink: false,
+      type: "text",
     },
     {
       title: "",
@@ -70,17 +69,10 @@ export default function Equipe() {
       type: "text",
     },
     {
-      title: "Nei Filho",
+      title: "",
       isActive: false,
-      isLink: true,
-      path: "nei_filho.jpeg",
-      type: "teamMember",
-      content: {
-        title: "NEI BORGES FILHO",
-        subtitle: "Software Developer",
-        description:
-          "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis qui porro pariatur illo dolore hic dolorem quis cum mollitia veritatis quibusdam, at saepe numquam a tempora repellendus distinctio id! Ipsum?",
-      },
+      isLink: false,
+      type: "text",
     },
     {
       title: "",
@@ -89,6 +81,33 @@ export default function Equipe() {
       type: "text",
     },
   ];
+
+
+  const integrantesContent = integrantes.reduce((acc, item) => {
+    return [
+      ...acc,
+      {
+        title: item.title,
+        isActive: false,
+        isLink: true,
+        path: item.imgUrl,
+        type: "teamMember",
+        content: {
+          title: item.title,
+          subtitle: item.subtitle,
+          description: item.description,
+        },
+      },
+    ];
+  }, []);
+
+  let menuItems = emptyMenu;
+
+  integrantes.forEach((value, index) => {
+    if (value.place !== 5 && value.place !== 7) {
+      menuItems[value.place - 1] = integrantesContent[index];
+    }
+  });
 
   return (
     <>
@@ -103,3 +122,40 @@ export default function Equipe() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient();
+
+  const res = await prismic.query(
+    [Prismic.predicates.at("document.type", "integrante")],
+    {
+      pageSize: 7,
+    }
+  );
+
+  const integrantes = res.results.map((post) => {
+    return {
+      place: post.data.place,
+      title: RichText.asText(post.data.title),
+      subtitle: RichText.asText(post.data.subtitle),
+      description: RichText.asHtml(post.data.description),
+      imgUrl: post.data.img.url,
+    };
+  });
+
+  integrantes.sort(function (a, b) {
+    if (a.place > b.place) {
+      return 1;
+    }
+    if (a.place < b.place) {
+      return -1;
+    }
+    return 0;
+  });
+
+  return {
+    props: {
+      integrantes,
+    },
+  };
+};

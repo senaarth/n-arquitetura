@@ -1,46 +1,49 @@
 @font-face {
-  font-family: "Bank Gothic";
-  src: url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.eot");
-  src: url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.eot?#iefix")
-      format("embedded-opentype"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.woff2")
-      format("woff2"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.woff")
-      format("woff"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.ttf")
-      format("truetype"),
-    url("//db.onlinewebfonts.com/t/cd0161509171ec0b9558c548d8e9c26d.svg#Bank Gothic")
-      format("svg");
+  font-family: "BankGothic";
+  src: url("/static/fonts/BankGothicLtBt/BankGothic_Lt_BT.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Calibri";
+  src: url("/static/fonts/Calibri/Calibri Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
 }
 
 :root {
   --white: #fff;
   --black: #111;
-  --red-500: #f00000;
+  --red-500: #cc0000;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Bank Gothic", sans-serif;
+  font-family: "BankGothic", sans-serif;
 }
 
 html {
   height: 100%;
   min-height: 100%;
-  background-color: var(--white)!important;
+  background-color: var(--white) !important;
 }
 
 body {
   height: 100%;
   min-height: 100%;
+  background-color: var(--white) !important;
 }
 
 #__next {
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--white) !important;
 }
 
 @media (max-width: 1080px) {
@@ -70,4 +73,50 @@ button {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  margin-top: 55%;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  max-height: 40% !important;
+}
+
+@media screen and (max-width: 1025px) {
+  .modal-content {
+    border: 0;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+    max-width: 600px;
+
+    .modal-header {
+      padding: 0.6rem;
+      padding-bottom: 0 !important;
+    }
+
+    .modal-body {
+      padding: 0.6rem;
+      padding-top: 0 !important;
+    }
+  }
+}
+
+*::-webkit-input-placeholder {
+  font-family: 'Calibri', sans-serif;
+}
+
+*:-ms-input-placeholder {
+  font-family: 'Calibri', sans-serif;
+}
+
+*:-moz-placeholder {
+  font-family: 'Calibri', sans-serif;
+}
+
+*::-moz-placeholder {
+  font-family: 'Calibri', sans-serif;
 }

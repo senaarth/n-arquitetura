@@ -1,4 +1,4 @@
-import { Dispatch, ReactElement, SetStateAction, useEffect } from "react";
+import { Dispatch, ReactElement, SetStateAction } from "react";
 
 import { Menu } from "../Menu";
 import { ContentContainer } from "../ContentContainer";
@@ -11,16 +11,33 @@ interface MenuItem {
   route?: string;
   path?: string;
   type: string;
+  filePath?: string;
+  locationData?: {
+    latitude?: number;
+    longitude?: number;
+  }
+}
+
+interface CarouselProps {
+  slidesSources: string[];
+  hasVideo: boolean;
+  videoSource?: string;
+  videoPreview?: string;
+  title: string;
 }
 
 interface ContentProps {
   title?: string;
   subtitle?: string;
   description?: string;
+  carouselProps?: CarouselProps;
+  mobileDescription?: string;
+  hasForm?: boolean;
 }
 
 interface MenuProps {
   menuItems: MenuItem[];
+  mobileMenuItems?: MenuItem[];
   contentProps?: ContentProps;
   setContentProps?: Dispatch<SetStateAction<ContentProps>>;
 }
@@ -29,15 +46,23 @@ export function MainContainer({
   menuItems,
   contentProps,
   setContentProps,
+  mobileMenuItems,
 }: MenuProps) {
   return (
     <main className={styles.mainContainer}>
       <div className={styles.mainContent}>
-        <Menu menuItems={menuItems} setContent={setContentProps} />
+        <Menu
+          menuItems={menuItems}
+          setContent={setContentProps}
+          mobileMenuItems={mobileMenuItems}
+        />
         <ContentContainer
           title={contentProps?.title}
           subtitle={contentProps?.subtitle}
           description={contentProps?.description}
+          carouselProps={contentProps?.carouselProps}
+          mobileDescription={contentProps?.mobileDescription}
+          hasForm={contentProps?.hasForm}
         />
       </div>
     </main>
