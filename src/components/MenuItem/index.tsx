@@ -10,6 +10,8 @@ import {
   FaFacebook,
   FaYoutube,
 } from "react-icons/fa";
+import { MdLocationOn } from "react-icons/md";
+import { IoMdMail } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 import { CarouselItem } from "../CarouselItem";
@@ -74,6 +76,7 @@ export function MenuItem(props: MenuItemProps) {
           style={{
             ...dynamicStyles,
             cursor: "pointer",
+            position: "relative",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -82,10 +85,10 @@ export function MenuItem(props: MenuItemProps) {
             setIsModalOpen(true);
           }}
         >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: props.title.toString(),
-            }}
+          <MdLocationOn
+            color="black"
+            size={22}
+            style={{ position: "absolute", top: 15, right: 15 }}
           />
         </a>
         <Modal
@@ -141,6 +144,7 @@ export function MenuItem(props: MenuItemProps) {
           style={{
             ...dynamicStyles,
             ...hoverStyle,
+            position: "relative",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -154,10 +158,11 @@ export function MenuItem(props: MenuItemProps) {
           }}
         >
           {props.windowWidth < 1024 ? (
-            <>
-              <li>ENVIAR</li>
-              <li>MENSAGEM</li>
-            </>
+            <IoMdMail
+              color="black"
+              size={20}
+              style={{ position: "absolute", top: 15, right: 15 }}
+            />
           ) : (
             ""
           )}
