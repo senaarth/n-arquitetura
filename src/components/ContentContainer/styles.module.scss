@@ -109,3 +109,23 @@
     font-size: 0.9rem;
   }
 }
+
+.modalHeader {
+  border: 0;
+  padding-bottom: 0 !important;
+
+  button {
+    background-color: var(--red);
+    border-radius: 4px;
+    opacity: 1;
+    height: 1.2rem;
+    width: 1.2rem;
+    margin: 0 !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+
+    span {
+      display: none;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
 import { CarouselItem } from "../CarouselItem/";
 import { ContactForm } from "../ContactForm/";
 import styles from "./styles.module.scss";
@@ -18,10 +19,12 @@ interface ContentProps {
   carouselProps?: CarouselProps;
   mobileDescription?: string;
   hasForm?: boolean;
+  mobileForm?: boolean;
 }
 
 export function ContentContainer(props: ContentProps) {
   const [windowWidth, setWindowWidth] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   React.useEffect(() => {
     setWindowWidth(window.innerWidth);
@@ -59,9 +62,73 @@ export function ContentContainer(props: ContentProps) {
   const mobileContent = (
     <div className={styles.contentContainer} style={{ fontSize: "0.7rem" }}>
       <div className={styles.content}>
-        <div
-          dangerouslySetInnerHTML={{ __html: props.mobileDescription }}
-        />
+        {
+          props.hasForm ? (
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column"
+              }}
+            >
+              <h5
+                style={{
+                  fontSize: "1rem",
+                  width: "100%",
+                  textAlign: "center"
+                }}
+              >
+                FALE CONOSCO
+              </h5>
+              <input
+                onClick={() => setIsModalOpen(true)}
+                style={{
+                  width: "50%",
+                  marginRight: "auto",
+                  marginLeft: "auto",
+                  outline: "none !important",
+                  paddingLeft: 5,
+                  paddingTop: 2,
+                  paddingBottom: 2,
+                  border: "1px solid lightgray",
+                  borderRadius: 6,
+                }}
+                placeholder="Sua Mensagem"
+              />
+              <Modal
+                show={isModalOpen}
+                onHide={() => {
+                  setIsModalOpen(false);
+                }}
+                size="lg"
+                style={{ maxWidth: "100%" }}
+                centered
+              >
+                <Modal.Header
+                  className={styles.modalHeader}
+                  closeButton
+                ></Modal.Header>
+                <Modal.Body>
+                  <div
+                    style={{
+                      textAlign: "center",
+                      width: "100%",
+                      margin: "0 auto",
+                      listStyle: "none",
+                      paddingTop: "1rem",
+                      paddingBottom: "1rem",
+                    }}
+                  >
+                    <ContactForm />
+                  </div>
+                </Modal.Body>
+              </Modal>
+            </div>
+          ) : (
+            <div
+              dangerouslySetInnerHTML={{ __html: props.mobileDescription }}
+            />
+          )
+        }
       </div>
     </div>
   );
