@@ -46,10 +46,10 @@ function Home() {
       type: "text",
     },
     {
-      title: "<li>ÍNDICES</li><li>ECONÔMICOS</li>",
+      title: "<li>CALCULADORA</li><li>FINANCEIRA</li>",
       isActive: false,
       isLink: true,
-      route: "indices",
+      route: "calculadora",
       type: "text",
     },
     {
