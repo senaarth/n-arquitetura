@@ -294,6 +294,13 @@ export function MenuItem(props: MenuItemProps) {
               setIsModalOpen(true);
               return;
             }
+            if (props.content.carouselProps) {
+              props.setContent({
+                title: props.content.carouselProps.title,
+                carouselProps: props.content.carouselProps
+              });
+              return;
+            }
             props.setContent(props.content);
           }}
         >
@@ -327,16 +334,30 @@ export function MenuItem(props: MenuItemProps) {
               }}
             >
               <div className={styles.modalDescription}>
-                <h1>{props.content.title}</h1>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: props.content.description,
-                  }}
-                />
+                {
+                  props.content.carouselProps ? (
+                    <CarouselItem
+                      slidesSources={props.content.carouselProps.slidesSources}
+                      hasVideo={props.content.carouselProps.hasVideo}
+                      videoPreview={props.content.carouselProps.videoPreview}
+                      videoSource={props.content.carouselProps.videoSource}
+                      title={props.content.title}
+                    />
+                  ) : (
+                    <>
+                      <h1>{props.content.title}</h1>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: props.content.description,
+                        }}
+                      />
+                    </>
+                  )
+                }
               </div>
             </div>
           </Modal.Body>
-        </Modal>
+        </Modal >
       </>
     );
   }
