@@ -17,11 +17,18 @@ import styles from "./styles.module.scss";
 import { CarouselItem } from "../CarouselItem";
 import { ContactForm } from "../ContactForm";
 
+type FileSource = {
+  fileSource: string;
+  backgroundSource: string;
+}
+
 interface CarouselProps {
   hasVideo: boolean;
   slidesSources: string[];
   videoSource?: string;
   videoPreview?: string;
+  hasFile?: boolean;
+  fileSources?: FileSource[];
   title: string;
 }
 
@@ -41,7 +48,6 @@ interface MenuItemProps {
   type: string;
   setContent?: Dispatch<SetStateAction<ContentProps>>;
   windowWidth?: number;
-  filePath?: string;
   locationData?: {
     latitude?: number;
     longitude?: number;
@@ -341,6 +347,8 @@ export function MenuItem(props: MenuItemProps) {
                       hasVideo={props.content.carouselProps.hasVideo}
                       videoPreview={props.content.carouselProps.videoPreview}
                       videoSource={props.content.carouselProps.videoSource}
+                      hasFile={props.content.carouselProps.hasFile}
+                      fileSources={props.content.carouselProps.fileSources}
                       title={props.content.title}
                     />
                   ) : (
@@ -515,26 +523,6 @@ export function MenuItem(props: MenuItemProps) {
           alt="N!"
           style={{ height: "95%", maxWidth: "100%", objectFit: "cover" }}
         />
-      </a>
-    );
-  }
-
-  if (props.type === "investir") {
-    return (
-      <a
-        className={styles.menuItem}
-        style={{
-          ...dynamicStyles,
-          cursor: "pointer",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-        onClick={() => {
-          console.log(props.filePath);
-        }}
-      >
-        {props.title}
       </a>
     );
   }

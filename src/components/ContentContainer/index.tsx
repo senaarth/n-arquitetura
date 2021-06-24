@@ -4,11 +4,18 @@ import { CarouselItem } from "../CarouselItem/";
 import { ContactForm } from "../ContactForm/";
 import styles from "./styles.module.scss";
 
+type FileSource = {
+  fileSource: string;
+  backgroundSource: string;
+}
+
 interface CarouselProps {
-  slidesSources: string[];
   hasVideo: boolean;
+  slidesSources: string[];
   videoSource?: string;
   videoPreview?: string;
+  hasFile?: boolean;
+  fileSources?: FileSource[];
   title: string;
 }
 
@@ -39,6 +46,8 @@ export function ContentContainer(props: ContentProps) {
           videoPreview={props.carouselProps.videoPreview}
           videoSource={props.carouselProps.videoSource}
           title={props.title}
+          hasFile={props.carouselProps.hasFile}
+          fileSources={props.carouselProps.fileSources}
         />
       ) : (
         <div className={styles.content}>
