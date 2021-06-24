@@ -310,11 +310,7 @@ export function MenuItem(props: MenuItemProps) {
             props.setContent(props.content);
           }}
         >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: props.title.toString(),
-            }}
-          />
+          {props.title}
         </a>
         <Modal
           show={isModalOpen}
@@ -563,9 +559,6 @@ export function MenuItem(props: MenuItemProps) {
       onClick={() => {
         if (props.content) {
           props.setContent(props.content);
-        }
-        if (props.filePath) {
-          window.open(props.filePath);
         }
       }}
     >

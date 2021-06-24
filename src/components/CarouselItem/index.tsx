@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import { FaPlayCircle, FaFilePdf } from "react-icons/fa";
@@ -19,7 +19,7 @@ interface CarouselProps {
   videoPreview?: string;
   hasFile?: boolean;
   fileSources?: FileSource[];
-  title: string;
+  title: string | ReactElement;
 }
 
 export function CarouselItem({
@@ -75,7 +75,7 @@ export function CarouselItem({
               <Image
                 className="d-block w-100"
                 src={source}
-                alt={title}
+                alt={title.toString()}
                 width="1000"
                 height="550"
                 priority
@@ -102,7 +102,7 @@ export function CarouselItem({
               <Image
                 className={styles.videoPlayImg}
                 src={videoPreview}
-                alt={title}
+                alt={title.toString()}
                 width="1000"
                 height="550"
                 priority
@@ -121,6 +121,26 @@ export function CarouselItem({
                   cursor: "pointer",
                 }}
               />
+              <ReactPlayer
+                playing={videoPlay}
+                url={videoSource}
+                controls={true}
+                progressInterval={500}
+                style={{
+                  width: 0,
+                  height: 0,
+                  maxHeight: 0,
+                  maxWidth: 0,
+                }}
+                onProgress={() => {
+                  if (video && video.offsetHeight === 0) {
+                    setVideoPlay(false);
+                  }
+                }}
+                onEnded={() => {
+                  setVideoPlay(false);
+                }}
+              />
             </div>
           </Carousel.Item>
         )}
@@ -137,7 +157,7 @@ export function CarouselItem({
                 <Image
                   className={styles.videoPlayImg}
                   src={source.backgroundSource}
-                  alt={title}
+                  alt={title.toString()}
                   width="1000"
                   height="550"
                   priority

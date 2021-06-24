@@ -21,7 +21,13 @@ export default function About({ aboutContent }: AboutProps) {
     mobileDescription: aboutContent.mobileDescription,
   };
 
-  const titleGroup = `<li style={{ listStyle: "none" }}>MISSÃO</li><li style={{ listStyle: "none" }}>VISÃO</li><li style={{ listStyle: "none" }}>VALORES</li></>`;
+  const titleGroup = (
+    <>
+      <li style={{ listStyle: "none" }}>MISSÃO</li>
+      <li style={{ listStyle: "none" }}>VISÃO</li>
+      <li style={{ listStyle: "none" }}>VALORES</li>
+    </>
+  );
 
   const menuItems = [
     {
@@ -43,7 +49,7 @@ export default function About({ aboutContent }: AboutProps) {
       type: "text",
     },
     {
-      title: titleGroup,
+      title: `<li>MISSÃO</li><li>VISÃO</li><li>VALORES</li>`,
       isActive: false,
       isLink: true,
       route: "valores",
@@ -169,7 +175,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const aboutContent = {
     description: RichText.asHtml(res.results[0].data.about),
-    mobileDescription: RichText.asHtml(res.results[0].data.mobile_description),
+    mobileDescription: RichText.asText(res.results[0].data.mobile_description),
     modalContent: RichText.asHtml(res.results[0].data.modal_content),
   };
 

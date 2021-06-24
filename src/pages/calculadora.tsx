@@ -3,9 +3,12 @@ import Head from "next/head";
 import { MainContainer } from "../components/MainContainer";
 import getPrismicClient from "../services/prismic";
 import Prismic from "@prismicio/client";
-import { RichText } from "prismic-dom";
 
 export default function Calculadora() {
+  const title = (
+    <h1 style={{ textAlign: "center", fontSize: "1.6rem" }}>FUNCIONALIDADE EM DESENVOLVIMENTO</h1>
+  );
+
   const menuItems = [
     {
       title: "",
@@ -69,7 +72,7 @@ export default function Calculadora() {
       <Head>
         <title>Índices | N!</title>
       </Head>
-      <MainContainer menuItems={menuItems} contentProps={{ title: "FUNCIONALIDADE EM DESENVOLVIMENTO"}}/>
+      <MainContainer menuItems={menuItems} contentProps={{ title, mobileDescription: title }}/>
     </>
   );
 }
