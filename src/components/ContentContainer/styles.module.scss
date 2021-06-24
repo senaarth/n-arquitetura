@@ -36,6 +36,12 @@
   border-radius: 5rem;
   padding: 2rem;
 
+  @media screen and (max-width: 1023px) {
+    h1 {
+      font-size: 1rem !important; 
+    }
+  }
+
   @media screen and (min-width: 1024px) {
     padding: 3.5rem;
   }

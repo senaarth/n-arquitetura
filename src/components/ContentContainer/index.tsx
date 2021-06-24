@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, ReactElement } from "react";
 import { Modal } from "react-bootstrap";
 import { CarouselItem } from "../CarouselItem/";
 import { ContactForm } from "../ContactForm/";
@@ -20,11 +20,11 @@ interface CarouselProps {
 }
 
 interface ContentProps {
-  title?: string;
+  title?: string | ReactElement;
   subtitle?: string;
   description?: string;
   carouselProps?: CarouselProps;
-  mobileDescription?: string;
+  mobileDescription?: string | ReactElement;
   hasForm?: boolean;
   mobileForm?: boolean;
 }
@@ -133,9 +133,7 @@ export function ContentContainer(props: ContentProps) {
               </Modal>
             </div>
           ) : (
-            <div
-              dangerouslySetInnerHTML={{ __html: props.mobileDescription }}
-            />
+            props.mobileDescription
           )
         }
       </div>

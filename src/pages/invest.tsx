@@ -28,6 +28,7 @@ interface InvestProps {
 }
 
 export default function Invest({ investItems }: InvestProps) {
+  console.log(investItems);
   const [content, setContent] = useState({});
 
   const emptyMenu = [

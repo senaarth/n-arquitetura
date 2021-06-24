@@ -33,11 +33,11 @@ interface CarouselProps {
 }
 
 interface ContentProps {
-  title?: string;
+  title?: string | ReactElement;
   subtitle?: string;
   description?: string;
   carouselProps?: CarouselProps;
-  mobileDescription?: string;
+  mobileDescription?: string | ReactElement;
   hasForm?: boolean;
 }
 
