@@ -43,20 +43,30 @@ export function CarouselItem({
   };
 
   React.useEffect(() => {
+    selectIndex(0);
+    setSlidesNumber(slidesSources.length);
+  }, [slidesSources]);
+
+  React.useEffect(() => {
+    if (!hasVideo && !hasFile) {
+      return;
+    }
     if (hasVideo && hasFile) {
+      if (slidesNumber >= slidesSources.length + 2) {
+        return;
+      }
       setSlidesNumber(slidesNumber + 2);
       return;
     } else if (hasVideo || hasFile) {
+      if (slidesNumber >= slidesSources.length + 1) {
+        return;
+      }
       setSlidesNumber(slidesNumber + 1);
       return;
     }
-  }, []);
+  }, [slidesNumber]);
 
   React.useEffect(() => {
-    if (index >= slidesNumber) {
-      selectIndex(0);
-    }
-
     setWindowWidth(window.innerWidth);
   });
 
