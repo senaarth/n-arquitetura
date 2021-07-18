@@ -70,6 +70,18 @@ export function CarouselItem({
     setWindowWidth(window.innerWidth);
   });
 
+  if (slidesNumber === 0) {
+    return (
+      <div
+        style={{
+          margin: "auto"
+        }}
+      >
+        <h3>Carrossel Vazio</h3>
+      </div>
+    )
+  }
+
   return (
     <div>
       <Carousel

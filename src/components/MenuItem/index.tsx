@@ -283,7 +283,7 @@ export function MenuItem(props: MenuItemProps) {
 
   if (props.type === "mobile") {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
+    console.log(props.content);
     return (
       <>
         <a
@@ -345,7 +345,7 @@ export function MenuItem(props: MenuItemProps) {
                       videoSource={props.content.carouselProps.videoSource}
                       hasFile={props.content.carouselProps.hasFile}
                       fileSources={props.content.carouselProps.fileSources}
-                      title={props.content.title}
+                      title={props.content.carouselProps.title}
                     />
                   ) : (
                     <>

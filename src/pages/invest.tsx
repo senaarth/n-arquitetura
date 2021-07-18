@@ -28,7 +28,6 @@ interface InvestProps {
 }
 
 export default function Invest({ investItems }: InvestProps) {
-  console.log(investItems);
   const [content, setContent] = useState({});
 
   const emptyMenu = [
@@ -148,9 +147,13 @@ export const getStaticProps: GetStaticProps = async () => {
     let pdfData = [];
 
     let imagesSources = item.data.carousel_slides.reduce((acc, item) => {
+      if (!item.slide.url) {
+        return acc;
+      }
+
       return [
         ...acc,
-        item.slide.url
+        item.slide?.url
       ]
     }, []);
 
@@ -168,7 +171,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
     return {
       place: item.data.place,
-      menuTitle: RichText.asHtml(item.data.title),
+      menuTitle: RichText.asText(item.data.title),
       carouselTitle: item.data.carousel_title ? RichText.asText(item.data.carousel_title) : "",
       hasVideo: item.data.has_video,
       hasFile: item.data.has_pdf,

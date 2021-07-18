@@ -35,7 +35,7 @@ export default function About({ aboutContent }: AboutProps) {
     },
     {
       title: "",
-      isActive: true,
+      isActive: false,
       isLink: false,
       type: "text",
     },
@@ -81,7 +81,7 @@ export default function About({ aboutContent }: AboutProps) {
     },
     {
       title: "",
-      isActive: true,
+      isActive: false,
       isLink: false,
       type: "text",
     },
