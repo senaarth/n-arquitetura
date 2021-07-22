@@ -133,10 +133,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const res = await prismic.query(
-    [Prismic.predicates.at("document.type", "projeto")],
-    {
-      pageSize: 7,
-    }
+    [Prismic.predicates.at("document.type", "projeto")]
   );
 
   const projectsResults = res.results.filter(

@@ -38,7 +38,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           }}
         >
           OBRIGADO POR NOS VISITAR!<br/><br/>ESTAMOS FINALIZANDO UM CONTEÚDO BEM LEGAL
-          PARA VOCÊ.<br/><br/>NOS ENCONTRAMOS AQUI NOVAMENTE NO DIA 19/07.
+          PARA VOCÊ.<br/><br/>NOS ENCONTRAMOS AQUI NOVAMENTE NOS PRÓXIMOS DIAS.
         </p>
       </div>
     );

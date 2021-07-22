@@ -10,16 +10,25 @@ import {
   FaFacebook,
   FaYoutube,
 } from "react-icons/fa";
+import { MdLocationOn } from "react-icons/md";
+import { IoMdMail } from "react-icons/io";
 
 import styles from "./styles.module.scss";
 import { CarouselItem } from "../CarouselItem";
 import { ContactForm } from "../ContactForm";
+
+type FileSource = {
+  fileSource: string;
+  backgroundSource: string;
+}
 
 interface CarouselProps {
   hasVideo: boolean;
   slidesSources: string[];
   videoSource?: string;
   videoPreview?: string;
+  hasFile?: boolean;
+  fileSources?: FileSource[];
   title: string;
 }
 
@@ -39,7 +48,6 @@ interface MenuItemProps {
   type: string;
   setContent?: Dispatch<SetStateAction<ContentProps>>;
   windowWidth?: number;
-  filePath?: string;
   locationData?: {
     latitude?: number;
     longitude?: number;
@@ -74,6 +82,7 @@ export function MenuItem(props: MenuItemProps) {
           style={{
             ...dynamicStyles,
             cursor: "pointer",
+            position: "relative",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -82,10 +91,10 @@ export function MenuItem(props: MenuItemProps) {
             setIsModalOpen(true);
           }}
         >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: props.title.toString(),
-            }}
+          <MdLocationOn
+            color="black"
+            size={22}
+            style={{ position: "absolute", top: 15, right: 15 }}
           />
         </a>
         <Modal
@@ -141,6 +150,7 @@ export function MenuItem(props: MenuItemProps) {
           style={{
             ...dynamicStyles,
             ...hoverStyle,
+            position: "relative",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -154,10 +164,11 @@ export function MenuItem(props: MenuItemProps) {
           }}
         >
           {props.windowWidth < 1024 ? (
-            <>
-              <li>ENVIAR</li>
-              <li>MENSAGEM</li>
-            </>
+            <IoMdMail
+              color="black"
+              size={20}
+              style={{ position: "absolute", top: 15, right: 15 }}
+            />
           ) : (
             ""
           )}
@@ -272,7 +283,7 @@ export function MenuItem(props: MenuItemProps) {
 
   if (props.type === "mobile") {
     const [isModalOpen, setIsModalOpen] = useState(false);
-
+    console.log(props.content);
     return (
       <>
         <a
@@ -289,14 +300,17 @@ export function MenuItem(props: MenuItemProps) {
               setIsModalOpen(true);
               return;
             }
+            if (props.content.carouselProps) {
+              props.setContent({
+                title: props.content.carouselProps.title,
+                carouselProps: props.content.carouselProps
+              });
+              return;
+            }
             props.setContent(props.content);
           }}
         >
-          <div
-            dangerouslySetInnerHTML={{
-              __html: props.title.toString(),
-            }}
-          />
+          {props.title}
         </a>
         <Modal
           show={isModalOpen}
@@ -322,16 +336,32 @@ export function MenuItem(props: MenuItemProps) {
               }}
             >
               <div className={styles.modalDescription}>
-                <h1>{props.content.title}</h1>
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: props.content.description,
-                  }}
-                />
+                {
+                  props.content.carouselProps ? (
+                    <CarouselItem
+                      slidesSources={props.content.carouselProps.slidesSources}
+                      hasVideo={props.content.carouselProps.hasVideo}
+                      videoPreview={props.content.carouselProps.videoPreview}
+                      videoSource={props.content.carouselProps.videoSource}
+                      hasFile={props.content.carouselProps.hasFile}
+                      fileSources={props.content.carouselProps.fileSources}
+                      title={props.content.carouselProps.title}
+                    />
+                  ) : (
+                    <>
+                      <h1>{props.content.title}</h1>
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: props.content.description,
+                        }}
+                      />
+                    </>
+                  )
+                }
               </div>
             </div>
           </Modal.Body>
-        </Modal>
+        </Modal >
       </>
     );
   }
@@ -493,26 +523,6 @@ export function MenuItem(props: MenuItemProps) {
     );
   }
 
-  if (props.type === "investir") {
-    return (
-      <a
-        className={styles.menuItem}
-        style={{
-          ...dynamicStyles,
-          cursor: "pointer",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-        onClick={() => {
-          console.log(props.filePath);
-        }}
-      >
-        {props.title}
-      </a>
-    );
-  }
-
   return props.route ? (
     <Link href={`/${props.route}`}>
       <a
@@ -549,9 +559,6 @@ export function MenuItem(props: MenuItemProps) {
       onClick={() => {
         if (props.content) {
           props.setContent(props.content);
-        }
-        if (props.filePath) {
-          window.open(props.filePath);
         }
       }}
     >

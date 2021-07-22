@@ -11,6 +11,13 @@ type Variedade = {
   title: string;
   contentTitle: string;
   description: string;
+  carouselProps: {
+    slidesSources: string[];
+    hasVideo: boolean;
+    videoSource: string;
+    videoPreview: string;
+    title: string;
+  };
 };
 
 interface VariedadesProps {
@@ -31,6 +38,7 @@ export default function Variedades({ variedades }: VariedadesProps) {
       isActive: false,
       isLink: false,
       type: "text",
+      content: {}
     },
     {
       title: "",
@@ -85,8 +93,6 @@ export default function Variedades({ variedades }: VariedadesProps) {
 
 
   const variedadesContent = variedades.reduce((acc, item) => {
-
-
     return [
       ...acc,
       {
@@ -97,6 +103,17 @@ export default function Variedades({ variedades }: VariedadesProps) {
         content: {
           title: item.contentTitle,
           description: item.description,
+          carouselProps: item.carouselProps?.slidesSources?.length > 0 ? (
+            {
+              slidesSources: item.carouselProps.slidesSources,
+              hasVideo: item.carouselProps.hasVideo,
+              videoSource: item.carouselProps.videoSource,
+              videoPreview: item.carouselProps.videoPreview,
+              title: item.carouselProps.title,
+            }
+          ) : (
+            null
+          )
         },
       },
     ];
@@ -135,11 +152,29 @@ export const getStaticProps: GetStaticProps = async () => {
   );
 
   const variedades = res.results.map((post) => {
+    const slidesSources = post.data.body[0].items.reduce((acc, item) => {
+      return [
+        ...acc,
+        item.image.url,
+      ]
+    }, []);
+
     return {
       place: post.data.place,
       title: RichText.asText(post.data.title),
       contentTitle: RichText.asText(post.data.content_title),
       description: RichText.asHtml(post.data.description),
+      carouselProps: post.data.has_carousel ? (
+        {
+          slidesSources,
+          hasVideo: post.data.has_video,
+          videoSource: post.data.video.url,
+          videoPreview: post.data.video_background.url,
+          title: post.data.carousel_title ? RichText.asText(post.data.carousel_title) : null,
+        }
+      ) : (
+        null
+      )
     };
   });
 

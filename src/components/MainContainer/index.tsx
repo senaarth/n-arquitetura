@@ -11,27 +11,33 @@ interface MenuItem {
   route?: string;
   path?: string;
   type: string;
-  filePath?: string;
   locationData?: {
     latitude?: number;
     longitude?: number;
   }
 }
 
+type FileSource = {
+  fileSource: string;
+  backgroundSource: string;
+}
+
 interface CarouselProps {
-  slidesSources: string[];
   hasVideo: boolean;
+  slidesSources: string[];
   videoSource?: string;
   videoPreview?: string;
+  hasFile?: boolean;
+  fileSources?: FileSource[];
   title: string;
 }
 
 interface ContentProps {
-  title?: string;
+  title?: string | ReactElement;
   subtitle?: string;
   description?: string;
   carouselProps?: CarouselProps;
-  mobileDescription?: string;
+  mobileDescription?: string | ReactElement;
   hasForm?: boolean;
 }
 

@@ -36,6 +36,12 @@
   border-radius: 5rem;
   padding: 2rem;
 
+  @media screen and (max-width: 1023px) {
+    h1 {
+      font-size: 1rem !important; 
+    }
+  }
+
   @media screen and (min-width: 1024px) {
     padding: 3.5rem;
   }
@@ -107,5 +113,25 @@
   }
   @media screen and (min-width: 1180px) {
     font-size: 0.9rem;
+  }
+}
+
+.modalHeader {
+  border: 0;
+  padding-bottom: 0 !important;
+
+  button {
+    background-color: var(--red);
+    border-radius: 4px;
+    opacity: 1;
+    height: 1.2rem;
+    width: 1.2rem;
+    margin: 0 !important;
+    margin-right: auto !important;
+    padding: 0 !important;
+
+    span {
+      display: none;
+    }
   }
 }

@@ -26,7 +26,6 @@ interface MenuItem {
   type: string;
   content?: ContentProps;
   windowWidth?: number;
-  filePath?: string;
   locationData?: {
     latitude?: number;
     longitude?: number;
@@ -60,7 +59,6 @@ export function Menu({ menuItems, setContent, mobileMenuItems }: MenuProps) {
             setContent={setContent}
             path={s.path}
             type={s.type}
-            filePath={s.filePath}
             windowWidth={windowWidth}
             locationData={s.locationData}
           />
