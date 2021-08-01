@@ -5,6 +5,7 @@ import { ContentContainer } from "../ContentContainer";
 import styles from "./styles.module.scss";
 
 interface MenuItem {
+  isShown?: boolean;
   title: string | ReactElement;
   isActive: boolean;
   isLink: boolean;

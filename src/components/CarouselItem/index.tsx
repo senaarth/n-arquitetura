@@ -68,7 +68,7 @@ export function CarouselItem({
 
   React.useEffect(() => {
     setWindowWidth(window.innerWidth);
-  });
+  }, []);
 
   if (slidesNumber === 0) {
     return (
@@ -97,7 +97,7 @@ export function CarouselItem({
               <Image
                 className="d-block w-100"
                 src={source}
-                alt={title.toString()}
+                alt={title?.toString()}
                 width="1000"
                 height="550"
                 priority
@@ -124,7 +124,7 @@ export function CarouselItem({
               <Image
                 className={styles.videoPlayImg}
                 src={videoPreview}
-                alt={title.toString()}
+                alt={title?.toString()}
                 width="1000"
                 height="550"
                 priority
@@ -179,7 +179,7 @@ export function CarouselItem({
                 <Image
                   className={styles.videoPlayImg}
                   src={source.backgroundSource}
-                  alt={title.toString()}
+                  alt={title?.toString()}
                   width="1000"
                   height="550"
                   priority

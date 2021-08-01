@@ -39,6 +39,7 @@ interface ContentProps {
 }
 
 interface MenuItemProps {
+  isShown?: boolean;
   title: string | ReactElement;
   isActive: boolean;
   isLink: boolean;
@@ -55,6 +56,7 @@ interface MenuItemProps {
 }
 
 export function MenuItem(props: MenuItemProps) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const router = useRouter();
 
   let dynamicStyles = {
@@ -65,6 +67,25 @@ export function MenuItem(props: MenuItemProps) {
 
   let hoverStyle = {};
 
+  function grayScalePics() {
+    const images = document.querySelectorAll("img");
+
+    images.forEach((img) => {
+      if (img.id === "grayScalable" && img.alt !== props.title) {
+        img.style.transition = "filter 0.4s";
+        img.style.filter = "grayscale(1)";
+        return;
+      }
+      img.style.filter = "grayscale(0)";
+    });
+  }
+
+  React.useEffect(() => {
+    if (props.isShown) {
+      grayScalePics();
+    }
+  }, []);
+
   if (props.title === "") {
     hoverStyle = {
       ...dynamicStyles,
@@ -73,7 +94,6 @@ export function MenuItem(props: MenuItemProps) {
   }
 
   if (props.type === "location") {
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
       <>
@@ -141,7 +161,6 @@ export function MenuItem(props: MenuItemProps) {
   }
 
   if (props.type === "contactForm") {
-    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
       <>
@@ -282,8 +301,6 @@ export function MenuItem(props: MenuItemProps) {
   }
 
   if (props.type === "mobile") {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    console.log(props.content);
     return (
       <>
         <a
@@ -387,8 +404,6 @@ export function MenuItem(props: MenuItemProps) {
   }
 
   if (props.type === "teamMember" || props.type === "project") {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
     return (
       <>
         <a
@@ -408,16 +423,7 @@ export function MenuItem(props: MenuItemProps) {
                 props.setContent(props.content);
               }
 
-              const images = document.querySelectorAll("img");
-
-              images.forEach((img) => {
-                if (img.id === "grayScalable" && img.alt !== props.title) {
-                  img.style.transition = "filter 0.4s";
-                  img.style.filter = "grayscale(1)";
-                  return;
-                }
-                img.style.filter = "grayscale(0)";
-              });
+              grayScalePics();
 
               return;
             }

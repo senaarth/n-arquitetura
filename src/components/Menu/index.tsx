@@ -7,7 +7,7 @@ interface CarouselProps {
   hasVideo: boolean;
   slidesSources: string[];
   videoSource?: string;
-  videoPreview?:string;
+  videoPreview?: string;
   title: string;
 }
 
@@ -18,6 +18,7 @@ interface ContentProps {
 }
 
 interface MenuItem {
+  isShown?: boolean;
   title: string | ReactElement;
   isActive: boolean;
   isLink: boolean;
@@ -43,7 +44,7 @@ export function Menu({ menuItems, setContent, mobileMenuItems }: MenuProps) {
 
   React.useEffect(() => {
     setWindowWidth(window.innerWidth);
-  });
+  }, []);
 
   const menu = (
     <div className={styles.menuContainer}>
@@ -51,6 +52,7 @@ export function Menu({ menuItems, setContent, mobileMenuItems }: MenuProps) {
         return (
           <MenuItem
             key={i}
+            isShown={s.isShown}
             title={s.title}
             isActive={s.isActive}
             isLink={s.isLink}
@@ -73,6 +75,7 @@ export function Menu({ menuItems, setContent, mobileMenuItems }: MenuProps) {
         mobileMenuItems.map((s, i) => {
           return (
             <MenuItem
+              isShown={s.isShown}
               key={i}
               title={s.title}
               isActive={s.isActive}

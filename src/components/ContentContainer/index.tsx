@@ -35,17 +35,17 @@ export function ContentContainer(props: ContentProps) {
 
   React.useEffect(() => {
     setWindowWidth(window.innerWidth);
-  });
+  }, []);
 
   const content = (
     <div className={styles.contentContainer}>
-      {props.carouselProps ? (
+      {props.carouselProps?.slidesSources ? (
         <CarouselItem
           slidesSources={props.carouselProps.slidesSources}
           hasVideo={props.carouselProps.hasVideo}
           videoPreview={props.carouselProps.videoPreview}
           videoSource={props.carouselProps.videoSource}
-          title={props.title}
+          title={props.carouselProps.title}
           hasFile={props.carouselProps.hasFile}
           fileSources={props.carouselProps.fileSources}
         />
