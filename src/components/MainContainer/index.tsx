@@ -33,6 +33,17 @@ interface CarouselProps {
   title: string;
 }
 
+type Slide = {
+  src?: string;
+  hasZoom: boolean;
+  centerImg: string;
+  hasLink: boolean;
+  link: string;
+  hasPdf: boolean;
+  pdfSrc: string;
+  pdfBackground: string;
+}
+
 interface ContentProps {
   title?: string | ReactElement;
   subtitle?: string;
@@ -40,8 +51,9 @@ interface ContentProps {
   carouselProps?: CarouselProps;
   mobileDescription?: string | ReactElement;
   hasForm?: boolean;
+  isHome?: boolean;
+  slides?: Slide[];
 }
-
 interface MenuProps {
   menuItems: MenuItem[];
   mobileMenuItems?: MenuItem[];
@@ -64,6 +76,8 @@ export function MainContainer({
           mobileMenuItems={mobileMenuItems}
         />
         <ContentContainer
+          isHome={contentProps?.isHome}
+          slides={contentProps?.slides}
           title={contentProps?.title}
           subtitle={contentProps?.subtitle}
           description={contentProps?.description}

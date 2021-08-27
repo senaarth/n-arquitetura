@@ -1,6 +1,7 @@
 import React, { useState, ReactElement } from "react";
 import { Modal } from "react-bootstrap";
 import { CarouselItem } from "../CarouselItem/";
+import { HomeCarousel } from "../HomeCarousel/";
 import { ContactForm } from "../ContactForm/";
 import styles from "./styles.module.scss";
 
@@ -19,6 +20,17 @@ interface CarouselProps {
   title: string;
 }
 
+type Slide = {
+  src?: string;
+  hasZoom: boolean;
+  centerImg: string;
+  hasLink: boolean;
+  link: string;
+  hasPdf: boolean;
+  pdfSrc: string;
+  pdfBackground: string;
+}
+
 interface ContentProps {
   title?: string | ReactElement;
   subtitle?: string;
@@ -27,6 +39,8 @@ interface ContentProps {
   mobileDescription?: string | ReactElement;
   hasForm?: boolean;
   mobileForm?: boolean;
+  isHome?: boolean;
+  slides?: Slide[];
 }
 
 export function ContentContainer(props: ContentProps) {
@@ -39,32 +53,42 @@ export function ContentContainer(props: ContentProps) {
 
   const content = (
     <div className={styles.contentContainer}>
-      {props.carouselProps?.slidesSources ? (
-        <CarouselItem
-          slidesSources={props.carouselProps.slidesSources}
-          hasVideo={props.carouselProps.hasVideo}
-          videoPreview={props.carouselProps.videoPreview}
-          videoSource={props.carouselProps.videoSource}
-          title={props.carouselProps.title}
-          hasFile={props.carouselProps.hasFile}
-          fileSources={props.carouselProps.fileSources}
-        />
-      ) : (
-        <div className={styles.content}>
-          {props.hasForm ? (
-            <ContactForm />
-          ) : (
-            <>
-              <h1 className={styles.title}>{props.title}</h1>
-              <h2 className={styles.subtitle}>{props.subtitle}</h2>
-              <div
-                className={styles.description}
-                dangerouslySetInnerHTML={{ __html: props.description }}
+      {
+        props.isHome ? (
+          <HomeCarousel
+            slides={props.slides}
+          />
+        ) : (
+          <>
+            {props.carouselProps?.slidesSources ? (
+              <CarouselItem
+                slidesSources={props.carouselProps.slidesSources}
+                hasVideo={props.carouselProps.hasVideo}
+                videoPreview={props.carouselProps.videoPreview}
+                videoSource={props.carouselProps.videoSource}
+                title={props.carouselProps.title}
+                hasFile={props.carouselProps.hasFile}
+                fileSources={props.carouselProps.fileSources}
               />
-            </>
-          )}
-        </div>
-      )}
+            ) : (
+              <div className={styles.content}>
+                {props.hasForm ? (
+                  <ContactForm />
+                ) : (
+                  <>
+                    <h1 className={styles.title}>{props.title}</h1>
+                    <h2 className={styles.subtitle}>{props.subtitle}</h2>
+                    <div
+                      className={styles.description}
+                      dangerouslySetInnerHTML={{ __html: props.description }}
+                    />
+                  </>
+                )}
+              </div>
+            )}
+          </>
+        )
+      }
     </div>
   );
 
